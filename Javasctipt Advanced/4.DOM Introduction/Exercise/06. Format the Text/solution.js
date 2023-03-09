@@ -16,7 +16,7 @@ function solve() {
     }, [])
     .forEach((paragraph) => {
       const para = document.createElement('p');
-      para.textContent = paragraph + '.';
+      para.textContent = paragraph.join('. ') + '.';
       outputElement.appendChild(para);
     });
 }

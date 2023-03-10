@@ -9,7 +9,7 @@ function search() {
          matches++;
          liElement.style.fontWeight = 'bold';
          liElement.style.textDecoration = 'underline';
-         document.getElementById('result').textContent = `${matches} matches found`;
+         dresultElement.textContent = `${matches} matches found`;
       }
    }
 

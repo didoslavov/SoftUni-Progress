@@ -1,6 +1,5 @@
 function lettersChangeNumbers(input) {
   const strings = input.trim().split(/\s+/gm);
-  console.log(strings);
   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let result = 0;
 

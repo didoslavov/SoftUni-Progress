@@ -1,10 +1,4 @@
 function attachEventsListeners() {
-    //select input fields
-    const daysElement = document.getElementById('days');
-    const hoursElement = document.getElementById('hours');
-    const minutesElement = document.getElementById('minutes');
-    const secondsElement = document.getElementById('seconds');
-
     Array.from(document.querySelectorAll('[type="button"]')).forEach(b => b.addEventListener('click', onClick));
 
     const buttons = {
@@ -23,9 +17,9 @@ function attachEventsListeners() {
         const hours = minutes / 60;
         const days = hours / 24;
 
-        daysElement.value = days;
-        hoursElement.value = hours;
-        minutesElement.value = minutes;
-        secondsElement.value = seconds;
+        document.getElementById('days').value = days;
+        document.getElementById('hours').value = hours;
+        document.getElementById('minutes').value = minutes;
+        document.getElementById('seconds').value = seconds;
     }
 }

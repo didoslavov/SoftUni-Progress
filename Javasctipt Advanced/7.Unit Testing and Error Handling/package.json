@@ -4,7 +4,7 @@
   "description": "Unit testing exercises",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./*.test.js"
+    "test": "mocha ./*.test.js'"
   },
   "author": "",
   "license": "ISC",

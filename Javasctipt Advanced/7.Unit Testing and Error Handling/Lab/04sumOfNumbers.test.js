@@ -2,7 +2,7 @@ const { sum } = require('./04sumOfNumbers');
 const { expect } = require('chai');
 
 describe('Sum of numbers of array', () => {
-    it('Should take array as argument', () => {
+    it('Should take array as parameter', () => {
         expect(Array.isArray([1,2,3])).to.be.true;
     });
 

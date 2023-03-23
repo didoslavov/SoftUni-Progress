@@ -8,23 +8,19 @@ class List {
     this.list.push(element);
     this.list.sort((a, b) => a - b);
     this.size++;
-    return;
   }
   remove(index) {
     if (index < 0 || index >= this.size) {
       throw new RangeError('Index is not valid');
-    } else {
-      this.list.splice(index, 1);
-      this.size--;
-      return;
     }
+    this.list.splice(index, 1);
+    this.size--;
   }
   get(index) {
     if (index < 0 || index >= this.size) {
       throw new RangeError('Index is not valid');
-    } else {
-      return this.list[index];
     }
+    return this.list[index];
   }
 }
 

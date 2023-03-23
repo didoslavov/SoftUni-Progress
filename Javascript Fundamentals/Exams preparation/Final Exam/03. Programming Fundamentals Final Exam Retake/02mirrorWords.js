@@ -3,7 +3,6 @@ function mirrorWords(input) {
   const pattern = /([@#])(?<word>[A-Za-z]{3,})\1{2}(?<word1>[A-Za-z]{3,})\1/gm;
   const validPairs = [];
   let match;
-  let matches = 0;
 
   while ((match = pattern.exec(string))) {
     validPairs.push(match.groups);

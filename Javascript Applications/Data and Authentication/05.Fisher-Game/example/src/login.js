@@ -1,7 +1,6 @@
 document.querySelectorAll('a').forEach(x => x.classList.remove('active'));
-document.getElementById('register').classList.add('active');
-document.getElementById('logout').style.display = 'none';
-const p = document.querySelector('p.notification');
+document.getElementById('login').classList.add('active');
+document.getElementById('logout').remove();
 
 window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('form').addEventListener('submit', onRegister);
@@ -14,27 +13,9 @@ async function onRegister(e) {
 
     const email = formData.get('email');
     const password = formData.get('password');
-    const rePass = formData.get('rePass');
 
     try {
-    if (!email || !password || !rePass) {
-        p.textContent = 'All fields are required';
-
-        setTimeout(() => {
-            p.textContent = '';
-        }, 2000);
-        throw new Error('All fields are required')
-    }
-    if (password != rePass){
-        p.textContent = 'Passwords don\'t match!';
-
-        setTimeout(() => {
-            p.textContent = '';
-        }, 2000);
-        throw new Error('Passwords don\'t match!')
-    }
-
-        const response = await fetch('http://localhost:3030/users/register/', {
+        const response = await fetch('http://localhost:3030/users/login/', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -44,7 +25,7 @@ async function onRegister(e) {
 
         if (response.ok != true) {
             const error = await response.json();
-            p.textContent = error.message;
+            throw new Error(error.message);
         }
 
         const data = await response.json();
@@ -58,10 +39,6 @@ async function onRegister(e) {
         window.location = './index.html';
 
     } catch (error) {
-        p.textContent = error.message;
-
-        setTimeout(() => {
-            p.textContent = '';
-        }, 2000);
+        alert(error.message)
     }
 }

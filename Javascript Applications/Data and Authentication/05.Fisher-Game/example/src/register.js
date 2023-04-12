@@ -1,6 +1,6 @@
 document.querySelectorAll('a').forEach(x => x.classList.remove('active'));
 document.getElementById('register').classList.add('active');
-document.getElementById('logout').style.display = 'none';
+document.getElementById('logout').remove();
 const p = document.querySelector('p.notification');
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -16,7 +16,6 @@ async function onRegister(e) {
     const password = formData.get('password');
     const rePass = formData.get('rePass');
 
-    try {
     if (!email || !password || !rePass) {
         p.textContent = 'All fields are required';
 
@@ -34,6 +33,7 @@ async function onRegister(e) {
         throw new Error('Passwords don\'t match!')
     }
 
+    try {
         const response = await fetch('http://localhost:3030/users/register/', {
             method: 'post',
             headers: {

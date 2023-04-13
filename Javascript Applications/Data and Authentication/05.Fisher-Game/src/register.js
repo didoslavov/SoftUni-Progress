@@ -4,11 +4,11 @@ document.getElementById('logout').style.display = 'none';
 const p = document.querySelector('p.notification');
 
 window.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('form').addEventListener('submit', onRegister);
+    document.querySelector('form').addEventListener('submit', onLogin);
 });
 
 
-async function onRegister(e) {
+async function onLogin(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
 

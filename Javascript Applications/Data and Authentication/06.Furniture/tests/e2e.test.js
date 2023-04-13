@@ -1,7 +1,7 @@
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
+const host = 'http://localhost:5500/06.Furniture'; // Application host (NOT service host - that can be anything)
 const interval = 300;
 const DEBUG = false;
 const slowMo = 500;

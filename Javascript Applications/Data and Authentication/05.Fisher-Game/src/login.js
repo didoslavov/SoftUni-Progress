@@ -3,11 +3,11 @@ document.getElementById('login').classList.add('active');
 document.getElementById('logout').style.display = 'none';
 
 window.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('form').addEventListener('submit', onRegister);
+    document.querySelector('form').addEventListener('submit', onLogin);
 });
 
 
-async function onRegister(e) {
+async function onLogin(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
 

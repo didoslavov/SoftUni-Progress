@@ -1,7 +1,7 @@
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
+const host = 'http://localhost:5500/01.Forum'; // Application host (NOT service host - that can be anything)
 const interval = 300;
 const DEBUG = false;
 const slowMo = 500;
@@ -81,7 +81,7 @@ describe('E2E tests', function () {
 
       const form = await page.$$eval(
         '.topic-container .topic-name-wrapper',
-        (t) => t.map((i) => i.textContent)
+        t => t.map(i => i.textContent)
       );
 
       expect(form.length).to.be.equal(data.length);
@@ -120,7 +120,7 @@ describe('E2E tests', function () {
 
       const form = await page.$$eval(
         '.container .theme-title >> .theme-name h2',
-        (t) => t.map((i) => i.textContent)
+        t => t.map(i => i.textContent)
       );
 
       expect(form[0]).to.be.equal(data.title);
@@ -138,8 +138,8 @@ describe('E2E tests', function () {
         `.topic-container .topic-name-wrapper .topic-name >> a h2`
       );
 
-      const form = await page.$$eval('.container .comment p span', (t) =>
-        t.map((i) => i.textContent)
+      const form = await page.$$eval('.container .comment p span', t =>
+        t.map(i => i.textContent)
       );
       expect(form[0]).to.be.equal(data.username);
     });
@@ -156,9 +156,8 @@ describe('E2E tests', function () {
         `.topic-container .topic-name-wrapper .topic-name >> a h2`
       );
 
-      const form = await page.$$eval(
-        '.container .comment p .post-content',
-        (t) => t.map((i) => i.textContent)
+      const form = await page.$$eval('.container .comment p .post-content', t =>
+        t.map(i => i.textContent)
       );
       expect(form[0]).to.be.equal(data.description);
     });
@@ -213,8 +212,8 @@ describe('E2E tests', function () {
 
       await page.click('.cancel');
 
-      const form = await page.$$eval('.container .new-topic-title input', (t) =>
-        t.map((i) => i.textContent)
+      const form = await page.$$eval('.container .new-topic-title input', t =>
+        t.map(i => i.textContent)
       );
       expect(form[0]).to.equal('');
       expect(form[1]).to.equal('');
@@ -235,8 +234,8 @@ async function setupContext(context) {
 
   // Block external calls
   await context.route(
-    (url) => url.href.slice(0, host.length) != host,
-    (route) => {
+    url => url.href.slice(0, host.length) != host,
+    route => {
       if (DEBUG) {
         console.log('Preventing external call to ' + route.request().url());
       }

@@ -1,3 +1,4 @@
+import { showEdit } from './edit.js';
 import { creeateElement, showView } from './helpers.js';
 import { showHome } from './home.js';
 
@@ -58,7 +59,15 @@ function createDetails(movie, likes, hasLiked) {
         )
       );
       controls.appendChild(
-        creeateElement('a', { className: 'btn btn-warning', href: '#' }, 'Edit')
+        creeateElement(
+          'a',
+          {
+            className: 'btn btn-warning',
+            href: '#',
+            onClick: () => showEdit(movie),
+          },
+          'Edit'
+        )
       );
     } else {
       if (hasLiked.length > 0) {

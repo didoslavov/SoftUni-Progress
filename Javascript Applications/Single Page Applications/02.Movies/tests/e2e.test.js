@@ -1,7 +1,7 @@
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
+const host = 'http://127.0.0.1:5500/#'; // Application host (NOT service host - that can be anything)
 
 const interval = 300;
 const DEBUG = false;
@@ -74,12 +74,12 @@ const endpoints = {
   catalog: '/data/movies',
   create: '/data/movies',
   like: '/data/likes',
-  edit: (id) => `/data/movies/${id}`,
-  delete: (id) => `/data/movies/${id}`,
-  details: (id) => `/data/movies/${id}`,
-  total: (likeId) =>
+  edit: id => `/data/movies/${id}`,
+  delete: id => `/data/movies/${id}`,
+  details: id => `/data/movies/${id}`,
+  total: likeId =>
     `/data/likes?where=movieId%3D%22${likeId}%22&distinct=_ownerId&count`,
-  unlike: (likeId) => `/data/likes/${likeId}`,
+  unlike: likeId => `/data/likes/${likeId}`,
   own: (likeId, userId) =>
     `/data/likes?where=movieId%3D%22${likeId}%22%20and%20_ownerId%3D%22${userId}%22`,
 };
@@ -232,10 +232,10 @@ describe('E2E tests', function () {
       own(0);
       total(5);
 
-      await page.click("nav >> text=Movies");
+      await page.click('nav >> text=Movies');
       await page.waitForTimeout(interval);
 
-      await page.waitForSelector("#movie");
+      await page.waitForSelector('#movie');
       await page.click(
         `#movie > div div ul li:has-text("${data.title}") >> text=Details`
       );
@@ -388,8 +388,8 @@ describe('E2E tests', function () {
       await page.click('text=Edit');
       await page.waitForSelector('#edit-movie form');
 
-      const inputs = await page.$$eval('#edit-movie input, textarea', (t) =>
-        t.map((i) => i.value)
+      const inputs = await page.$$eval('#edit-movie input, textarea', t =>
+        t.map(i => i.value)
       );
 
       expect(inputs[1]).to.equal(data.title);
@@ -465,8 +465,8 @@ describe('E2E tests', function () {
         `#movie > div div ul li:has-text("${data.title}") >> text=Details`
       );
       await page.waitForSelector('.enrolled-span');
-      const likes = await page.$$eval('.enrolled-span', (t) =>
-        t.map((s) => s.textContent)
+      const likes = await page.$$eval('.enrolled-span', t =>
+        t.map(s => s.textContent)
       );
       expect(await page.isVisible('.container >> text="Like"')).to.be.true;
       expect(likes[0]).to.contains('Liked 5');
@@ -498,8 +498,8 @@ describe('E2E tests', function () {
         `#movie > div div ul li:has-text("${data.title}") >> text=Details`
       );
       await page.waitForSelector('.container');
-      const likes = await page.$$eval('.container', (t) =>
-        t.map((s) => s.textContent)
+      const likes = await page.$$eval('.container', t =>
+        t.map(s => s.textContent)
       );
       expect(await page.isVisible('.btn >> text=Like')).to.be.false;
       expect(likes[0]).to.contains('Liked 5');
@@ -538,8 +538,8 @@ describe('E2E tests', function () {
       );
       await page.waitForSelector('.enrolled-span');
 
-      let likes = await page.$$eval('.enrolled-span', (t) =>
-        t.map((s) => s.textContent)
+      let likes = await page.$$eval('.enrolled-span', t =>
+        t.map(s => s.textContent)
       );
       expect(likes[0]).to.contains('Liked 5');
 
@@ -552,8 +552,8 @@ describe('E2E tests', function () {
       ]);
 
       await page.waitForSelector('.enrolled-span');
-      likes = await page.$$eval('.enrolled-span', (t) =>
-        t.map((s) => s.textContent)
+      likes = await page.$$eval('.enrolled-span', t =>
+        t.map(s => s.textContent)
       );
       expect(likes[0]).to.contains('Liked 6');
     });
@@ -565,7 +565,7 @@ async function setupContext(context) {
   await handleContext(context, endpoints.login, { post: mockData.users[0] });
   await handleContext(context, endpoints.register, { post: mockData.users[0] });
   await handleContext(context, endpoints.logout, {
-    get: (h) => h('', { json: false, status: 204 }),
+    get: h => h('', { json: false, status: 204 }),
   });
 
   // Catalog and Details
@@ -596,8 +596,8 @@ async function setupContext(context) {
 
   // Block external calls
   await context.route(
-    (url) => url.href.slice(0, host.length) != host,
-    (route) => {
+    url => url.href.slice(0, host.length) != host,
+    route => {
       if (DEBUG) {
         console.log('Preventing external call to ' + route.request().url());
       }

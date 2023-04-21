@@ -13,23 +13,15 @@ export function showDetails(id) {
 async function getMovie(id) {
   const requests = [
     fetch('http://localhost:3030/data/movies/' + id),
-    fetch(
-      `http://localhost:3030/data/likes?where=movieId%3D%22${id}%22&distinct=_ownerId&count`
-    ),
+    fetch(`http://localhost:3030/data/likes?where=movieId%3D%22${id}%22&distinct=_ownerId&count`),
   ];
 
   const userData = JSON.parse(sessionStorage.getItem('userData'));
 
   if (userData != null) {
-    requests.push(
-      fetch(
-        `http://localhost:3030/data/likes?where=movieId%3D%22${id}%22%20and%20_ownerId%3D%22${userData.id}%22`
-      )
-    );
+    requests.push(fetch(`http://localhost:3030/data/likes?where=movieId%3D%22${id}%22%20and%20_ownerId%3D%22${userData.id}%22`));
   }
-  const [moviesResponse, likesResponse, hasLikedResponse] = await Promise.all(
-    requests
-  );
+  const [moviesResponse, likesResponse, hasLikedResponse] = await Promise.all(requests);
   const [movieData, likes, hasLiked] = await Promise.all([
     moviesResponse.json(),
     likesResponse.json(),
@@ -51,13 +43,7 @@ function createDetails(movie, likes, hasLiked) {
 
   if (userData != null) {
     if (userData.id == movie._ownerId) {
-      controls.appendChild(
-        creeateElement(
-          'a',
-          { className: 'btn btn-danger', href: '#', onClick: onDelete },
-          'Delete'
-        )
-      );
+      controls.appendChild(creeateElement('a', { className: 'btn btn-danger', href: '#', onClick: onDelete }, 'Delete'));
       controls.appendChild(
         creeateElement(
           'a',
@@ -71,27 +57,13 @@ function createDetails(movie, likes, hasLiked) {
       );
     } else {
       if (hasLiked.length > 0) {
-        controls.appendChild(
-          creeateElement(
-            'a',
-            { className: 'btn btn-primary', href: '#', onClick: onUnlike },
-            'Unlike'
-          )
-        );
+        controls.appendChild(creeateElement('a', { className: 'btn btn-primary', href: '#', onClick: onUnlike }, 'Unlike'));
       } else {
-        controls.appendChild(
-          creeateElement(
-            'a',
-            { className: 'btn btn-primary', href: '#', onClick: onLike },
-            'Like'
-          )
-        );
+        controls.appendChild(creeateElement('a', { className: 'btn btn-primary', href: '#', onClick: onLike }, 'Like'));
       }
     }
   }
-  controls.appendChild(
-    creeateElement('span', { className: 'enrolled-span' }, `Liked ${likes}`)
-  );
+  controls.appendChild(creeateElement('span', { className: 'enrolled-span' }, `Liked ${likes}`));
 
   const element = creeateElement(
     'div',

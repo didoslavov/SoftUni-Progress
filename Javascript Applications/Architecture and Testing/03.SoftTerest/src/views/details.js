@@ -5,7 +5,6 @@ const section = document.getElementById('detailsPage');
 section.remove();
 
 export async function showDetailsPage(ctx, id) {
-  console.log(id);
   ctx.showSection(section);
   laodIdea(id);
 }
@@ -29,7 +28,12 @@ function createIdeaDiv(idea) {
       creeateElement('p', { className: 'idea-description' }, idea.description)
     )
   );
-  fragment.appendChild(creeateElement('div', { className: 'text-center' }, creeateElement('a', { className: 'btn detb', href: '' }, 'Delete')));
+
+  const userData = JSON.parse(sessionStorage.getItem('userData'));
+
+  if (userData && userData.id == idea._ownerId) {
+    fragment.appendChild(creeateElement('div', { className: 'text-center' }, creeateElement('a', { className: 'btn detb', href: '' }, 'Delete')));
+  }
 
   return fragment;
 }

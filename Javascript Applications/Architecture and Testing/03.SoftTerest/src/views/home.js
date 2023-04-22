@@ -1,9 +1,9 @@
 const section = document.getElementById('homePage');
+section.remove();
 section.querySelector('#getStartedLink').addEventListener('click', e => {
   e.preventDefault();
   ctx.goTo('catalog');
 });
-section.remove();
 
 let ctx = null;
 

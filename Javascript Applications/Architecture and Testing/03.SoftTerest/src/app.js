@@ -30,8 +30,10 @@ nav.addEventListener('click', onNavigate);
 const ctx = {
   goTo,
   showSection,
+  updateNav,
 };
 
+updateNav();
 //Start app in home view
 goTo('home');
 
@@ -49,5 +51,17 @@ function goTo(name, ...params) {
 
   if (typeof view == 'function') {
     view(ctx, ...params);
+  }
+}
+
+function updateNav() {
+  const userData = JSON.parse(sessionStorage.getItem('userData'));
+
+  if (userData != null) {
+    [...nav.querySelectorAll('.user')].forEach(link => (link.style.display = 'block'));
+    [...nav.querySelectorAll('.guest')].forEach(link => (link.style.display = 'none'));
+  } else {
+    [...nav.querySelectorAll('.user')].forEach(link => (link.style.display = 'none'));
+    [...nav.querySelectorAll('.guest')].forEach(link => (link.style.display = 'block'));
   }
 }

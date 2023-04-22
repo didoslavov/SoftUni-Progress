@@ -20,6 +20,7 @@ async function onSubmit(e) {
   const password = formData.get('password').trim();
 
   await login(email, password);
+  form.reset();
   ctx.goTo('home');
   ctx.updateNav();
 }

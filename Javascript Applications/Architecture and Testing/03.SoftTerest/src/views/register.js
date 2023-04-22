@@ -28,6 +28,7 @@ async function onSubmit(e) {
     return alert("Passwords don't match !");
   }
   await register(email, password);
+  form.reset();
   ctx.goTo('home');
   ctx.updateNav();
 }

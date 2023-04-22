@@ -32,8 +32,12 @@ const ctx = {
   showSection,
 };
 
+//Start app in home view
+goTo('home');
+
 function onNavigate(e) {
   const name = links[e.target.id];
+
   if (name) {
     e.preventDefault();
     goTo(name);
@@ -42,7 +46,7 @@ function onNavigate(e) {
 
 function goTo(name, ...params) {
   const view = views[name];
-  console.log(name);
+
   if (typeof view == 'function') {
     view(ctx, ...params);
   }

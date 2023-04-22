@@ -5,7 +5,7 @@
 }
 
 body {
-  background: url("../images/White-Abstract-Backgrounds-Gallery-47-Plus-PIC-WPW404836.jpg");
+  background: url('../images/White-Abstract-Backgrounds-Gallery-47-Plus-PIC-WPW404836.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,9 +37,13 @@ footer {
 
 nav a {
   text-decoration: none;
-  color: rgb(27, 38, 49)
+  color: rgb(27, 38, 49);
 }
 
 nav img {
   height: 3rem;
+}
+
+#views {
+  display: none;
 }

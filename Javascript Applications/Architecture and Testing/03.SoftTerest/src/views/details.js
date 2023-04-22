@@ -1,10 +1,13 @@
-import { getById } from '../api/data.js';
+import { deleteById, getById } from '../api/data.js';
 import { creeateElement } from '../dom.js';
 
 const section = document.getElementById('detailsPage');
 section.remove();
 
-export async function showDetailsPage(ctx, id) {
+let ctx = null;
+
+export async function showDetailsPage(ctxTarget, id) {
+  ctx = ctxTarget;
   ctx.showSection(section);
   laodIdea(id);
 }
@@ -32,8 +35,21 @@ function createIdeaDiv(idea) {
   const userData = JSON.parse(sessionStorage.getItem('userData'));
 
   if (userData && userData.id == idea._ownerId) {
-    fragment.appendChild(creeateElement('div', { className: 'text-center' }, creeateElement('a', { className: 'btn detb', href: '' }, 'Delete')));
+    fragment.appendChild(
+      creeateElement('div', { className: 'text-center' }, creeateElement('a', { className: 'btn detb', href: '', onClick: onDelete }, 'Delete'))
+    );
   }
 
   return fragment;
+
+  async function onDelete(e) {
+    e.preventDefault();
+
+    const confirmed = confirm('Are you sure you want to delete this idea?');
+
+    if (confirmed) {
+      await deleteById(idea._id);
+      ctx.goTo('catalog');
+    }
+  }
 }

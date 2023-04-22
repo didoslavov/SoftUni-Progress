@@ -19,7 +19,7 @@ async function onSubmit(e) {
 
   const title = formData.get('title').trim();
   const description = formData.get('description').trim();
-  const imgURL = formData.get('imageURL').trim();
+  const img = formData.get('imageURL').trim();
 
   if (title.length < 6) {
     return alert('Title must be at least 6 characters long!');
@@ -29,11 +29,11 @@ async function onSubmit(e) {
     return alert('Description must be at least 10 characters long!');
   }
 
-  if (imgURL.length < 5) {
+  if (img.length < 5) {
     return alert('Image url must be at least 5 characters long!');
   }
 
-  createIdea({ title, description, imgURL });
+  createIdea({ title, description, img });
   form.reset();
   ctx.goTo('catalog');
 }

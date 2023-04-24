@@ -2,7 +2,7 @@
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
+const host = 'http://localhost:5500'; // Application host (NOT service host - that can be anything)
 
 const DEBUG = false;
 const slowMo = 500;
@@ -32,9 +32,7 @@ describe('E2E tests', function () {
       await page.fill('[name="towns"]', 'Sofia');
       page.click('text=Load');
       await page.waitForSelector('#root > ul > li');
-      const town = await page.$$eval('#root > ul > li', (t) =>
-        t.map((l) => l.textContent)
-      );
+      const town = await page.$$eval('#root > ul > li', t => t.map(l => l.textContent));
       expect(town.length).to.equal(1);
     });
 
@@ -43,9 +41,7 @@ describe('E2E tests', function () {
       await page.fill('[name="towns"]', 'Sofia, Burgas');
       page.click('text=Load');
       await page.waitForSelector('#root > ul > li');
-      const town = await page.$$eval('#root > ul > li', (t) =>
-        t.map((l) => l.textContent)
-      );
+      const town = await page.$$eval('#root > ul > li', t => t.map(l => l.textContent));
       expect(town.length).to.equal(2);
     });
 
@@ -54,9 +50,7 @@ describe('E2E tests', function () {
       await page.fill('[name="towns"]', 'Sofia, Plovdiv, Burgas');
       page.click('text=Load');
       await page.waitForSelector('#root > ul > li');
-      const town = await page.$$eval('#root > ul > li', (t) =>
-        t.map((l) => l.textContent)
-      );
+      const town = await page.$$eval('#root > ul > li', t => t.map(l => l.textContent));
       expect(town.length).to.equal(3);
     });
   });

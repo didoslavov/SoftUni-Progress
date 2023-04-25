@@ -2,7 +2,7 @@
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
+const host = 'http://localhost:5500'; // Application host (NOT service host - that can be anything)
 
 const DEBUG = false;
 const slowMo = 500;
@@ -32,9 +32,7 @@ describe('E2E tests', function () {
       await page.fill('#searchText', 'S');
       page.click('text=Search');
       await page.waitForTimeout(500);
-      const town = await page.$$eval('#result', (t) =>
-        t.map((l) => l.textContent)
-      );
+      const town = await page.$$eval('#result', t => t.map(l => l.textContent));
       expect(town[0]).to.equal('1 matches found');
     });
 
@@ -43,9 +41,7 @@ describe('E2E tests', function () {
       await page.fill('#searchText', 'P');
       page.click('text=Search');
       await page.waitForTimeout(500);
-      const town = await page.$$eval('#result', (t) =>
-        t.map((l) => l.textContent)
-      );
+      const town = await page.$$eval('#result', t => t.map(l => l.textContent));
       expect(town[0]).to.equal('2 matches found');
     });
 
@@ -54,9 +50,7 @@ describe('E2E tests', function () {
       await page.fill('#searchText', 'pl');
       page.click('text=Search');
       await page.waitForTimeout(500);
-      const town = await page.$$eval('#result', (t) =>
-        t.map((l) => l.textContent)
-      );
+      const town = await page.$$eval('#result', t => t.map(l => l.textContent));
       expect(town[0]).to.equal('0 matches found');
     });
 
@@ -65,9 +59,7 @@ describe('E2E tests', function () {
       await page.fill('#searchText', 'Pl');
       page.click('text=Search');
       await page.waitForTimeout(500);
-      const town = await page.$$eval('.active', (t) =>
-        t.map((l) => l.textContent)
-      );
+      const town = await page.$$eval('.active', t => t.map(l => l.textContent));
       expect(town.length).to.equal(2);
     });
 
@@ -76,9 +68,7 @@ describe('E2E tests', function () {
       await page.fill('#searchText', 's');
       page.click('text=Search');
       await page.waitForTimeout(500);
-      const town = await page.$$eval('.active', (t) =>
-        t.map((l) => l.textContent)
-      );
+      const town = await page.$$eval('.active', t => t.map(l => l.textContent));
       expect(town.length).to.equal(0);
     });
   });

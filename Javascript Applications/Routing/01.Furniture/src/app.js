@@ -1,3 +1,4 @@
+import { logout } from './api/data.js';
 import { page, render } from './lib.js';
 import { catalogPage } from './views/catalog.js';
 import { createPage } from './views/create.js';
@@ -7,6 +8,7 @@ import { loginPage } from './views/login.js';
 import { registerPage } from './views/register.js';
 
 const root = document.querySelector('div.container');
+document.getElementById('logoutBtn').addEventListener('click', onLogout);
 
 page(decorateCtx);
 page('/', catalogPage);
@@ -23,4 +25,9 @@ function decorateCtx(ctx, next) {
   ctx.render = (content) => render(content, root);
 
   next();
+}
+
+async function onLogout() {
+  await logout();
+  page.redirect('/');
 }

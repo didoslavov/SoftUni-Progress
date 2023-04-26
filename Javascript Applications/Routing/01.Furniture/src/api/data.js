@@ -34,5 +34,5 @@ export async function editFurniture(id, data) {
 }
 
 export async function deleteFurniture(id) {
-  return api.put(endpoints.delete + id);
+  return api.del(endpoints.delete + id);
 }

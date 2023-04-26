@@ -1,7 +1,7 @@
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
+const host = 'http://localhost:5500'; // Application host (NOT service host - that can be anything)
 
 const interval = 300;
 const timeout = 6000;
@@ -65,8 +65,8 @@ const endpoints = {
   login: '/users/login',
   logout: '/users/logout',
   catalog: '/data/catalog',
-  details: (id) => `data/catalog/${id}`,
-  profile: (userId) => `/data/catalog?where=_ownerId%3D%22${userId}%22`,
+  details: id => `data/catalog/${id}`,
+  profile: userId => `/data/catalog?where=_ownerId%3D%22${userId}%22`,
 };
 
 let browser;
@@ -76,12 +76,7 @@ let page;
 describe('E2E tests', function () {
   // Setup
   this.timeout(DEBUG ? 120000 : timeout);
-  before(
-    async () =>
-      (browser = await chromium.launch(
-        DEBUG ? { headless: false, slowMo } : {}
-      ))
-  );
+  before(async () => (browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {})));
   after(async () => await browser.close());
   beforeEach(async () => {
     context = await browser.newContext();
@@ -110,10 +105,7 @@ describe('E2E tests', function () {
       await page.fill('[name="password"]', data.password);
       await page.fill('[name="rePass"]', data.password);
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('[type="submit"]'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
       const postData = JSON.parse(request.postData());
 
@@ -135,10 +127,7 @@ describe('E2E tests', function () {
       await page.fill('[name="email"]', data.email);
       await page.fill('[name="password"]', data.password);
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('[type="submit"]'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
       const postData = JSON.parse(request.postData());
       expect(postData.email).to.equal(data.email);
@@ -165,10 +154,7 @@ describe('E2E tests', function () {
 
       await page.waitForSelector('#logoutBtn');
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('nav >> text=Logout'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('nav >> text=Logout')]);
 
       const token = request.headers()['x-authorization'];
       expect(request.method()).to.equal('GET');
@@ -259,9 +245,7 @@ describe('E2E tests', function () {
       await page.goto(host);
       await page.waitForSelector('.card');
 
-      const titles = await page.$$eval(`.card p`, (t) =>
-        t.map((s) => s.textContent)
-      );
+      const titles = await page.$$eval(`.card p`, t => t.map(s => s.textContent));
 
       expect(titles.length / 2).to.equal(mockData.catalog.length);
       expect(titles[0]).to.contains(data[0].description);
@@ -275,9 +259,7 @@ describe('E2E tests', function () {
       await page.waitForSelector('.container');
 
       await page.waitForSelector('.container');
-      await page.click(
-        `.card-body:has-text("${data.description}") >> text=Details`
-      );
+      await page.click(`.card-body:has-text("${data.description}") >> text=Details`);
 
       expect(await page.isVisible('text="Delete"')).to.be.false;
       expect(await page.isVisible('text="Edit"')).to.be.false;
@@ -318,9 +300,7 @@ describe('E2E tests', function () {
       const data = mockData.catalog[2];
 
       await page.waitForSelector('.container');
-      await page.click(
-        `.card-body:has-text("${data.description}") >> text=Details`
-      );
+      await page.click(`.card-body:has-text("${data.description}") >> text=Details`);
 
       expect(await page.isVisible('text="Delete"')).to.be.false;
       expect(await page.isVisible('text="Edit"')).to.be.false;
@@ -333,9 +313,7 @@ describe('E2E tests', function () {
       get(data);
 
       await page.waitForSelector('.container');
-      await page.click(
-        `.card-body:has-text("${data.description}") >> text=Details`
-      );
+      await page.click(`.card-body:has-text("${data.description}") >> text=Details`);
       await page.waitForSelector('.btn-info');
 
       await page.click('text=Edit');
@@ -343,13 +321,13 @@ describe('E2E tests', function () {
       await page.waitForSelector('form');
 
       const formData = {
-        make: await page.$eval('[name="make"]', (t) => t.value),
-        model: await page.$eval('[name="model"]', (t) => t.value),
-        year: await page.$eval('[name="year"]', (t) => t.value),
-        description: await page.$eval('[name="description"]', (t) => t.value),
-        price: await page.$eval('[name="price"]', (t) => t.value),
-        img: await page.$eval('[name="img"]', (t) => t.value),
-        material: await page.$eval('[name="material"]', (t) => t.value),
+        make: await page.$eval('[name="make"]', t => t.value),
+        model: await page.$eval('[name="model"]', t => t.value),
+        year: await page.$eval('[name="year"]', t => t.value),
+        description: await page.$eval('[name="description"]', t => t.value),
+        price: await page.$eval('[name="price"]', t => t.value),
+        img: await page.$eval('[name="img"]', t => t.value),
+        material: await page.$eval('[name="material"]', t => t.value),
       };
       expect(formData.make).to.equal(data.make);
       expect(formData.model).to.equal(data.model);
@@ -370,9 +348,7 @@ describe('E2E tests', function () {
       await page.click('nav >> text=Dashboard');
 
       await page.waitForSelector('.container');
-      await page.click(
-        `.card-body:has-text("${data.description}") >> text=Details`
-      );
+      await page.click(`.card-body:has-text("${data.description}") >> text=Details`);
       await page.waitForSelector('.btn-info');
 
       await page.click('text=Edit');
@@ -400,11 +376,9 @@ describe('E2E tests', function () {
       await page.waitForSelector('.container');
 
       await page.waitForSelector('.container');
-      await page.click(
-        `.card-body:has-text("${data.description}") >> text=Details`
-      );
+      await page.click(`.card-body:has-text("${data.description}") >> text=Details`);
 
-      page.on('dialog', (dialog) => dialog.accept());
+      page.on('dialog', dialog => dialog.accept());
 
       await Promise.all([onResponse(), page.click('text="Delete"')]);
 
@@ -437,9 +411,7 @@ describe('E2E tests', function () {
       await page.click('text=My Publication');
       await page.waitForSelector('.card');
 
-      const titles = await page.$$eval('.card p', (t) =>
-        t.map((s) => s.textContent)
-      );
+      const titles = await page.$$eval('.card p', t => t.map(s => s.textContent));
       expect(titles.length / 2).to.equal(2);
     });
   });
@@ -450,7 +422,7 @@ async function setupContext(context) {
   await handleContext(context, endpoints.login, { post: mockData.users[0] });
   await handleContext(context, endpoints.register, { post: mockData.users[0] });
   await handleContext(context, endpoints.logout, {
-    get: (h) => h('', { json: false, status: 204 }),
+    get: h => h('', { json: false, status: 204 }),
   });
 
   // Catalog and Details
@@ -465,11 +437,7 @@ async function setupContext(context) {
     get: mockData.catalog[2],
   });
 
-  await handleContext(
-    endpoints.profile('0001'),
-    { get: mockData.catalog.slice(0, 2) },
-    context
-  );
+  await handleContext(endpoints.profile('0001'), { get: mockData.catalog.slice(0, 2) }, context);
 
   await handleContext(endpoints.total('1001'), { get: 6 }, context);
   await handleContext(endpoints.total('1002'), { get: 4 }, context);
@@ -481,8 +449,8 @@ async function setupContext(context) {
 
   // Block external calls
   await context.route(
-    (url) => url.href.slice(0, host.length) != host,
-    (route) => {
+    url => url.href.slice(0, host.length) != host,
+    route => {
       if (DEBUG) {
         console.log('Preventing external call to ' + route.request().url());
       }

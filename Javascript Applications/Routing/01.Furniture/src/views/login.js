@@ -35,6 +35,7 @@ export function loginPage(ctx) {
 
     await login(email, password);
     e.target.reset();
+    ctx.updateUserNav();
     ctx.page.redirect('/');
   }
 }

@@ -80,7 +80,7 @@ export function createPage(ctx) {
         throw new Error('Image URL is required!');
       }
 
-      const data = [make, model, year, description, price, img, material];
+      const data = { make, model, year, description, price, img, material };
 
       await createFurniture(data);
       e.target.reset();

@@ -1,4 +1,4 @@
-import { getFurnitureById } from '../api/data.js';
+import { deleteFurniture, getFurnitureById } from '../api/data.js';
 import { html, until } from '../lib.js';
 import { getUserData } from '../util.js';
 
@@ -10,7 +10,7 @@ const detailsTemplate = (dataPromise) => html` <div class="row space-top">
   ${until(dataPromise, html`<p>Loading &hellip;</p>`)}
   </div>`;
 
-const furnitureTemplate = (furniture, userId) => html`<div class="row space-top">
+const furnitureTemplate = (furniture, isOwner, onDelete) => html`<div class="row space-top">
   <div class="col-md-4">
     <div class="card text-white bg-primary">
       <div class="card-body">
@@ -26,19 +26,33 @@ const furnitureTemplate = (furniture, userId) => html`<div class="row space-top"
     <p>Price: <span>${furniture.price}</span></p>
     <p>Material: <span>${furniture.material}</span></p>
     <div>
-      ${userId == furniture._ownerId ? html`<a href="/edit" class="btn btn-info">Edit</a> <a href="/delete" class="btn btn-red">Delete</a>` : null}
+      ${isOwner
+        ? html`<a href=${`/edit/${furniture._id}`} class="btn btn-info">Edit</a>
+            <a @click=${onDelete} href="javascript:void(0)" class="btn btn-red">Delete</a>`
+        : null}
     </div>
   </div>
 </div>`;
 
 export function detailsPage(ctx) {
   const id = ctx.params.id;
-  ctx.render(detailsTemplate(loadFurniture(id)));
+  ctx.render(detailsTemplate(loadFurniture(id, onDelete)));
+
+  async function onDelete() {
+    const choice = confirm('Are you sure you want to delete this furniture?');
+
+    if (choice) {
+      await deleteFurniture(id);
+      ctx.page.redirect('/');
+    }
+  }
 }
 
-async function loadFurniture(id) {
-  const userId = getUserData().id;
+async function loadFurniture(id, onDelete) {
   const furniture = await getFurnitureById(id);
 
-  return furnitureTemplate(furniture, userId);
+  const userId = getUserData().id;
+  const isOwner = userId == furniture._ownerId;
+
+  return furnitureTemplate(furniture, isOwner, onDelete);
 }

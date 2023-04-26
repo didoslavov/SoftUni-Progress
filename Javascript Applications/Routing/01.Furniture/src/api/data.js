@@ -7,7 +7,7 @@ export const logout = api.logout;
 const endpoints = {
   all: '/data/catalog',
   byId: '/data/catalog/',
-  myFurnitures: (userId) => `http://localhost:3030/data/catalog?where=_ownerId%3D%22${userId}%22`,
+  myFurnitures: (userId) => `/data/catalog?where=_ownerId%3D%22${userId}%22`,
   create: '/data/catalog',
   edit: '/data/catalog/',
   delete: '/data/catalog/',

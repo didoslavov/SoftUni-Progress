@@ -1,5 +1,5 @@
 import { getAllProducts } from '../api/data.js';
-import { html, render } from '../lib.js';
+import { html } from '../lib.js';
 
 const catalogTemplate = (products) => html` <h2>Products</h2>
   ${products.length > 0
@@ -8,7 +8,7 @@ const catalogTemplate = (products) => html` <h2>Products</h2>
 
 const productTemplate = (product, onDetails) => html`<div class="product">
   <img src="${product.imageUrl}" alt="example1" />
-  <p class="title">${product.title}</p>
+  <p class="title">${product.name}</p>
   <p><strong>Price:</strong><span class="price">$${product.price}</span>$</p>
   <a click=${onDetails} class="details-btn" href="/details/${product._id}">Details</a>
 </div>`;

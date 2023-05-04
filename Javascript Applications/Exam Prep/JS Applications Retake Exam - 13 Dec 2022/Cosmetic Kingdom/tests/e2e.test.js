@@ -204,7 +204,7 @@ describe('E2E tests', function () {
     });
   });
 
-  describe.only('Products Page [ 15 Points ]', () => {
+  describe('Products Page [ 15 Points ]', () => {
     it('Show Products page - welcome message [ 2.5 Points ]', async () => {
       await page.goto(host);
       await page.waitForTimeout(interval);
@@ -553,7 +553,7 @@ describe('E2E tests', function () {
     });
   });
 
-  describe('BONUS : Buy functionality  [ 15 Points ]', async () => {
+  describe.only('BONUS : Buy functionality  [ 15 Points ]', async () => {
     it('Buy button is NOT visible for guest users [ 2.5 Points ]', async () => {
       await page.goto(host);
       await page.waitForTimeout(interval);

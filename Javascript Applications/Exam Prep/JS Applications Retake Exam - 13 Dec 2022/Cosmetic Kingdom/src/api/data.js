@@ -9,6 +9,11 @@ const endpoints = {
   addProduct: '/data/products',
   productById: '/data/products/',
   deleteProduct: '/data/products/',
+  editProduct: '/data/products/',
+  buyProduct: '/data/bought',
+  totalBoughtProducts: (productId) => `/data/bought?where=productId%3D%22${productId}%22&distinct=_ownerId&count`,
+  boughtProductsByUserId: (productId, userId) =>
+    `/data/bought?where=productId%3D%22${productId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
 };
 
 export async function getAllProducts() {
@@ -25,4 +30,20 @@ export async function getProductById(id) {
 
 export async function deleteProduct(id) {
   return api.del(endpoints.deleteProduct + id);
+}
+
+export async function editProduct(product, id) {
+  return api.put(endpoints.editProduct + id, product);
+}
+
+export async function buyProduct(id) {
+  return api.post(endpoints.buyProduct, id);
+}
+
+export async function getTotalBoughtProducts(id) {
+  return api.get(endpoints.totalBoughtProducts(id));
+}
+
+export async function getBoughtProductsByUserId(userId, productId) {
+  return api.get(endpoints.boughtProductsByUserId(userId, productId));
 }

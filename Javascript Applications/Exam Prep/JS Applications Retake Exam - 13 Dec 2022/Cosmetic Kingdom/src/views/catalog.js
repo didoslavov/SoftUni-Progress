@@ -9,7 +9,7 @@ const catalogTemplate = (products) => html` <h2>Products</h2>
 const productTemplate = (product, onDetails) => html`<div class="product">
   <img src="${product.imageUrl}" alt="example1" />
   <p class="title">${product.name}</p>
-  <p><strong>Price:</strong><span class="price">$${product.price}</span>$</p>
+  <p><strong>Price:</strong><span class="price">${product.price}</span>$</p>
   <a click=${onDetails} class="details-btn" href="/details/${product._id}">Details</a>
 </div>`;
 

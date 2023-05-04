@@ -40,10 +40,10 @@ export async function buyProduct(id) {
   return api.post(endpoints.buyProduct, id);
 }
 
-export async function getTotalBoughtProducts(id) {
+export async function productTotalBoughtCount(id) {
   return api.get(endpoints.totalBoughtProducts(id));
 }
 
-export async function getBoughtProductsByUserId(userId, productId) {
+export async function getMyBoughtProductsByUserId(userId, productId) {
   return api.get(endpoints.boughtProductsByUserId(userId, productId));
 }

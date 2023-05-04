@@ -553,7 +553,7 @@ describe('E2E tests', function () {
     });
   });
 
-  describe.only('BONUS : Buy functionality  [ 15 Points ]', async () => {
+  describe('BONUS : Buy functionality  [ 15 Points ]', async () => {
     it('Buy button is NOT visible for guest users [ 2.5 Points ]', async () => {
       await page.goto(host);
       await page.waitForTimeout(interval);

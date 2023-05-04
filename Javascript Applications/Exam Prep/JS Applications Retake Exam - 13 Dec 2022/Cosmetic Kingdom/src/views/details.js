@@ -1,4 +1,4 @@
-import { buyProduct, deleteProduct, getBoughtProductsByUserId, getProductById, getTotalBoughtProducts } from '../api/data.js';
+import { buyProduct, deleteProduct, getProductById, productTotalBoughtCount } from '../api/data.js';
 import { html } from '../lib.js';
 import { getUserData } from '../util.js';
 
@@ -20,7 +20,7 @@ const detailsTemplate = (product, isOwner, onDelete, isLoggedIn, onBuyProduct, c
           <a @click=${onDelete} href="javascript:void(0)" id="delete-btn">Delete</a>
         </div>`
       : null}
-    ${isLoggedIn ? html`<a @click=${onBuyProduct} href="" id="buy-btn">Buy</a>` : null}
+    ${isLoggedIn && !isOwner ? html`<a @click=${onBuyProduct} href="" id="buy-btn">Buy</a>` : null}
   </div>
 </section>`;
 
@@ -31,13 +31,14 @@ export async function detailsPage(ctx) {
   const userData = getUserData();
   let userId;
   let isLoggedIn = true;
-  let counter = 0;
 
   if (userData != null) {
     userId = userData.id;
   } else {
     isLoggedIn = false;
   }
+
+  const counter = await productTotalBoughtCount(id, userId);
   const isOwner = userId == product._ownerId;
   ctx.render(detailsTemplate(product, isOwner, onDelete, isLoggedIn, onBuyProduct, counter));
 
@@ -48,14 +49,6 @@ export async function detailsPage(ctx) {
 
   async function onBuyProduct() {
     await buyProduct({ id });
-    const counter = await getTotalBoughtProducts({ userId, id });
-    console.log(counter);
     document.getElementById('buy-btn').style.display = 'none';
   }
 }
-
-/* 
-
-      getTotalBoughtProducts({ id }),
-      getBoughtProductsByUserId({ userId }),
-*/

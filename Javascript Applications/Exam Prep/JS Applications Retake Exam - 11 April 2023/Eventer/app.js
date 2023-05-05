@@ -1,5 +1,6 @@
 import { page } from './lib.js';
 import { logout } from './src/api/data.js';
+import { catalogPage } from './src/views/catalog.js';
 import { homePage } from './src/views/home.js';
 import { loginPage } from './src/views/login.js';
 import { registerPage } from './src/views/register.js';
@@ -9,7 +10,8 @@ document.getElementById('logoutBtn').addEventListener('click', onLogout);
 
 page(decorateCtx);
 page('/', homePage);
-page('/catalog', () => console.log('catalog'));
+page('/catalog', catalogPage);
+page('/details/:id', catalogPage);
 page('/create', () => console.log('create'));
 page('/login', loginPage);
 page('/register', registerPage);

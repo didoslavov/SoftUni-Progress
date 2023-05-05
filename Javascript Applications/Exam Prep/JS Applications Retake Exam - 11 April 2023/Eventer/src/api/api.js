@@ -15,7 +15,11 @@ export async function request(url, options) {
       throw new Error(error.message);
     }
 
-    return response.json();
+    if (response.status == 204) {
+      return response;
+    } else {
+      return response.json();
+    }
   } catch (error) {
     alert(error.message);
     throw error;

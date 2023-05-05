@@ -9,7 +9,7 @@ export function decorateCtx(ctx, next) {
 }
 
 export function getUserData() {
-  return localStorage.getItem('userData');
+  return JSON.parse(localStorage.getItem('userData'));
 }
 
 export function clearUserData() {
@@ -33,7 +33,7 @@ export function createOptions(method = 'get', data) {
 
   const userData = getUserData();
 
-  if (userData != null) {
+  if (userData) {
     options.headers['X-Authorization'] = userData.token;
   }
 

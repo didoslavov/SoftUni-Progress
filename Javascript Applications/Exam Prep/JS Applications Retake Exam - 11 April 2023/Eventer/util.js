@@ -1,3 +1,13 @@
+import { render } from './lib.js';
+
+const root = document.querySelector('main');
+
+export function decorateCtx(ctx, next) {
+  ctx.render = (content) => render(content, root);
+
+  next();
+}
+
 export function getUserData() {
   return localStorage.getItem('userData');
 }
@@ -28,4 +38,16 @@ export function createOptions(method = 'get', data) {
   }
 
   return options;
+}
+
+export function updateUserNav() {
+  const userData = getUserData();
+
+  if (userData != null) {
+    document.querySelector('.user').style.display = 'block';
+    document.querySelector('.guest').style.display = 'none';
+  } else {
+    document.querySelector('.user').style.display = 'none';
+    document.querySelector('.guest').style.display = 'block';
+  }
 }

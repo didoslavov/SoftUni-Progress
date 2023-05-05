@@ -7,3 +7,7 @@ export const logout = api.logout;
 export async function getAllEvents() {
   return await api.get('/data/events?sortBy=_createdOn%20desc');
 }
+
+export async function getEventById(id) {
+  return await api.get('/data/events/' + id);
+}

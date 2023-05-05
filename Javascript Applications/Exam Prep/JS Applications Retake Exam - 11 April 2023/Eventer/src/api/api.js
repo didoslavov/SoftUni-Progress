@@ -7,8 +7,11 @@ export async function request(url, options) {
     const response = await fetch(host + url, options);
 
     if (response.ok != true) {
-      const error = await response.json();
+      if (response.status == 403) {
+        clearUserData();
+      }
 
+      const error = await response.json();
       throw new Error(error.message);
     }
 
@@ -60,6 +63,6 @@ export async function register(email, password) {
 }
 
 export async function logout() {
-  await get('users/logout');
+  await get('/users/logout');
   clearUserData();
 }

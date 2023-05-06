@@ -1,6 +1,7 @@
 import { page } from './lib.js';
 import { logout } from './src/api/data.js';
 import { catalogPage } from './src/views/catalog.js';
+import { createPage } from './src/views/create.js';
 import { detailsPage } from './src/views/details.js';
 import { homePage } from './src/views/home.js';
 import { loginPage } from './src/views/login.js';
@@ -13,7 +14,7 @@ page(decorateCtx);
 page('/', homePage);
 page('/catalog', catalogPage);
 page('/details/:id', detailsPage);
-page('/create', () => console.log('create'));
+page('/create', createPage);
 page('/login', loginPage);
 page('/register', registerPage);
 

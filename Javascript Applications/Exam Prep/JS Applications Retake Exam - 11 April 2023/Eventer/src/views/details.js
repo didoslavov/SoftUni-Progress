@@ -19,8 +19,8 @@ const detailsTemplate = (isOwner, isLoggedIn, event) => html` <section id="detai
     <!--Edit and Delete are only for creator-->
     <div id="action-buttons">
       ${isOwner
-        ? html` <a href="" id="edit-btn">Edit</a>
-            <a href="" id="delete-btn">Delete</a>`
+        ? html` <a href="/edit" id="edit-btn">Edit</a>
+            <a href="javascript:void(0)" id="delete-btn">Delete</a>`
         : null}
 
       <!--Bonus - Only for logged-in users ( not authors )-->

@@ -11,3 +11,7 @@ export async function getAllEvents() {
 export async function getEventById(id) {
   return await api.get('/data/events/' + id);
 }
+
+export async function createEvent(data) {
+  return await api.post('/data/events', data);
+}

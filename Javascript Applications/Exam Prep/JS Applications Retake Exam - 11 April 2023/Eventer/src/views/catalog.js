@@ -1,4 +1,5 @@
 import { html } from '../../lib.js';
+import { updateUserNav } from '../../util.js';
 import { getAllEvents } from '../api/data.js';
 
 const catalogTemplate = (events) => html` <h2>Current Events</h2>
@@ -13,6 +14,7 @@ const eventTemplate = (event) => html`<div class="event">
 
 export async function catalogPage(ctx) {
   ctx.render(catalogTemplate(await loadEvents()));
+  updateUserNav();
 
   async function loadEvents() {
     return await getAllEvents();

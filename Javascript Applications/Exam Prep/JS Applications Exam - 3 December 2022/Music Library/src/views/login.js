@@ -1,5 +1,6 @@
 import { login } from '../api/data.js';
 import { html } from '../lib.js';
+import { updateUserNav } from '../util.js';
 
 const loginTemplate = (onSubmit) => html` <section id="login">
   <div class="form">
@@ -30,6 +31,7 @@ export function loginPage(ctx) {
       }
 
       await login(email, password);
+      updateUserNav();
       ctx.page.redirect('/catalog');
     } catch (error) {
       alert(error.message);

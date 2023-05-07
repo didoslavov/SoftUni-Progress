@@ -17,10 +17,8 @@ const endpoints = {
   likes: '/data/likes',
   details: (id) => `/data/albums/${id}`,
   delete: (id) => `/data/albums/${id}`,
-  total: (albumId) =>
-    `/data/likes?where=albumId%3D%22${albumId}%22&distinct=_ownerId&count`,
-  own: (albumId, userId) =>
-    `/data/likes?where=albumId%3D%22${albumId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
+  total: (albumId) => `/data/likes?where=albumId%3D%22${albumId}%22&distinct=_ownerId&count`,
+  own: (albumId, userId) => `/data/likes?where=albumId%3D%22${albumId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
 };
 
 let browser;
@@ -30,12 +28,7 @@ let page;
 describe('E2E tests', function () {
   // Setup
   this.timeout(DEBUG ? 120000 : 7000);
-  before(
-    async () =>
-      (browser = await chromium.launch(
-        DEBUG ? { headless: false, slowMo } : {}
-      ))
-  );
+  before(async () => (browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {})));
   after(async () => await browser.close());
   beforeEach(async () => {
     context = await browser.newContext();
@@ -79,10 +72,7 @@ describe('E2E tests', function () {
       await page.fill('[name="password"]', data.password);
       await page.fill('[name="re-password"]', data.password);
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('[type="submit"]'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
       const postData = JSON.parse(request.postData());
 
@@ -119,10 +109,7 @@ describe('E2E tests', function () {
       await page.fill('[name="email"]', data.email);
       await page.fill('[name="password"]', data.password);
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('[type="submit"]'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
       const postData = JSON.parse(request.postData());
       expect(postData.email).to.equal(data.email);
@@ -145,10 +132,7 @@ describe('E2E tests', function () {
 
       await Promise.all([onResponse(), page.click('[type="submit"]')]);
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('nav >> text=Logout'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('nav >> text=Logout')]);
 
       const token = request.headers()['x-authorization'];
       expect(request.method()).to.equal('GET');
@@ -203,8 +187,7 @@ describe('E2E tests', function () {
       await page.goto(host);
       await page.waitForSelector('#home');
 
-      expect(await page.isVisible('text=Discover new ones right here!')).to.be
-        .true;
+      expect(await page.isVisible('text=Discover new ones right here!')).to.be.true;
     });
   });
 
@@ -228,9 +211,7 @@ describe('E2E tests', function () {
       await page.click('text=Dashboard');
       await page.waitForSelector('#dashboard');
 
-      const visible = await page.isVisible(
-        'text=There are no albums added yet.'
-      );
+      const visible = await page.isVisible('text=There are no albums added yet.');
       expect(visible).to.be.true;
     });
 
@@ -244,9 +225,7 @@ describe('E2E tests', function () {
       await page.click('nav >> text=Dashboard');
 
       await page.waitForSelector('#dashboard');
-      const singers = await page.$$eval('.card p .singer', (t) =>
-        t.map((s) => s.textContent)
-      );
+      const singers = await page.$$eval('.card p .singer', (t) => t.map((s) => s.textContent));
 
       expect(singers.length).to.equal(2);
       expect(singers[0]).to.contains(`${data[0].singer}`);
@@ -272,12 +251,8 @@ describe('E2E tests', function () {
       await page.click('text=Dashboard');
 
       await page.waitForSelector('#dashboard');
-      const singers = await page.$$eval('.card p .singer', (t) =>
-        t.map((s) => s.textContent)
-      );
-      const albums = await page.$$eval('.card p .album', (t) =>
-        t.map((s) => s.textContent)
-      );
+      const singers = await page.$$eval('.card p .singer', (t) => t.map((s) => s.textContent));
+      const albums = await page.$$eval('.card p .album', (t) => t.map((s) => s.textContent));
 
       expect(singers).to.contains(`${data[0].singer}`);
       expect(albums).to.contains(`${data[0].album}`);
@@ -325,10 +300,7 @@ describe('E2E tests', function () {
       await page.fill('[name="label"]', data.label);
       await page.fill('[name="sales"]', data.sales);
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('[type="submit"]'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
       const postData = JSON.parse(request.postData());
 
@@ -359,22 +331,11 @@ describe('E2E tests', function () {
 
       await page.waitForSelector('#info-wrapper');
 
-      const singer = await page.$$eval('#info-wrapper p #details-singer', (t) =>
-        t.map((s) => s.textContent)
-      );
-      const album = await page.$$eval('#info-wrapper p #details-album', (t) =>
-        t.map((s) => s.textContent)
-      );
-      const release = await page.$$eval(
-        '#info-wrapper p #details-release',
-        (t) => t.map((s) => s.textContent)
-      );
-      const label = await page.$$eval('#info-wrapper p #details-label', (t) =>
-        t.map((s) => s.textContent)
-      );
-      const sales = await page.$$eval('#info-wrapper p #details-sales', (t) =>
-        t.map((s) => s.textContent)
-      );
+      const singer = await page.$$eval('#info-wrapper p #details-singer', (t) => t.map((s) => s.textContent));
+      const album = await page.$$eval('#info-wrapper p #details-album', (t) => t.map((s) => s.textContent));
+      const release = await page.$$eval('#info-wrapper p #details-release', (t) => t.map((s) => s.textContent));
+      const label = await page.$$eval('#info-wrapper p #details-label', (t) => t.map((s) => s.textContent));
+      const sales = await page.$$eval('#info-wrapper p #details-sales', (t) => t.map((s) => s.textContent));
 
       expect(singer).to.contains(data.singer);
       expect(album).to.contains(data.album);
@@ -454,9 +415,7 @@ describe('E2E tests', function () {
 
       await page.waitForSelector('form');
 
-      const inputs = await page.$$eval('.form .edit-form input', (t) =>
-        t.map((i) => i.value)
-      );
+      const inputs = await page.$$eval('.form .edit-form input', (t) => t.map((i) => i.value));
 
       expect(inputs[0]).to.contains(data.singer);
       expect(inputs[1]).to.contains(data.album);
@@ -531,10 +490,7 @@ describe('E2E tests', function () {
       await page.fill('[name="album"]', data.album + 'edit');
       await page.fill('[name="release"]', data.release + 'edit');
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('[type="submit"]'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
       const postData = JSON.parse(request.postData());
 
@@ -728,24 +684,17 @@ describe('E2E tests', function () {
 
       await page.waitForSelector('#action-buttons');
 
-      let like = await page.$$eval('#likes-count', (t) =>
-        t.map((s) => s.textContent)
-      );
+      let like = await page.$$eval('#likes-count', (t) => t.map((s) => s.textContent));
       expect(like[0]).to.contains('5');
       own(1);
       total(6);
 
-      const [request] = await Promise.all([
-        onRequest(),
-        page.click('#like-btn'),
-      ]);
+      const [request] = await Promise.all([onRequest(), page.click('#like-btn')]);
       await page.waitForTimeout(interval);
 
       await page.waitForSelector('#likes');
 
-      like = await page.$$eval('#likes-count', (t) =>
-        t.map((s) => s.textContent)
-      );
+      like = await page.$$eval('#likes-count', (t) => t.map((s) => s.textContent));
 
       await page.waitForTimeout(interval);
 
@@ -774,11 +723,7 @@ async function setupContext(context) {
     get: mockData.catalog[2],
   });
 
-  await handleContext(
-    endpoints.profile('0001'),
-    { get: mockData.catalog.slice(0, 2) },
-    context
-  );
+  await handleContext(endpoints.profile('0001'), { get: mockData.catalog.slice(0, 2) }, context);
 
   await handleContext(endpoints.total('1001'), { get: 6 }, context);
   await handleContext(endpoints.total('1002'), { get: 4 }, context);

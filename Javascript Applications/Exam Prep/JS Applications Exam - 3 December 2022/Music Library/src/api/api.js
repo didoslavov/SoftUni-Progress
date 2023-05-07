@@ -1,6 +1,6 @@
 import { clearUserData, createOptions, setUserData } from '../util.js';
 
-const host = 'http://localhost:3000';
+const host = 'http://localhost:3030';
 
 export async function request(url, options) {
   try {
@@ -42,12 +42,12 @@ export async function del(url) {
 }
 
 export async function login(email, password) {
-  const response = await post('/users/login', { email, password });
+  const res = await post('/users/login', { email, password });
 
   const userData = {
-    email: response.email,
-    id: response._id,
-    token: response.accessToken,
+    email: res.email,
+    id: res._id,
+    token: res.accessToken,
   };
 
   setUserData(userData);

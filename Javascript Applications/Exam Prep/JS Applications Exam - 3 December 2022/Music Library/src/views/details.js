@@ -30,7 +30,7 @@ export async function detailsPage(ctx) {
   const id = ctx.params.id;
 
   const album = await loadAlbum();
-  const likes = await getAlbumLikes();
+  const likes = await getAlbumLikes(id);
 
   const userData = getUserData();
   const isOwner = userData && userData.id == album._ownerId;
@@ -46,7 +46,7 @@ export async function detailsPage(ctx) {
   async function onLike() {
     await likeAlbum({ id });
     document.getElementById('like-btn').style.display = 'none';
-    ctx.page.redirect('/details' + id);
+    ctx.page.redirect('/details/' + id);
   }
 
   async function onDelete() {

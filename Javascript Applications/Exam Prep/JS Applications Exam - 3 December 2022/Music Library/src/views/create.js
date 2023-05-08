@@ -1,4 +1,4 @@
-import { createAlbum, getAlbumById } from '../api/data.js';
+import { createAlbum } from '../api/data.js';
 import { html } from '../lib.js';
 import { updateUserNav } from '../util.js';
 
@@ -28,7 +28,6 @@ export async function createPage(ctx) {
     const formData = new FormData(e.target);
 
     const { singer, album, imageUrl, release, label, sales } = Object.fromEntries(formData);
-    console.log(singer, album, imageUrl, release, label, sales);
 
     try {
       if (singer == '' || album == '' || imageUrl == '' || release == '' || label == '' || sales == '') {

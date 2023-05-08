@@ -23,3 +23,7 @@ export async function likeAlbum(id) {
 export async function deleteEvent(id) {
   await api.del('/data/albums/' + id);
 }
+
+export async function createAlbum(data) {
+  await api.post('/data/albums', data);
+}

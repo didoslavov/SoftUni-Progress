@@ -27,3 +27,7 @@ export async function deleteEvent(id) {
 export async function createAlbum(data) {
   await api.post('/data/albums', data);
 }
+
+export async function editAlbum(id, data) {
+  await api.put('/data/albums/' + id, data);
+}

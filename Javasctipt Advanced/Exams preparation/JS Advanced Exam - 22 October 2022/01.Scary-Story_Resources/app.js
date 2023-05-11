@@ -10,7 +10,7 @@ function solve() {
   const genreElement = document.getElementById('genre');
   const textAreaElement = document.getElementById('story');
 
-  var firstName;
+  let firstName;
   let lastName;
   let age;
   let title;

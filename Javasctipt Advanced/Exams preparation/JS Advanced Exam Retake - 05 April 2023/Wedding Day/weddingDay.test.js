@@ -3,19 +3,19 @@ const weddingDay = require('./weddingDay.js');
 
 describe('Tests for weddingDay', () => {
   it('pickVenue', () => {
-    expect(() => weddingDay.pickVenue('', 1, 1)).to.throw;
-    expect(() => weddingDay.pickVenue(1, '', 1)).to.throw;
-    expect(() => weddingDay.pickVenue('', '', '')).to.throw;
-    expect(() => weddingDay.pickVenue(1, 1, [])).to.throw;
-    expect(() => weddingDay.pickVenue(1, 1, {})).to.throw;
-    expect(() => weddingDay.pickVenue({}, 1, 'Varna')).to.throw;
-    expect(() => weddingDay.pickVenue([], 1, 'Varna')).to.throw;
-    expect(() => weddingDay.pickVenue(1, {}, 'Varna')).to.throw;
-    expect(() => weddingDay.pickVenue(1, [], 'Varna')).to.throw;
-    expect(() => weddingDay.pickVenue(1, 1, 'Test')).to.throw;
-    expect(() => weddingDay.pickVenue(1, 1, '[]')).to.throw;
-    expect(() => weddingDay.pickVenue(1, 1, '{}')).to.throw;
-    expect(() => weddingDay.pickVenue(1, 1, '0')).to.throw;
+    expect(() => weddingDay.pickVenue('', 1, 1)).to.throw();
+    expect(() => weddingDay.pickVenue(1, '', 1)).to.throw();
+    expect(() => weddingDay.pickVenue('', '', '')).to.throw();
+    expect(() => weddingDay.pickVenue(1, 1, [])).to.throw();
+    expect(() => weddingDay.pickVenue(1, 1, {})).to.throw();
+    expect(() => weddingDay.pickVenue({}, 1, 'Varna')).to.throw();
+    expect(() => weddingDay.pickVenue([], 1, 'Varna')).to.throw();
+    expect(() => weddingDay.pickVenue(1, {}, 'Varna')).to.throw();
+    expect(() => weddingDay.pickVenue(1, [], 'Varna')).to.throw();
+    expect(() => weddingDay.pickVenue(1, 1, 'Test')).to.throw();
+    expect(() => weddingDay.pickVenue(1, 1, '[]')).to.throw();
+    expect(() => weddingDay.pickVenue(1, 1, '{}')).to.throw();
+    expect(() => weddingDay.pickVenue(1, 1, '0')).to.throw();
     expect(weddingDay.pickVenue(150, 120, 'Varna')).to.equal(
       'This venue meets the requirements, with capacity of 150 guests and 120$ cover.'
     );
@@ -31,15 +31,15 @@ describe('Tests for weddingDay', () => {
     expect(weddingDay.pickVenue(149, 121, 'Varna')).to.equal('This venue does not meet your requirements!');
     expect(weddingDay.pickVenue(149, 120, 'Varna')).to.equal('This venue does not meet your requirements!');
     expect(weddingDay.pickVenue(150, 121, 'Varna')).to.equal('This venue does not meet your requirements!');
-    expect(() => weddingDay.pickVenue(1, 1, 'Varna')).to.not.throw;
+    expect(() => weddingDay.pickVenue(1, 1, 'Varna')).to.not.throw();
   });
 
   it('otherSpendings', () => {
-    expect(() => weddingDay.otherSpendings({}, {}, {})).to.throw;
-    expect(() => weddingDay.otherSpendings([], {}, {})).to.throw;
-    expect(() => weddingDay.otherSpendings([], [], {})).to.throw;
-    expect(() => weddingDay.otherSpendings('', [], true)).to.throw;
-    expect(() => weddingDay.otherSpendings([], [], true)).to.not.throw;
+    expect(() => weddingDay.otherSpendings({}, {}, {})).to.throw();
+    expect(() => weddingDay.otherSpendings([], {}, {})).to.throw();
+    expect(() => weddingDay.otherSpendings([], [], {})).to.throw();
+    expect(() => weddingDay.otherSpendings('', [], true)).to.throw();
+    expect(() => weddingDay.otherSpendings([], [], true)).to.not.throw();
     expect(weddingDay.otherSpendings(['flowers', 'Fabric drapes and curtains'], ['pictures', 'video'], false)).to.equal(
       'You spend 2900$ for wedding decoration and photography!'
     );
@@ -61,16 +61,16 @@ describe('Tests for weddingDay', () => {
   });
 
   it('tableDistribution', () => {
-    expect(() => weddingDay.tableDistribution('', '')).to.throw;
-    expect(() => weddingDay.tableDistribution([], [])).to.throw;
-    expect(() => weddingDay.tableDistribution('', 1)).to.throw;
-    expect(() => weddingDay.tableDistribution(1, '')).to.throw;
-    expect(() => weddingDay.tableDistribution(-1, '')).to.throw;
-    expect(() => weddingDay.tableDistribution('', -1)).to.throw;
-    expect(() => weddingDay.tableDistribution(-1, -1)).to.throw;
-    expect(() => weddingDay.tableDistribution({}, 1)).to.throw;
-    expect(() => weddingDay.tableDistribution(1, {})).to.throw;
-    expect(() => weddingDay.tableDistribution(1, 1)).to.not.throw;
+    expect(() => weddingDay.tableDistribution('', '')).to.throw();
+    expect(() => weddingDay.tableDistribution([], [])).to.throw();
+    expect(() => weddingDay.tableDistribution('', 1)).to.throw();
+    expect(() => weddingDay.tableDistribution(1, '')).to.throw();
+    expect(() => weddingDay.tableDistribution(-1, '')).to.throw();
+    expect(() => weddingDay.tableDistribution('', -1)).to.throw();
+    expect(() => weddingDay.tableDistribution(-1, -1)).to.throw();
+    expect(() => weddingDay.tableDistribution({}, 1)).to.throw();
+    expect(() => weddingDay.tableDistribution(1, {})).to.throw();
+    expect(() => weddingDay.tableDistribution(1, 1)).to.not.throw();
     expect(weddingDay.tableDistribution(210, 30)).to.equal('You have 30 tables with 7 guests on table.');
     expect(weddingDay.tableDistribution(160, 20)).to.equal('You have 20 tables with 8 guests on table.');
     expect(weddingDay.tableDistribution(100, 20)).to.equal('There is only 5 people on every table, you can join some tables.');

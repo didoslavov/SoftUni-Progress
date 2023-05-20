@@ -7,13 +7,11 @@ function generateReport() {
 
   Array.from(rowsElements).forEach((row) => {
     const entry = {};
-    const properties = Array.from(row.getElementsByTagName('td')).map(
-      (e) => e.textContent
-    );
+    const properties = Array.from(row.getElementsByTagName('td')).map((e) => e.textContent);
 
     Array.from(checkBoxElements).forEach((box, i) => {
       const checkboxName = box.name;
-      
+
       if (box.checked) {
         entry[checkboxName] = properties[i];
       }

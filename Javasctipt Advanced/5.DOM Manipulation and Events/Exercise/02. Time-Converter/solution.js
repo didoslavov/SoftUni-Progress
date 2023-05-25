@@ -16,10 +16,6 @@ function attachEventsListeners() {
         const hours = minutes / 60;
         const days = hours / 24;
 
-        clearInputFields();
-    }
-
-    function clearInputFields() {
         document.getElementById('days').value = days;
         document.getElementById('hours').value = hours;
         document.getElementById('minutes').value = minutes;

@@ -24,9 +24,11 @@ const flowerShop = {
                 if (i != space) {
                     shop.push(gardenArr[i]);
                 }
-                i++
+                i++;
             }
         }
         return shop.join(' / ');
-    }
-}
+    },
+};
+
+module.exports = flowerShop;

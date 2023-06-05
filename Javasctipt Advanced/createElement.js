@@ -1,6 +1,7 @@
 function createElement(tagName, textContent, attributes, children = []) {
     const element = document.createElement(tagName);
     const PARAMS = {
+        colspan: (value) => element.setAttribute('colspan', value),
         class: (value) => element.classList.add(value),
         id: (value) => (element.id = value),
         onclick: (value) => element.addEventListener('click', value),

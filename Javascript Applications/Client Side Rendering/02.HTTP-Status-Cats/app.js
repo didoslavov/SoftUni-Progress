@@ -1,40 +1,77 @@
 import { cats } from './catSeeder.js';
-import { html, render } from './node_modules/lit-html/lit-html.js';
 
 const root = document.getElementById('allCats');
-cats.forEach(c => (c.info = false));
+const ul = createElement('ul');
 
-update();
+cats.forEach((c) => {
+    const li = createElement('li', null, null, [
+        createElement('img', null, {
+            src: `./images/${c.imageLocation}.jpg`,
+            width: '250',
+            height: '250',
+            alt: 'Card image cap',
+        }),
+        createElement('div', null, { class: 'info' }, [
+            createElement('button', 'Show status code', { class: 'showBtn', onclick: onToggle }),
+            createElement('div', null, { class: 'status', styles: [['display', 'none']], id: '100' }, [
+                createElement('h4', `Status Code: ${c.statusCode}`),
+                createElement('p', 'Continue'),
+            ]),
+        ]),
+    ]);
 
-function update() {
-  render(
-    html`<ul>
-      ${cats.map(listTemplate)}
-    </ul>`,
-    root
-  );
+    ul.append(li);
+    root.append(ul);
+});
+
+function onToggle(e) {
+    const button = e.target;
+
+    if (button.value == 'ON') {
+        button.value = 'OFF';
+        button.textContent = 'Show status code';
+        button.nextSibling.style.display = 'none';
+    } else {
+        button.value = 'ON';
+        button.textContent = 'Hide status code';
+        button.nextSibling.style.display = 'block';
+    }
 }
 
-function listTemplate(cat) {
-  const template = html` <li>
-    <img src="./images/${cat.imageLocation}.jpg" width="250" height="250" alt="Card image cap" />
-    <div class="info">
-      <button @click=${() => toggleInfo(cat)} class="showBtn">${cat.info ? 'Hide' : 'Show'} status code</button>
-      ${cat.info
-        ? html`<div class="status" id="${cat.id}">
-            <h4>Status Code: ${cat.statusCode}</h4>
-            <p>${cat.statusMessage}</p>
-          </div>`
-        : null}
-    </div>
-  </li>`;
+function createElement(tagName, textContent, attributes, children = []) {
+    const element = document.createElement(tagName);
+    const PARAMS = {
+        alt: (value) => element.setAttribute('alt', value),
+        styles: (styles) => styles.forEach(([s, v]) => (element.style[s] = v)),
+        width: (value) => element.setAttribute('width', value),
+        height: (value) => element.setAttribute('height', value),
+        colspan: (value) => element.setAttribute('colspan', value),
+        class: (value) => element.classList.add(value),
+        id: (value) => (element.id = value),
+        onclick: (value) => element.addEventListener('click', value),
+        disabled: () => element.setAttribute('disabled', ''),
+        src: (value) => element.setAttribute('src', value),
+    };
 
-  return template;
+    if (textContent) {
+        element.textContent = textContent;
+    }
+
+    if (attributes) {
+        Object.entries(attributes).forEach(([param, value]) => PARAMS[param](value));
+    }
+
+    if (children.length == 0) {
+        return element;
+    }
+
+    children.forEach((c) => element.appendChild(c));
+
+    return element;
 }
 
 function toggleInfo(cat) {
-  cat.info = !cat.info;
-  update();
+    cat.info = !cat.info;
 }
 
 //style="display: none"

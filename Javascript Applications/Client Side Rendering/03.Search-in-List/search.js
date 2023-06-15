@@ -1,35 +1,59 @@
 import { towns } from './towns.js';
-import { html, render } from './node_modules/lit-html/lit-html.js';
 
-const ulElement = document.querySelector('ul');
+const main = document.getElementById('towns');
+
+const ulElement = createElement('ul', null, null, [...towns.map((t) => createElement('li', t))]);
+main.append(ulElement);
 
 document.querySelector('button').addEventListener('click', onSearch);
 
-render(towns.map(template), ulElement);
-
 function onSearch() {
-  const inputEl = document.getElementById('searchText');
-  const input = inputEl.value;
+    const inputEl = document.getElementById('searchText');
+    const input = inputEl.value;
 
-  let matches = 0;
+    let matches = 0;
 
-  document.querySelectorAll('li').forEach(t => {
-    t.classList.remove('active');
+    document.querySelectorAll('li').forEach((t) => {
+        t.classList.remove('active');
 
-    if (input == '') {
-      return;
-    }
+        if (input == '') {
+            return;
+        }
 
-    if (t.textContent.includes(input)) {
-      t.classList.add('active');
-      matches++;
-    }
-  });
+        if (t.textContent.includes(input)) {
+            t.classList.add('active');
+            matches++;
+        }
+    });
 
-  document.getElementById('result').textContent = `${matches} matches found`;
-  inputEl.value = '';
+    document.getElementById('result').textContent = `${matches} matches found`;
+    inputEl.value = '';
 }
 
-function template(town) {
-  return html` <li>${town}</li>`;
+function createElement(tagName, textContent, attributes, children = []) {
+    const element = document.createElement(tagName);
+    const PARAMS = {
+        colspan: (value) => element.setAttribute('colspan', value),
+        class: (value) => element.classList.add(value),
+        id: (value) => (element.id = value),
+        onclick: (value) => element.addEventListener('click', value),
+        disabled: () => element.setAttribute('disabled', ''),
+        src: (value) => element.setAttribute('src', value),
+    };
+
+    if (textContent) {
+        element.textContent = textContent;
+    }
+
+    if (attributes) {
+        Object.entries(attributes).forEach(([param, value]) => PARAMS[param](value));
+    }
+
+    if (children.length == 0) {
+        return element;
+    }
+
+    children.forEach((c) => element.appendChild(c));
+
+    return element;
 }

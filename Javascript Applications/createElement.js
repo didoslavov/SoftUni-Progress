@@ -1,6 +1,10 @@
 function createElement(tagName, textContent, attributes, children = []) {
     const element = document.createElement(tagName);
     const PARAMS = {
+        alt: (value) => element.setAttribute('alt', value),
+        styles: (styles) => styles.forEach(([s, v]) => (element.style[s] = v)),
+        width: (value) => element.setAttribute('width', value),
+        height: (value) => element.setAttribute('height', value),
         colspan: (value) => element.setAttribute('colspan', value),
         class: (value) => element.classList.add(value),
         id: (value) => (element.id = value),

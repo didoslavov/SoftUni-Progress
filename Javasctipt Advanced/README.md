@@ -25,5 +25,5 @@
 <h1 align="center">Certificate</h1>
 
 <p align="center">
-`<img src="https://github.com/didoslavov/SoftUni-Progress/blob/main/recources/fund.jpeg?raw=true" />`
+`<img src="https://github.com/didoslavov/SoftUni-Progress/blob/main/recources/advanced.jpeg?raw=true" />`
 </p>

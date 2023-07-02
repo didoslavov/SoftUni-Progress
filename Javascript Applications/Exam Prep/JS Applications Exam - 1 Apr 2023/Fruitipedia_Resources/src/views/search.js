@@ -36,5 +36,3 @@ export async function searchView(ctx) {
         ctx.render(searchTemplate(fruits, createSubmitHandler(onSearch)));
     }
 }
-
-// ${fruits.lenght == 0 ? html`<p class="no-result">No result.</p>` : html`${fruits.map(fruitCardTemplate)}`}

@@ -7,3 +7,11 @@ export async function getAll() {
 export async function getById(id) {
     return get('/data/offers/' + id);
 }
+
+export async function createOffer(data) {
+    return post('/data/offers', data);
+}
+
+export async function deleteById(id) {
+    return del('/data/offers/' + id);
+}

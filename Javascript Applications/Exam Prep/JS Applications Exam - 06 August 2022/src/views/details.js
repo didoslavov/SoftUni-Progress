@@ -1,12 +1,12 @@
-import { getById } from '../api/data.js';
+import { deleteById, getById } from '../api/data.js';
 import { html, nothing } from '../lib.js';
 
-const detailsTemplate = (offer, isLogged, isOwner) => html`<section id="details">
+const detailsTemplate = (offer, isLogged, isOwner, onDelete) => html`<section id="details">
     <div id="details-wrapper">
         <img id="details-img" src=${offer.imageUrl} alt="example1" />
         <p id="details-title">${offer.title}</p>
         <p id="details-category">Category: <span id="categories">${offer.category}</span></p>
-        <p id="details-salary">Salary: <span id="salary-number">7000</span></p>
+        <p id="details-salary">Salary: <span id="salary-number">${offer.salary}</span></p>
         <div id="info-wrapper">
             <div id="details-description">
                 <h4>Description</h4>
@@ -18,15 +18,12 @@ const detailsTemplate = (offer, isLogged, isOwner) => html`<section id="details"
             </div>
         </div>
         <p>Applications: <strong id="applications">1</strong></p>
-
-        <!--Edit and Delete are only for creator-->
         <div id="action-buttons">
             ${isOwner
                 ? html`<a href="/edit/${offer._id}" id="edit-btn">Edit</a>
-                      <a href="javasctipt:void(0)" id="delete-btn">Delete</a> `
+                      <a @click=${onDelete} href="javasctipt:void(0)" id="delete-btn">Delete</a> `
                 : nothing}
-            <!--Bonus - Only for logged-in users ( not authors )-->
-            ${isLogged && !isOwner ? html`<a href="javasctipt:void(0)" id="apply-btn">Apply</a>` : nothing}
+            ${isLogged && !isOwner ? html`<a href="javascript:void(0)" id="apply-btn">Apply</a>` : nothing}
         </div>
     </div>
 </section>`;
@@ -37,5 +34,15 @@ export async function showDetails(ctx) {
     const isLogged = ctx.user != undefined;
     const isOwner = isLogged && ctx.user._id == offer._ownerId;
 
-    ctx.render(detailsTemplate(offer, isLogged, isOwner));
+    ctx.render(detailsTemplate(offer, isLogged, isOwner, onDelete));
+
+    async function onDelete() {
+        const choice = confirm('Are you sure you want to delete this offer?');
+
+        if (choice) {
+            await deleteById(id);
+
+            ctx.page.redirect('/catalog');
+        }
+    }
 }

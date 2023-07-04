@@ -1,10 +1,12 @@
 import { page, render } from './lib.js';
 import { getUserData } from './util.js';
 import { showCatalog } from './views/catalog.js';
+import { showCreate } from './views/create.js';
 import { showDetails } from './views/details.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
 import { updateNav } from './views/navigation.js';
+import { showRegister } from './views/register.js';
 
 const main = document.querySelector('main');
 
@@ -13,9 +15,9 @@ page('/', showHome);
 page('/catalog', showCatalog);
 page('/catalog/:id', showDetails);
 page('/edit/:id', () => console.log('Edi View'));
-page('/create', () => console.log('Create View'));
+page('/create', showCreate);
 page('/login', showLogin);
-page('/register', () => console.log('Register View'));
+page('/register', showRegister);
 
 updateNav();
 page.start();

@@ -26,7 +26,7 @@ const detailsTemplate = (offer, isLogged, isOwner) => html`<section id="details"
                       <a href="javasctipt:void(0)" id="delete-btn">Delete</a> `
                 : nothing}
             <!--Bonus - Only for logged-in users ( not authors )-->
-            ${isLogged ? html`<a href="javasctipt:void(0)" id="apply-btn">Apply</a>` : nothing}
+            ${isLogged && !isOwner ? html`<a href="javasctipt:void(0)" id="apply-btn">Apply</a>` : nothing}
         </div>
     </div>
 </section>`;

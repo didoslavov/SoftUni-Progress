@@ -4,6 +4,7 @@ import { showCatalog } from './views/catalog.js';
 import { showDetails } from './views/details.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
+import { updateNav } from './views/navigation.js';
 
 const main = document.querySelector('main');
 
@@ -16,6 +17,7 @@ page('/create', () => console.log('Create View'));
 page('/login', showLogin);
 page('/register', () => console.log('Register View'));
 
+updateNav();
 page.start();
 
 function decorateContext(ctx, next) {

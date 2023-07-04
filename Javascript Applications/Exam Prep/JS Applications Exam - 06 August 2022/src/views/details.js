@@ -21,7 +21,7 @@ const detailsTemplate = (offer, isLogged, isOwner, onDelete) => html`<section id
         <div id="action-buttons">
             ${isOwner
                 ? html`<a href="/edit/${offer._id}" id="edit-btn">Edit</a>
-                      <a @click=${onDelete} href="javasctipt:void(0)" id="delete-btn">Delete</a> `
+                      <a @click=${onDelete} href="javascript:void(0)" id="delete-btn">Delete</a> `
                 : nothing}
             ${isLogged && !isOwner ? html`<a href="javascript:void(0)" id="apply-btn">Apply</a>` : nothing}
         </div>

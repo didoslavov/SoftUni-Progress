@@ -7,7 +7,7 @@ const header = document.querySelector('header');
 const navigationTemplate = (hasUser) => html` <a id="logo" href="/"><img id="logo-img" src="./images/logo.jpg" alt="" /></a>
     <nav>
         <div>
-            <a href="#">Dashboard</a>
+            <a href="/catalog">Dashboard</a>
         </div>
         ${hasUser
             ? html`<div class="user">

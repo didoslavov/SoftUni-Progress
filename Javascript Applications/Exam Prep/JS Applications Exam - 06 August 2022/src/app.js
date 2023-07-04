@@ -1,10 +1,13 @@
 import { page, render } from './lib.js';
 import { getUserData } from './util.js';
+import { showCatalog } from './views/catalog.js';
+import { showHome } from './views/home.js';
 
 const main = document.querySelector('main');
 
-page('/', () => console.log('Home View'));
-page('/catalog', () => console.log('Catalog View'));
+page(decorateContext);
+page('/', showHome);
+page('/catalog', showCatalog);
 page('/catalog/:id', () => console.log('Details View'));
 page('/edit/:id', () => console.log('Edi View'));
 page('/create', () => console.log('Create View'));

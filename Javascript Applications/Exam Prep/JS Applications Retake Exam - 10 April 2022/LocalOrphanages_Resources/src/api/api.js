@@ -25,6 +25,10 @@ async function request(method, url, data) {
             return response;
         }
 
+        if (response.status === 403) {
+            return response;
+        }
+
         const result = await response.json();
 
         if (response.ok == false) {

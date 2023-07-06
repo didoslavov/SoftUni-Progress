@@ -4,6 +4,10 @@ export async function getAllPosts() {
     return get('/data/posts?sortBy=_createdOn%20desc');
 }
 
+export async function getMyPosts(userId) {
+    return get(`/data/posts?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+}
+
 export async function getPostById(id) {
     return get('/data/posts/' + id);
 }

@@ -1,6 +1,7 @@
 import { page, render } from './lib.js';
 import { getUserData } from './util.js';
 import { showCatalog } from './views/catalog.js';
+import { showLogin } from './views/login.js';
 
 const main = document.getElementById('main-content');
 
@@ -10,7 +11,7 @@ page('/catalog/:id', () => console.log('Details Page'));
 page('/my-posts', () => console.log('My Posts Page'));
 page('/edit/:id', () => console.log('Edit Page'));
 page('/create', () => console.log('Create Page'));
-page('/login', () => console.log('Login Page'));
+page('/login', showLogin);
 page('/register', () => console.log('Register Page'));
 
 page.start();

@@ -1,11 +1,11 @@
 import { page, render } from './lib.js';
 import { getUserData } from './util.js';
+import { showCatalog } from './views/catalog.js';
 
 const main = document.getElementById('main-content');
 
 page(decorateContext);
-page('/', () => console.log('Home Page'));
-page('/catalog', () => console.log('Catalog Page'));
+page('/catalog', showCatalog);
 page('/catalog/:id', () => console.log('Details Page'));
 page('/my-posts', () => console.log('My Posts Page'));
 page('/edit/:id', () => console.log('Edit Page'));

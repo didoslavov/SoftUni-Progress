@@ -39,12 +39,12 @@ export function showCreate(ctx) {
     ctx.render(createTemplate(createSubmitHandler(onCreate)));
 
     async function onCreate({ title, description, imageUrl, address, phone }) {
-        if ([title, description, imageUrl, address, phone].some((x) => x == '')) {
+        if ([title, description, imageUrl, address, phone].some((x) => !x)) {
             return alert('All fields are required!');
         }
 
         createPost({ title, description, imageUrl, address, phone });
 
-        ctx.page.redirect('/catalog');
+        ctx.page.redirect('/');
     }
 }

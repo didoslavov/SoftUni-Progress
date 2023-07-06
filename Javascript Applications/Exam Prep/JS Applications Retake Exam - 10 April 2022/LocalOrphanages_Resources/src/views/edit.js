@@ -42,7 +42,7 @@ export async function showEdit(ctx) {
     ctx.render(editTemplate(post, createSubmitHandler(onEdit)));
 
     async function onEdit({ title, description, imageUrl, address, phone }) {
-        if ([title, description, imageUrl, address, phone].some((x) => x == '')) {
+        if ([title, description, imageUrl, address, phone].some((x) => !x)) {
             return alert('All fields are required!');
         }
 

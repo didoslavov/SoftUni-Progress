@@ -45,7 +45,7 @@ export async function showDetails(ctx) {
         if (choice) {
             await deletePost(id);
 
-            ctx.page.redirect('/catalog');
+            ctx.page.redirect('/');
         }
     }
 

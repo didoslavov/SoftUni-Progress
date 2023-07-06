@@ -26,7 +26,7 @@ async function request(method, url, data) {
         }
 
         if (response.status === 403) {
-            return response;
+            clearUserData();
         }
 
         const result = await response.json();

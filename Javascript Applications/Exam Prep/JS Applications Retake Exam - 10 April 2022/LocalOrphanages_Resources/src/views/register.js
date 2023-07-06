@@ -30,7 +30,7 @@ export function showRegister(ctx) {
     ctx.render(registerTemplate(createSubmitHandler(onRegister)));
 
     async function onRegister({ email, password, repeatPassword }) {
-        if (email == '' || password == '') {
+        if (!email || !password) {
             return alert('All fields are required!');
         }
 
@@ -41,6 +41,6 @@ export function showRegister(ctx) {
         await register(email, password);
 
         updateNav();
-        ctx.page.redirect('/catalog');
+        ctx.page.redirect('/');
     }
 }

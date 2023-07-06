@@ -25,13 +25,13 @@ export function showLogin(ctx) {
     ctx.render(loginTemplate(createSubmitHandler(onLogin)));
 
     async function onLogin({ email, password }) {
-        if (email == '' || password == '') {
+        if (!email || !password) {
             return alert('All fields are required!');
         }
 
         await login(email, password);
 
         updateNav();
-        ctx.page.redirect('/catalog');
+        ctx.page.redirect('/');
     }
 }

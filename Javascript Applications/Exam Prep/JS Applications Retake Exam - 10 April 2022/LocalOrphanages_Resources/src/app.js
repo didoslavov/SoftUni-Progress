@@ -2,6 +2,8 @@ import { page, render } from './lib.js';
 import { getUserData } from './util.js';
 import { showCatalog } from './views/catalog.js';
 import { showLogin } from './views/login.js';
+import { updateNav } from './views/navigation.js';
+import { showRegister } from './views/register.js';
 
 const main = document.getElementById('main-content');
 
@@ -12,8 +14,9 @@ page('/my-posts', () => console.log('My Posts Page'));
 page('/edit/:id', () => console.log('Edit Page'));
 page('/create', () => console.log('Create Page'));
 page('/login', showLogin);
-page('/register', () => console.log('Register Page'));
+page('/register', showRegister);
 
+updateNav();
 page.start();
 
 function decorateContext(ctx, next) {

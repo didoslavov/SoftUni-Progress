@@ -1,4 +1,4 @@
-import { getUserData } from '../util.js';
+import { clearUserData, getUserData } from '../util.js';
 
 const host = 'http://localhost:3030';
 async function request(method, url, data) {

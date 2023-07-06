@@ -12,7 +12,7 @@ export async function login(email, password) {
 }
 
 export async function register(email, password) {
-    const { _id, email: userEmail, accessToken } = await post('/users/register');
+    const { _id, email: userEmail, accessToken } = await post('/users/register', { email, password });
 
     setUserData({
         _id,

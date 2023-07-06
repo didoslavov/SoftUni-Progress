@@ -8,6 +8,7 @@ import { showRegister } from './views/register.js';
 const main = document.getElementById('main-content');
 
 page(decorateContext);
+page('/', showCatalog);
 page('/catalog', showCatalog);
 page('/catalog/:id', () => console.log('Details Page'));
 page('/my-posts', () => console.log('My Posts Page'));

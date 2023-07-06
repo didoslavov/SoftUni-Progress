@@ -1,6 +1,7 @@
 import { register } from '../api/users.js';
 import { html } from '../lib.js';
 import { createSubmitHandler } from '../util.js';
+import { updateNav } from './navigation.js';
 
 const registerTemplate = (onRegister) => html`<section id="register-page" class="auth">
     <form @submit=${onRegister} id="register">
@@ -38,6 +39,8 @@ export function showRegister(ctx) {
         }
 
         await register(email, password);
+
+        updateNav();
         ctx.page.redirect('/catalog');
     }
 }

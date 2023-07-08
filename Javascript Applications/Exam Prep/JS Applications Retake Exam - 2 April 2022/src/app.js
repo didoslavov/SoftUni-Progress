@@ -1,6 +1,7 @@
 import { page, render } from './lib.js';
 import { getUserData } from './util.js';
 import { showCatalog } from './views/catalog.js';
+import { showDetails } from './views/details.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
 import { updateNav } from './views/navigation.js';
@@ -11,7 +12,7 @@ const main = document.getElementById('content');
 page(decorateContext);
 page('/', showHome);
 page('/catalog', showCatalog);
-page('/catalog/:id', () => console.log('Details page'));
+page('/catalog/:id', showDetails);
 page('/edit/:id', () => console.log('Edit page'));
 page('/create', () => console.log('Create page'));
 page('/login', showLogin);

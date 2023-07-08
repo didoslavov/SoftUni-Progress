@@ -2,17 +2,16 @@ import { page, render } from './lib.js';
 import { getUserData } from './util.js';
 import { updateNav } from './views/navigation.js';
 
-const main = document.getElementById('main-content');
+const main = document.getElementById('content');
 
 page(decorateContext);
-page('/', showCatalog);
-page('/catalog', showCatalog);
-page('/catalog/:id', showDetails);
-page('/my-posts', showMyPosts);
-page('/edit/:id', showEdit);
-page('/create', showCreate);
-page('/login', showLogin);
-page('/register', showRegister);
+page('/', () => console.log('Home page'));
+page('/catalog', () => console.log('Catalog page'));
+page('/catalog/:id', () => console.log('Details page'));
+page('/edit/:id', () => console.log('Edit page'));
+page('/create', () => console.log('Create page'));
+page('/login', () => console.log('Login page'));
+page('/register', () => console.log('Register page'));
 
 updateNav();
 page.start();

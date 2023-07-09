@@ -2,6 +2,7 @@ import { del, get, post, put } from './api.js';
 
 const endpoints = {
     getAll: '/data/memes?sortBy=_createdOn%20desc',
+    getByUser: (userId) => `/data/memes?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`,
     getById: '/data/memes/',
     create: '/data/memes',
     edit: '/data/memes/',
@@ -26,4 +27,8 @@ export async function edit(id, data) {
 
 export async function deleteById(id) {
     return del(endpoints.delete + id);
+}
+
+export async function getByUserId(userId) {
+    return get(endpoints.getByUser(userId));
 }

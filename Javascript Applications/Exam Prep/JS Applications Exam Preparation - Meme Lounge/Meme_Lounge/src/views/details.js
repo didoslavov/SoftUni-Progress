@@ -2,7 +2,7 @@ import { getById } from '../api/data.js';
 import { html, nothing } from '../lib.js';
 
 const detailsTemplate = (meme, isOwner) => html`<section id="meme-details">
-    <h1>Meme Title: Bad code can present some problems</h1>
+    <h1>Meme Title: ${meme.title}</h1>
     <div class="meme-details">
         <div class="meme-img">
             <img alt="meme-alt" src=${meme.imageUrl} />
@@ -20,6 +20,6 @@ const detailsTemplate = (meme, isOwner) => html`<section id="meme-details">
 export async function showDetails(ctx) {
     const id = ctx.params.id;
     const meme = await getById(id);
-    const isOwner = ctx.user._id == meme._ownerId;
+    const isOwner = ctx.user?._id == meme._ownerId;
     ctx.render(detailsTemplate(meme, isOwner));
 }

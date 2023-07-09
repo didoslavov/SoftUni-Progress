@@ -42,6 +42,7 @@ export function showRegister(ctx) {
         }
 
         await register(username, email, password, gender);
+
         updateUserNav();
         ctx.page.redirect('/catalog');
     }

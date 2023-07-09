@@ -1,6 +1,6 @@
 import { login } from '../api/users.js';
 import { html } from '../lib.js';
-import { createSubmitHandler } from '../util.js';
+import { createSubmitHandler, notify } from '../util.js';
 import { updateUserNav } from './navigation.js';
 
 const loginTemplate = (onLogin) => html`<section id="login">
@@ -24,7 +24,7 @@ export function showLogin(ctx) {
 
     async function onLogin({ email, password }) {
         if (email == '' || password == '') {
-            return alert('All fields are requiered!');
+            return notify('All fields are requiered!');
         }
 
         await login(email, password);

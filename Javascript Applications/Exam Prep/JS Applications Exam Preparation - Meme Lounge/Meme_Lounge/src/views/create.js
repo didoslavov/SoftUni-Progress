@@ -1,6 +1,6 @@
 import { create } from '../api/data.js';
 import { html } from '../lib.js';
-import { createSubmitHandler } from '../util.js';
+import { createSubmitHandler, notify } from '../util.js';
 
 const createTemplate = (onCreate) => html`<section id="create-meme">
     <form @submit=${onCreate} id="create-form">
@@ -22,7 +22,7 @@ export function showCreate(ctx) {
 
     async function onCreate({ title, description, imageUrl }) {
         if ([title, description, imageUrl].some((x) => x == '')) {
-            return alert('All fields are required');
+            return notify('All fields are required');
         }
 
         await create({ title, description, imageUrl });

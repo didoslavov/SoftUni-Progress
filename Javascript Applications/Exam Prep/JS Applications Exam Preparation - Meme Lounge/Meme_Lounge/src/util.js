@@ -20,3 +20,13 @@ export function createSubmitHandler(callback) {
         callback(data);
     };
 }
+
+export function notify(message) {
+    const notifyElement = document.getElementById('errorBox');
+    const notification = document.querySelector('#errorBox span');
+
+    notifyElement.style.display = 'block';
+    notification.textContent = message;
+
+    setTimeout(() => (notifyElement.style.display = 'none'), 3000);
+}

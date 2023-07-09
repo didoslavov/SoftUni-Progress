@@ -1,6 +1,6 @@
 import { register } from '../api/users.js';
 import { html } from '../lib.js';
-import { createSubmitHandler } from '../util.js';
+import { createSubmitHandler, notify } from '../util.js';
 import { updateUserNav } from './navigation.js';
 
 const registerTemplate = (onRegister) => html`<section id="register">
@@ -34,11 +34,11 @@ export function showRegister(ctx) {
 
     async function onRegister({ username, email, password, repeatPass, gender }) {
         if (username == '' || email == '' || password == '') {
-            return alert('All fields are requiered!');
+            return notify('All fields are requiered!');
         }
 
         if (password != repeatPass) {
-            return alert("Passwords don't match!");
+            return notify("Passwords don't match!");
         }
 
         await register(username, email, password, gender);

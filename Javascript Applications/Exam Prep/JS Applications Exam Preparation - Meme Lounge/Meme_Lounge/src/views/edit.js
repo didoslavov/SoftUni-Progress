@@ -1,6 +1,6 @@
 import { edit, getById } from '../api/data.js';
 import { html } from '../lib.js';
-import { createSubmitHandler } from '../util.js';
+import { createSubmitHandler, notify } from '../util.js';
 
 const editTemplate = (meme, onEdit) => html`<section id="edit-meme">
     <form @submit=${onEdit} id="edit-form">
@@ -25,7 +25,7 @@ export async function showEdit(ctx) {
 
     async function onEdit({ title, description, imageUrl }) {
         if ([title, description, imageUrl].some((x) => x == '')) {
-            return alert('All fields are required!');
+            return notify('All fields are required!');
         }
 
         await edit(id, { title, description, imageUrl });

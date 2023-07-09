@@ -12,7 +12,7 @@ export async function getAll() {
     return get(endpoints.getAll);
 }
 
-export async function getPetById(id) {
+export async function getById(id) {
     return get(endpoints.getById + id);
 }
 

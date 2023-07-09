@@ -14,7 +14,7 @@ const homeTemplate = () => html`<section id="welcome">
 </section>`;
 
 export function showHome(ctx) {
-    if (ctx.user) {
+    if (!ctx.user) {
         ctx.render(homeTemplate());
     } else {
         ctx.render(showCatalog(ctx));

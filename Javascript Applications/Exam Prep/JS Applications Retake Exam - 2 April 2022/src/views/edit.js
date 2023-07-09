@@ -4,7 +4,7 @@ import { createSubmitHandler } from '../util.js';
 
 const editTemplate = (pet, onEdit) => html`<section id="editPage">
     <form @submit=${onEdit} class="editForm">
-        <img src="./images/editpage-dog.jpg" />
+        <img src="../images/editpage-dog.jpg" />
         <div>
             <h2>Edit PetPal</h2>
             <div class="name">

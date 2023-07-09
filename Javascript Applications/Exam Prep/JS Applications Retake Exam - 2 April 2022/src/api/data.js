@@ -6,6 +6,9 @@ const endpoints = {
     create: '/data/pets',
     edit: '/data/pets/',
     delete: '/data/pets/',
+    donate: '/data/donation',
+    totalDonations: (petId) => `/data/donation?where=petId%3D%22${petId}%22&distinct=_ownerId&count`,
+    hasDonated: (petId, userId) => `/data/donation?where=petId%3D%22${petId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
 };
 
 export async function getAllPets() {
@@ -26,4 +29,16 @@ export async function editPet(id, data) {
 
 export async function deletePet(id) {
     return del(endpoints.delete + id);
+}
+
+export async function donate(data) {
+    return post(endpoints.donate, data);
+}
+
+export async function getTotalDonations(petId) {
+    return get(endpoints.totalDonations(petId));
+}
+
+export async function getHasDonated(petId, userId) {
+    return get(endpoints.hasDonated(petId, userId));
 }

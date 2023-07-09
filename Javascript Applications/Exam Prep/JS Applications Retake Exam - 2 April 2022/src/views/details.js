@@ -1,7 +1,7 @@
-import { getPetById } from '../api/data.js';
+import { deletePet, getPetById } from '../api/data.js';
 import { html, nothing } from '../lib.js';
 
-const detailsTemplate = (pet, isLogged, isOwner) => html`<section id="detailsPage">
+const detailsTemplate = (pet, isLogged, isOwner, onDelete) => html`<section id="detailsPage">
     <div class="details">
         <div class="animalPic">
             <img src=${pet.image} />
@@ -18,7 +18,7 @@ const detailsTemplate = (pet, isLogged, isOwner) => html`<section id="detailsPag
                 ? html`<div class="actionBtn">
                       ${isOwner
                           ? html`<a href="/edit/${pet._id}" class="edit">Edit</a>
-                                <a href="javascript:void(0)" class="remove">Delete</a>`
+                                <a @click=${onDelete} href="javascript:void(0)" class="remove">Delete</a>`
                           : html`<a href="javascript:void(0)" class="donate">Donate</a>`}
                   </div>`
                 : nothing}
@@ -32,5 +32,10 @@ export async function showDetails(ctx) {
     const user = ctx.user;
     const isOwner = user && user._id === pet._ownerId;
 
-    ctx.render(detailsTemplate(pet, user, isOwner));
+    ctx.render(detailsTemplate(pet, user, isOwner, onDelete));
+
+    async function onDelete() {
+        await deletePet(id);
+        ctx.page.redirect('/');
+    }
 }

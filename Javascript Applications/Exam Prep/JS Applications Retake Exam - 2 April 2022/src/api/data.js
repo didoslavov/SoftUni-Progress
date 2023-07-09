@@ -4,8 +4,8 @@ const endpoints = {
     getAll: '/data/pets?sortBy=_createdOn%20desc&distinct=name',
     getById: '/data/pets/',
     create: '/data/pets',
-    edit: '',
-    delete: '',
+    edit: '/data/pets/',
+    delete: '/data/pets/',
 };
 
 export async function getAllPets() {
@@ -20,10 +20,10 @@ export async function createPet(data) {
     return post(endpoints.create, data);
 }
 
-export async function editPost(id, data) {
-    return put('/data/posts/' + id, data);
+export async function editPet(id, data) {
+    return put(endpoints.edit + id, data);
 }
 
-export async function deletePost(id) {
-    return del('/data/posts/' + id);
+export async function deletePet(id) {
+    return del(endpoints.delete + id);
 }

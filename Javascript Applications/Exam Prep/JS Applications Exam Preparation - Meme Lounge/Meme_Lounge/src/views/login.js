@@ -1,6 +1,7 @@
 import { login } from '../api/users.js';
 import { html } from '../lib.js';
 import { createSubmitHandler } from '../util.js';
+import { updateUserNav } from './navigation.js';
 
 const loginTemplate = (onLogin) => html`<section id="login">
     <form @submit=${onLogin} id="login-form">
@@ -27,6 +28,7 @@ export function showLogin(ctx) {
         }
 
         await login(email, password);
+        updateUserNav();
         ctx.page.redirect('/catalog');
     }
 }

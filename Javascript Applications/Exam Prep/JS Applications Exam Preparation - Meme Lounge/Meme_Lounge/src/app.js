@@ -5,6 +5,7 @@ import { showDetails } from './views/details.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
 import { updateUserNav } from './views/navigation.js';
+import { showRegister } from './views/register.js';
 
 const main = document.getElementById('content');
 
@@ -16,7 +17,7 @@ page('/my-profile', () => console.log('My profile page'));
 page('/edit/:id', () => console.log('Edit page'));
 page('/create', () => console.log('Create page'));
 page('/login', showLogin);
-page('/register', () => console.log('Register page'));
+page('/register', showRegister);
 
 updateUserNav();
 page.start();

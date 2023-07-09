@@ -1,4 +1,5 @@
-import { html, render } from '../lib.js';
+import { logout } from '../api/users.js';
+import { html, page, render } from '../lib.js';
 import { getUserData } from '../util.js';
 
 const nav = document.querySelector('header');
@@ -11,7 +12,7 @@ const navTemplate = (user) => html`<nav>
               <div class="profile">
                   <span>Welcome, ${user.email}</span>
                   <a href="/my-profile">My Profile</a>
-                  <a href="javascript:void(0)">Logout</a>
+                  <a @click=${onLogout} href="javascript:void(0)">Logout</a>
               </div>
           </div>`
         : html`<div class="guest">
@@ -26,4 +27,10 @@ const navTemplate = (user) => html`<nav>
 export function updateUserNav() {
     const user = getUserData();
     render(navTemplate(user), nav);
+}
+
+async function onLogout() {
+    await logout();
+    updateUserNav();
+    page.redirect('/catalog');
 }

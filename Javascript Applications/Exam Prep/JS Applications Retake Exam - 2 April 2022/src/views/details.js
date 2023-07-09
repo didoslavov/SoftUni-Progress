@@ -1,5 +1,5 @@
 import { deletePet, getPetById } from '../api/data.js';
-import { html, nothing } from '../lib.js';
+import { html } from '../lib.js';
 
 const detailsTemplate = (pet, isLogged, isOwner, onDelete) => html`<section id="detailsPage">
     <div class="details">
@@ -35,7 +35,11 @@ export async function showDetails(ctx) {
     ctx.render(detailsTemplate(pet, user, isOwner, onDelete));
 
     async function onDelete() {
-        await deletePet(id);
-        ctx.page.redirect('/');
+        const choice = confirm('Are you sure you want to delete this?');
+
+        if (choice) {
+            await deletePet(id);
+            ctx.page.redirect('/');
+        }
     }
 }

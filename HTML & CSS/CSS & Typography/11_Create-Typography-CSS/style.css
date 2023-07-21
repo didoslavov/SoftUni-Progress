@@ -1,0 +1,57 @@
+html {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.heading {
+    font-family: Georgia, serif;
+}
+
+table {
+    border: 1px solid lightgrey;
+    border-radius: 100px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 20px 20px;
+    font-size: 18px;
+    line-height: 1.4;
+    background-color: #c5c5c5;
+    text-align: left;
+}
+
+tr {
+    line-height: 1.4;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(235, 235, 235);
+}
+td {
+    width: 33%;
+    padding-left: 40px;
+    text-align: center;
+    padding: 10px;
+    text-align: left;
+}
+tr,
+td {
+    border: 1px solid lightgrey;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 2px solid lightgrey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    padding-left: 15px;
+}
+blockquote .author {
+    text-align: right;
+}

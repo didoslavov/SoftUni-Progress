@@ -1,0 +1,32 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css';
+
+.button {
+    cursor: pointer;
+    outline: none;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 20px;
+    padding: 3px 7px;
+    background-color: rgb(251, 251, 251);
+    color: rgb(51, 51, 51);
+}
+
+.button.hover:hover {
+    color: rgb(0, 102, 0);
+    border-color: rgb(0, 102, 0);
+}
+
+.button,
+.hover {
+    background-color: rgb(251, 251, 251);
+}
+
+.button.fill.hover:hover {
+    background-color: rgb(0, 102, 0);
+}
+
+.button.fill,
+.button.fill.hover {
+    background-color: rgb(51, 51, 51);
+    color: rgb(251, 251, 251);
+}

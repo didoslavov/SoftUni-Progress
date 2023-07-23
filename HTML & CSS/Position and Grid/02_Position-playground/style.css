@@ -1,0 +1,40 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.csss);
+
+body {
+    width: 100%;
+}
+
+div {
+    position: relative;
+    height: 50vw;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding: 50px;
+}
+
+section.card {
+    display: block;
+    position: absolute;
+    width: 33.33%;
+    max-width: fit-content;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.first {
+    grid-area: first;
+    background: rgb(22, 123, 208);
+    background: linear-gradient(90deg, rgba(22, 123, 208, 1) 9%, rgba(97, 215, 176, 1) 59%, rgba(12, 227, 156, 1) 100%);
+}
+
+.second {
+    grid-area: second;
+    background: rgb(208, 22, 82);
+    background: linear-gradient(90deg, rgba(208, 22, 82, 1) 9%, rgba(215, 132, 97, 1) 59%, rgba(227, 113, 12, 1) 100%);
+}

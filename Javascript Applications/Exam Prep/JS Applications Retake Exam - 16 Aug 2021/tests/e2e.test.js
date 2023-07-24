@@ -17,9 +17,8 @@ const endpoints = {
     details: (id) => `/data/games/${id}`,
     delete: (id) => `/data/games/${id}`,
     comments: (id) => `/data/comments?where=gameId%3D%22${id}%22`,
-    postComments: '/data/comments'
+    postComments: '/data/comments',
 };
-
 
 let browser;
 let context;
@@ -28,7 +27,7 @@ let page;
 describe('E2E tests', function () {
     // Setup
     this.timeout(DEBUG ? 120000 : 6000);
-    before(async () => browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {}));
+    before(async () => (browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {})));
     after(async () => await browser.close());
     beforeEach(async () => {
         context = await browser.newContext();
@@ -39,7 +38,6 @@ describe('E2E tests', function () {
         await page.close();
         await context.close();
     });
-
 
     // Test proper
     describe('Authentication [ 20 Points ]', () => {
@@ -77,10 +75,7 @@ describe('E2E tests', function () {
             await page.fill('[name="password"]', data.password);
             await page.fill('[name="confirm-password"]', data.password);
 
-            const [request] = await Promise.all([
-                onRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
             const postData = JSON.parse(request.postData());
 
@@ -103,11 +98,7 @@ describe('E2E tests', function () {
             await page.fill('[name="email"]', data.email);
             await page.fill('[name="password"]', data.password);
 
-
-            const [request] = await Promise.all([
-                onRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
             const postData = JSON.parse(request.postData());
             expect(postData.email).to.equal(data.email);
@@ -128,17 +119,11 @@ describe('E2E tests', function () {
             await page.fill('[name="email"]', data.email);
             await page.fill('[name="password"]', data.password);
 
-            await Promise.all([
-                onResponse(),
-                page.click('[type="submit"]')
-            ]);
+            await Promise.all([onResponse(), page.click('[type="submit"]')]);
 
             await page.waitForTimeout(interval);
 
-            const [request] = await Promise.all([
-                onRequest(),
-                page.click('nav >> text=Logout')
-            ]);
+            const [request] = await Promise.all([onRequest(), page.click('nav >> text=Logout')]);
 
             const token = request.headers()['x-authorization'];
             expect(request.method()).to.equal('GET');
@@ -192,7 +177,7 @@ describe('E2E tests', function () {
             await page.goto(host);
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('#welcome-world .game h3', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('#welcome-world .game h3', (t) => t.map((s) => s.textContent));
             expect(titles.length).to.equal(0);
             expect(await page.isVisible('text=No games yet')).to.be.true;
         });
@@ -203,7 +188,7 @@ describe('E2E tests', function () {
             await page.goto(host);
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('#welcome-world .game h3', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('#welcome-world .game h3', (t) => t.map((s) => s.textContent));
 
             expect(titles.length).to.equal(data.length);
             expect(titles[0]).to.contains(`${data[0].title}`);
@@ -225,7 +210,6 @@ describe('E2E tests', function () {
             expect(await page.textContent('.game-header h1')).to.contains(data.title);
             expect(await page.textContent('.type')).to.contains(data.category);
             expect(await page.textContent('.text')).to.contains(data.summary);
-
         });
 
         it('guest does NOT see edit/delete buttons [ 5 Points ]', async () => {
@@ -242,7 +226,6 @@ describe('E2E tests', function () {
     });
 
     describe('CRUD [ 50 Points ]', () => {
-
         // Login user
         beforeEach(async () => {
             const data = mockData.users[0];
@@ -287,10 +270,7 @@ describe('E2E tests', function () {
             await page.fill('[name="imageUrl"]', data.imageUrl);
             await page.fill('[name="summary"]', data.summary);
 
-            const [request] = await Promise.all([
-                onRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
             const postData = JSON.parse(request.postData());
 
@@ -340,8 +320,8 @@ describe('E2E tests', function () {
 
             await page.waitForSelector('form');
 
-            const inputs = await page.$$eval('.container input', t => t.map(i => i.value));
-            const textArea = await page.$$eval('.container textarea', t => t.map(i => i.value));
+            const inputs = await page.$$eval('.container input', (t) => t.map((i) => i.value));
+            const textArea = await page.$$eval('.container textarea', (t) => t.map((i) => i.value));
             expect(inputs[0]).to.contains(data.title);
             expect(inputs[1]).to.contains(data.category);
             expect(inputs[2]).to.contains(data.maxLevel);
@@ -395,10 +375,7 @@ describe('E2E tests', function () {
             await page.fill('[name="title"]', data2.title);
             await page.fill('[name="maxLevel"]', data2.maxLevel);
 
-            const [request] = await Promise.all([
-                onRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
             const postData = JSON.parse(request.postData());
 
@@ -416,20 +393,15 @@ describe('E2E tests', function () {
             await page.click(`.game:has-text("${data.title}") >> .details-btn`);
             await page.waitForTimeout(interval);
 
-            page.on('dialog', dialog => dialog.accept());
+            page.on('dialog', (dialog) => dialog.accept());
 
-            await Promise.all([
-                onResponse(),
-                page.click('text="Delete"')
-            ]);
+            await Promise.all([onResponse(), page.click('text="Delete"')]);
 
             expect(isHandled()).to.be.true;
         });
-
     });
 
     describe('All Games Page for logged-in users [ 5 Points ]', async () => {
-
         // Login user
         beforeEach(async () => {
             const data = mockData.users[0];
@@ -463,14 +435,13 @@ describe('E2E tests', function () {
             await page.click('text=All games');
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('.allGames >> .allGames-info >> h2', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('.allGames >> .allGames-info >> h2', (t) => t.map((s) => s.textContent));
             expect(titles.length).to.equal(1);
             expect(titles[0]).to.contains(`${data[0].title}`);
         });
     });
 
     describe('All Games Page for guest users [ 5 Points ]', async () => {
-
         it('check all games page with 0 games [ 2.5 Points ]', async () => {
             const { get } = await handle(endpoints.allGames);
             get([]);
@@ -496,7 +467,7 @@ describe('E2E tests', function () {
             await page.click('text=All games');
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('.allGames >> .allGames-info >> h2', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('.allGames >> .allGames-info >> h2', (t) => t.map((s) => s.textContent));
             expect(titles.length).to.equal(data.length);
 
             expect(titles[0]).to.contains(`${data[0].title}`);
@@ -507,7 +478,6 @@ describe('E2E tests', function () {
     });
 
     describe('BONUS: Comments [ 15 Points ]', async () => {
-
         it('Guest should not be able to see the section "Add new comment", but should be able to see the section "Comments" [ 2.5 Points ]', async () => {
             const data = mockData.catalog[0];
             const { get } = await handle(endpoints.details(data._id));
@@ -532,13 +502,12 @@ describe('E2E tests', function () {
 
             await page.click(`.game:has-text("${data.title}") >> .details-btn`);
             await page.waitForTimeout(interval);
-            const comments = await page.$$eval('details-comments ul li', t => t.map(s => s.textContent));
+            const comments = await page.$$eval('details-comments ul li', (t) => t.map((s) => s.textContent));
             expect(comments.length).to.equal(0);
             expect(await page.isVisible('text=No comments.')).to.be.true;
-
         });
 
-        it('Comments field can\'t work with empty field [ 2.5 Points ]', async () => {
+        it("Comments field can't work with empty field [ 2.5 Points ]", async () => {
             const user = mockData.users[0];
             const data = mockData.catalog[2];
 
@@ -601,10 +570,7 @@ describe('E2E tests', function () {
 
             await page.fill('[name="comment"]', `${comment}`);
 
-            const [request] = await Promise.all([
-                onRequest(),
-                await page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([onRequest(), await page.click('[type="submit"]')]);
             await page.waitForTimeout(interval);
             const postData = JSON.parse(request.postData());
 
@@ -640,22 +606,18 @@ describe('E2E tests', function () {
             await page.fill('[name="comment"]', comments[0].comment);
 
             getComments(comments.slice(0, 1));
-            
-            
-            const [request] = await Promise.all([
-                onRequest(),
-                page.click('[type="submit"]')
-            ]);
+
+            const [request] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
 
             await page.waitForTimeout(interval);
 
             const postData = JSON.parse(request.postData());
             expect(postData.gameId).to.equal(data._id);
             expect(postData.comment).to.equal(comments[0].comment);
-      
+
             await page.waitForTimeout(interval);
-            let allComments = await page.$$eval('.details-comments ul li', t => t.map(s => s.textContent));
-    
+            let allComments = await page.$$eval('.details-comments ul li', (t) => t.map((s) => s.textContent));
+
             expect(allComments.length).to.be.equal(comments.length - 1);
             expect(allComments[0]).to.contains(comments[0].comment);
 
@@ -671,32 +633,27 @@ describe('E2E tests', function () {
 
             getComments(comments);
 
-            const [request2] = await Promise.all([
-                onRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request2] = await Promise.all([onRequest(), page.click('[type="submit"]')]);
             await page.waitForTimeout(interval);
 
             const postData2 = JSON.parse(request2.postData());
             expect(postData2.gameId).to.equal(data._id);
             expect(postData2.comment).to.equal(comments[1].comment);
-      
 
-            allComments = await page.$$eval('.details-comments ul li', t => t.map(s => s.textContent));
+            allComments = await page.$$eval('.details-comments ul li', (t) => t.map((s) => s.textContent));
             expect(allComments.length).to.be.equal(comments.length);
             expect(allComments[0]).to.contains(comments[0].comment);
             expect(allComments[1]).to.contains(comments[1].comment);
             await page.waitForTimeout(interval);
         });
     });
-
 });
 
 async function setupContext(context) {
     // Authentication
     await handleContext(context, endpoints.login, { post: mockData.users[0] });
     await handleContext(context, endpoints.register, { post: mockData.users[0] });
-    await handleContext(context, endpoints.logout, { get: h => h('', { json: false, status: 204 }) });
+    await handleContext(context, endpoints.logout, { get: (h) => h('', { json: false, status: 204 }) });
 
     // Catalog and Details
     await handleContext(context, endpoints.catalog, { get: mockData.catalog.slice(0, 3) });
@@ -713,12 +670,15 @@ async function setupContext(context) {
     await handleContext(context, endpoints.profile('0001'), { get: mockData.catalog.slice(0, 2) });
 
     // Block external calls
-    await context.route(url => url.href.slice(0, host.length) != host, route => {
-        if (DEBUG) {
-            console.log('Preventing external call to ' + route.request().url());
+    await context.route(
+        (url) => url.href.slice(0, host.length) != host,
+        (route) => {
+            if (DEBUG) {
+                console.log('Preventing external call to ' + route.request().url());
+            }
+            route.abort();
         }
-        route.abort();
-    });
+    );
 }
 
 function handle(match, handlers) {
@@ -737,7 +697,7 @@ async function handleRaw(match, handlers) {
         put: (returns, options) => request('PUT', returns, options),
         patch: (returns, options) => request('PATCH', returns, options),
         del: (returns, options) => request('DELETE', returns, options),
-        delete: (returns, options) => request('DELETE', returns, options)
+        delete: (returns, options) => request('DELETE', returns, options),
     };
 
     const context = this;
@@ -789,16 +749,19 @@ async function handleRaw(match, handlers) {
             return current.url().toLowerCase().includes(match.toLowerCase());
         }
     }
-};
+}
 
 function respond(data, options = {}) {
-    options = Object.assign({
-        json: true,
-        status: 200
-    }, options);
+    options = Object.assign(
+        {
+            json: true,
+            status: 200,
+        },
+        options
+    );
 
     const headers = {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
     };
     if (options.json) {
         headers['Content-Type'] = 'application/json';
@@ -808,6 +771,6 @@ function respond(data, options = {}) {
     return {
         status: options.status,
         headers,
-        body: data
+        body: data,
     };
 }

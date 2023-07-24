@@ -3,6 +3,7 @@ import { render } from './lib.js';
 import { getUserData } from './util.js';
 import { showCatalog } from './views/catalog.js';
 import { showLogin } from './views/login.js';
+import { showMyBooks } from './views/my-books.js';
 import { updateNav } from './views/navigation.js';
 import { showRegister } from './views/register.js';
 
@@ -11,7 +12,7 @@ const main = document.getElementById('site-content');
 page(decorateContext);
 page('/', showCatalog);
 page('/catalog', showCatalog);
-page('/my-books', () => console.log('My books page'));
+page('/my-books', showMyBooks);
 page('/create', () => console.log('Create page'));
 page('/details/:id', () => console.log('Details page'));
 page('/edit/:id', () => console.log('Edit page'));

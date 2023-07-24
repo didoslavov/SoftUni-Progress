@@ -1,44 +1,34 @@
 import { del, get, post, put } from './api.js';
 
 const endpoints = {
-    getRecent: '/data/games?sortBy=_createdOn%20desc&distinct=category',
+    getMyBooks: (userId) => `/data/books?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`,
     getAll: '/data/books?sortBy=_createdOn%20desc',
-    getById: '/data/games/',
-    create: '/data/games',
-    edit: '/data/games/',
-    delete: '/data/games/',
-    createComment: '/data/comments',
-    allComments: (gameId) => `/data/comments?where=gameId%3D%22${gameId}%22`,
+    getById: '/data/books/',
+    create: '/data/books',
+    edit: '/data/books/',
+    delete: '/data/books/',
 };
 
 export async function getAll() {
     return get(endpoints.getAll);
 }
 
-export async function getRecent() {
-    return get(endpoints.getRecent);
+export async function getMyBooks(id) {
+    return get(endpoints.getMyBooks(id));
 }
 
 export async function getById(id) {
     return get(endpoints.getById + id);
 }
 
-export async function createGame(data) {
+export async function createBook(data) {
     return post(endpoints.create, data);
 }
 
-export async function editGame(id, data) {
+export async function editBook(id, data) {
     return put(endpoints.edit + id, data);
 }
 
-export async function deleteGame(id) {
+export async function deleteBook(id) {
     return del(endpoints.delete + id);
-}
-
-export async function createComment(data) {
-    return post(endpoints.createComment, data);
-}
-
-export async function getTotalComments(gameId) {
-    return get(endpoints.allComments(gameId));
 }

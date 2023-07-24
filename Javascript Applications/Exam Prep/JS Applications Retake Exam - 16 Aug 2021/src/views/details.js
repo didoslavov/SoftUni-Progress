@@ -1,8 +1,8 @@
-import { createComment, getById, getTotalComments } from '../api/data.js';
+import { createComment, deleteGame, getById, getTotalComments } from '../api/data.js';
 import { html, nothing } from '../lib.js';
 import { createSubmitHandler } from '../util.js';
 
-const detailsTemplate = (game, isOwner, isLogged, comments, onSubmit) => html`<section id="game-details">
+const detailsTemplate = (game, isOwner, isLogged, comments, onSubmit, onDelete) => html`<section id="game-details">
     <h1>Game Details</h1>
     <div class="info-section">
         <div class="game-header">
@@ -24,7 +24,7 @@ const detailsTemplate = (game, isOwner, isLogged, comments, onSubmit) => html`<s
         ${isOwner
             ? html`<div class="buttons">
                   <a href="/edit/${game._id}" class="button">Edit</a>
-                  <a href="javascript:void(0)" class="button">Delete</a>
+                  <a @click=${onDelete} href="javascript:void(0)" class="button">Delete</a>
               </div>`
             : nothing}
     </div>
@@ -49,10 +49,19 @@ export async function showDetails(ctx) {
     const user = ctx.user != undefined;
     const isOwner = ctx.user?._id == game._ownerId;
 
-    ctx.render(detailsTemplate(game, isOwner, user, comments, createSubmitHandler(onSubmitComment)));
+    ctx.render(detailsTemplate(game, isOwner, user, comments, createSubmitHandler(onSubmitComment), onDelete));
 
     async function onSubmitComment({ comment }) {
         await createComment({ gameId: id, comment });
         ctx.page.redirect(`/details/${game._id}`);
+    }
+
+    async function onDelete() {
+        const choice = confirm('Are you sure?');
+
+        if (choice) {
+            await deleteGame(id);
+            ctx.page.redirect('/');
+        }
     }
 }

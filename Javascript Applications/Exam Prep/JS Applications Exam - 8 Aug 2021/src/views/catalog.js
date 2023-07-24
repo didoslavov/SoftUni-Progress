@@ -1,5 +1,6 @@
 import { getAll } from '../api/data.js';
 import { html } from '../lib.js';
+import { updateNav } from './navigation.js';
 
 const catalogTepmlate = (books) => html` <section id="dashboard-page" class="dashboard">
     <h1>Dashboard</h1>
@@ -20,5 +21,6 @@ const bookTemplate = (book) => html`<li class="otherBooks">
 export async function showCatalog(ctx) {
     const books = await getAll();
 
+    updateNav();
     ctx.render(catalogTepmlate(books));
 }

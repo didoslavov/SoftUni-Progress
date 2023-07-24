@@ -1,7 +1,8 @@
 import { del, get, post, put } from './api.js';
 
 const endpoints = {
-    getAll: '/data/games?sortBy=_createdOn%20desc&distinct=category',
+    getRecent: '/data/games?sortBy=_createdOn%20desc&distinct=category',
+    getAll: '/data/games?sortBy=_createdOn%20desc',
     getById: '/data/games/',
     create: '/data/games',
     edit: '/data/games/',
@@ -12,6 +13,10 @@ const endpoints = {
 
 export async function getAll() {
     return get(endpoints.getAll);
+}
+
+export async function getRecent() {
+    return get(endpoints.getRecent);
 }
 
 export async function getById(id) {

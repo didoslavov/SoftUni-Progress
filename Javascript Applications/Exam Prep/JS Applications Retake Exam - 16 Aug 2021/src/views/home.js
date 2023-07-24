@@ -1,4 +1,4 @@
-import { getAll } from '../api/data.js';
+import { getRecent } from '../api/data.js';
 import { html } from '../lib.js';
 import { updateNav } from './navigation.js';
 
@@ -28,7 +28,7 @@ const gameTemplate = (game) => html`<div class="game">
 </div>`;
 
 export async function showHome(ctx) {
-    const recentGames = await getAll();
+    const recentGames = await getRecent();
 
     updateNav();
     ctx.render(homeTemplate(recentGames));

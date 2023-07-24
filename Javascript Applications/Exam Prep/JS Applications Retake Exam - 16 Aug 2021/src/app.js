@@ -1,6 +1,7 @@
 import { page } from './lib.js';
 import { render } from './lib.js';
 import { getUserData } from './util.js';
+import { showCatalog } from './views/catalog.js';
 import { showCreate } from './views/create.js';
 import { showDetails } from './views/details.js';
 import { showHome } from './views/home.js';
@@ -12,7 +13,7 @@ const main = document.getElementById('box');
 
 page(decorateContext);
 page('/', showHome);
-page('/catalog', () => console.log('Catalog Page'));
+page('/catalog', showCatalog);
 page('/create', showCreate);
 page('/details/:id', showDetails);
 page('/edit/:id', () => console.log('Edit Page'));

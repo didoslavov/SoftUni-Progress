@@ -18,7 +18,7 @@ const endpoints = {
     details: (id) => `/data/books/${id}`,
     profile: (id) => `/data/books?where=_ownerId%3D%22${id}%22&sortBy=_createdOn%20desc`,
     total: (bookId) => `/data/likes?where=bookId%3D%22${bookId}%22&distinct=_ownerId&count`,
-    own: (bookId, userId) => `/data/likes?where=bookId%3D%22${bookId}%22%20and%20_ownerId%3D%22${userId}%22&count`
+    own: (bookId, userId) => `/data/likes?where=bookId%3D%22${bookId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
 };
 
 let browser;
@@ -28,7 +28,7 @@ let page;
 describe('E2E tests', function () {
     // Setup
     this.timeout(DEBUG ? 120000 : timeout);
-    before(async () => browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {}));
+    before(async () => (browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {})));
     after(async () => await browser.close());
     beforeEach(async () => {
         context = await browser.newContext();
@@ -73,10 +73,7 @@ describe('E2E tests', function () {
             await page.fill('[name="password"]', data.password);
             await page.fill('[name="confirm-pass"]', data.password);
 
-            const [request] = await Promise.all([
-                post.waitForRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([post.waitForRequest(), page.click('[type="submit"]')]);
 
             const postData = JSON.parse(request.postData());
 
@@ -98,10 +95,7 @@ describe('E2E tests', function () {
             await page.fill('[name="email"]', data.email);
             await page.fill('[name="password"]', data.password);
 
-            const [request] = await Promise.all([
-                post.waitForRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([post.waitForRequest(), page.click('[type="submit"]')]);
 
             const postData = JSON.parse(request.postData());
             expect(postData.username).to.equal(data.username);
@@ -111,7 +105,9 @@ describe('E2E tests', function () {
         it('logout makes correct API call [ 5 Points ]', async () => {
             const data = mockData.users[0];
             const { post: loginPost } = await createHandler(endpoints.login, { post: data });
-            const { get: logoutGet } = await createHandler(endpoints.logout, { get: { data: '', options: { json: false, status: 204 } } });
+            const { get: logoutGet } = await createHandler(endpoints.logout, {
+                get: { data: '', options: { json: false, status: 204 } },
+            });
 
             await page.goto(host);
             await page.waitForTimeout(interval);
@@ -123,17 +119,11 @@ describe('E2E tests', function () {
             await page.fill('[name="email"]', data.email);
             await page.fill('[name="password"]', data.password);
 
-            await Promise.all([
-                loginPost.waitForResponse(),
-                page.click('[type="submit"]')
-            ]);
+            await Promise.all([loginPost.waitForResponse(), page.click('[type="submit"]')]);
 
             await page.waitForTimeout(interval);
 
-            const [request] = await Promise.all([
-                logoutGet.waitForRequest(),
-                page.click('nav >> text=Logout')
-            ]);
+            const [request] = await Promise.all([logoutGet.waitForRequest(), page.click('nav >> text=Logout')]);
 
             const token = request.headers()['x-authorization'];
             expect(token).to.equal(data.accessToken);
@@ -192,7 +182,7 @@ describe('E2E tests', function () {
             await page.click('nav >> text=Dashboard');
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('#dashboard-page ul li', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('#dashboard-page ul li', (t) => t.map((s) => s.textContent));
             expect(titles.length).to.equal(0);
             expect(await page.isVisible('text=No books in database!')).to.be.true;
         });
@@ -204,7 +194,7 @@ describe('E2E tests', function () {
             await page.click('nav >> text=Dashboard');
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('#dashboard-page ul li', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('#dashboard-page ul li', (t) => t.map((s) => s.textContent));
 
             expect(titles.length).to.equal(mockData.catalog.length);
             expect(titles[0]).to.contains(mockData.catalog[0].title);
@@ -230,7 +220,6 @@ describe('E2E tests', function () {
             expect(await page.isVisible(`h3:has-text("${data.title}")`)).to.be.true;
             expect(await page.isVisible(`.type:has-text("${data.type}")`)).to.be.true;
             expect(await page.isVisible(`.book-description > p:has-text("${data.description}")`)).to.be.true;
-
         });
 
         it('guest does NOT see edit/delete buttons [ 5 Points ]', async () => {
@@ -240,7 +229,6 @@ describe('E2E tests', function () {
 
             await page.click('nav >> text=Dashboard');
             await page.waitForTimeout(interval);
-
 
             await page.waitForSelector('#dashboard-page');
             await page.click(`#dashboard-page > ul li:has-text("${data.title}") >> text=Details`);
@@ -252,7 +240,6 @@ describe('E2E tests', function () {
     });
 
     describe('CRUD [ 45 Points ]', () => {
-
         // Login user
         beforeEach(async () => {
             const data = mockData.users[0];
@@ -293,10 +280,7 @@ describe('E2E tests', function () {
             await page.selectOption('#type', { value: data.type });
             await page.fill('[name="description"]', data.description);
 
-            const [request] = await Promise.all([
-                post.waitForRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([post.waitForRequest(), page.click('[type="submit"]')]);
 
             const postData = JSON.parse(request.postData());
 
@@ -318,7 +302,6 @@ describe('E2E tests', function () {
 
             expect(await page.isVisible('text="Delete"')).to.be.false;
             expect(await page.isVisible('text="Edit"')).to.be.false;
-
         });
 
         it('author sees delete and edit buttons [ 5 Points ]', async () => {
@@ -351,10 +334,10 @@ describe('E2E tests', function () {
             await page.waitForSelector('form');
 
             const formData = {
-                title: await page.$eval('[name="title"]', t => t.value),
-                type: await page.$eval('[name="type"]', t => t.value),
-                imageUrl: await page.$eval('[name="imageUrl"]', t => t.value),
-                description: await page.$eval('[name="description"]', t => t.value)
+                title: await page.$eval('[name="title"]', (t) => t.value),
+                type: await page.$eval('[name="type"]', (t) => t.value),
+                imageUrl: await page.$eval('[name="imageUrl"]', (t) => t.value),
+                description: await page.$eval('[name="description"]', (t) => t.value),
             };
             expect(formData.title).to.equal(data.title);
             expect(formData.type).to.equal(data.type);
@@ -407,10 +390,7 @@ describe('E2E tests', function () {
             await page.selectOption('#type', { value: 'Other' });
             await page.fill('[name="description"]', data.description + 'edit');
 
-            const [request] = await Promise.all([
-                put.waitForRequest(),
-                page.click('[type="submit"]')
-            ]);
+            const [request] = await Promise.all([put.waitForRequest(), page.click('[type="submit"]')]);
 
             const postData = JSON.parse(request.postData());
 
@@ -431,12 +411,9 @@ describe('E2E tests', function () {
             await page.click(`#dashboard-page > ul li:has-text("${data.title}") >> text=Details`);
             await page.waitForTimeout(interval);
 
-            page.on('dialog', dialog => dialog.accept());
+            page.on('dialog', (dialog) => dialog.accept());
 
-            await Promise.all([
-                del.waitForResponse(),
-                page.click('text="Delete"')
-            ]);
+            await Promise.all([del.waitForResponse(), page.click('text="Delete"')]);
 
             expect(del.isCalled).to.be.true;
         });
@@ -463,7 +440,7 @@ describe('E2E tests', function () {
             await page.click('text=My Books');
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('#my-books-page ul li', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('#my-books-page ul li', (t) => t.map((s) => s.textContent));
             expect(titles.length).to.equal(2);
             expect(await page.isVisible('text=No books in database!')).to.be.false;
         });
@@ -475,7 +452,7 @@ describe('E2E tests', function () {
             await page.click('text=My Books');
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('#my-books-page ul li', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('#my-books-page ul li', (t) => t.map((s) => s.textContent));
             expect(titles.length).to.equal(0);
             expect(await page.isVisible('text=No books in database!')).to.be.true;
         });
@@ -488,7 +465,7 @@ describe('E2E tests', function () {
             await page.click('text=My Books');
             await page.waitForTimeout(interval);
 
-            const titles = await page.$$eval('#my-books-page ul li', t => t.map(s => s.textContent));
+            const titles = await page.$$eval('#my-books-page ul li', (t) => t.map((s) => s.textContent));
             const firstImg = await page.getAttribute(`.my-books-list > li:has-text("${mock[0].title}") img`, 'src');
             const secodnImg = await page.getAttribute(`.my-books-list > li:has-text("${mock[1].title}") img`, 'src');
             const thirdImg = await page.getAttribute(`.my-books-list > li:has-text("${mock[2].title}") img`, 'src');
@@ -520,11 +497,9 @@ describe('E2E tests', function () {
             expect(await page.isVisible('text="Delete"')).to.be.true;
             expect(await page.isVisible('text="Edit"')).to.be.true;
         });
-
     });
 
     describe('BONUS : Like functionality  [ 15 Points ]', async () => {
-
         it('Like button is not visible for guest users [ 2.5 Points ]', async () => {
             const data = mockData.catalog[0];
             await page.goto(host);
@@ -535,7 +510,7 @@ describe('E2E tests', function () {
             await page.waitForSelector('#dashboard-page');
             await page.click(`#dashboard-page > ul li:has-text("${data.title}") >> text=Details`);
             await page.waitForTimeout(interval);
-            const likes = await page.$$eval('.actions .likes', t => t.map(s => s.textContent));
+            const likes = await page.$$eval('.actions .likes', (t) => t.map((s) => s.textContent));
 
             expect(await page.isVisible('.actions .button >> text="Like"')).to.be.false;
             expect(likes[0]).to.contains('Likes: 6');
@@ -560,7 +535,7 @@ describe('E2E tests', function () {
             await page.click('nav >> text=Dashboard');
             await page.click(`#dashboard-page > ul li:has-text("${data.title}") >> text=Details`);
             await page.waitForTimeout(interval);
-            const likes = await page.$$eval('.actions .likes', t => t.map(s => s.textContent));
+            const likes = await page.$$eval('.actions .likes', (t) => t.map((s) => s.textContent));
             expect(await page.isVisible('.actions .button >> text="Like"')).to.be.true;
             expect(likes[0]).to.contains('Likes: 7');
         });
@@ -583,7 +558,7 @@ describe('E2E tests', function () {
             await page.click('nav >> text=Dashboard');
             await page.click(`#dashboard-page > ul li:has-text("${data.title}") >> text=Details`);
             await page.waitForTimeout(interval);
-            const likes = await page.$$eval('.actions .likes', t => t.map(s => s.textContent));
+            const likes = await page.$$eval('.actions .likes', (t) => t.map((s) => s.textContent));
             expect(await page.isVisible('.actions .button >> text="Like"')).to.be.false;
             expect(likes[0]).to.contains('Likes: 6');
         });
@@ -611,10 +586,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('.actions >> text="Like"')).to.be.true;
 
             await createHandler(endpoints.own('1003', '0001'), { get: 1 }, page);
-            const [request] = await Promise.all([
-                post.waitForRequest(),
-                page.click('.actions >> text="Like"')
-            ]);
+            const [request] = await Promise.all([post.waitForRequest(), page.click('.actions >> text="Like"')]);
 
             const postData = JSON.parse(request.postData());
 
@@ -628,7 +600,6 @@ describe('E2E tests', function () {
             await page.click(`#dashboard-page > ul li:has-text("${data.title}") >> text=Details`);
             await page.waitForTimeout(interval);
             expect(await page.isVisible('.actions >> text="Like"')).to.be.false;
-
         });
 
         it('Like button should increase total likes by 1 after a click on it [ 5 Points ]', async () => {
@@ -651,22 +622,18 @@ describe('E2E tests', function () {
             await page.click(`#dashboard-page > ul li:has-text("${data.title}") >> text=Details`);
             await page.waitForTimeout(interval);
 
-            let likes = await page.$$eval('.actions .likes', t => t.map(s => s.textContent));
+            let likes = await page.$$eval('.actions .likes', (t) => t.map((s) => s.textContent));
             expect(likes[0]).to.contains('Likes: 7');
 
             await createHandler(endpoints.own('1003', '0001'), { get: 1 }, page);
             await createHandler(endpoints.total('1003'), { get: 8 }, page);
 
-            const [request] = await Promise.all([
-                post.waitForRequest(),
-                page.click('.actions >> text="Like"')
-            ]);
+            const [request] = await Promise.all([post.waitForRequest(), page.click('.actions >> text="Like"')]);
 
             await page.waitForTimeout(interval);
-            likes = await page.$$eval('.actions .likes', t => t.map(s => s.textContent));
+            likes = await page.$$eval('.actions .likes', (t) => t.map((s) => s.textContent));
             expect(likes[0]).to.contains('Likes: 8');
         });
-
     });
 });
 
@@ -699,12 +666,15 @@ async function setupContext(context) {
     await createHandler(endpoints.details('1005'), { get: mockData.catalog[4] }, context);
 
     // Block external calls
-    await context.route(url => url.href.slice(0, host.length) != host, route => {
-        if (DEBUG) {
-            console.log('Preventing external call to ' + route.request().url());
+    await context.route(
+        (url) => url.href.slice(0, host.length) != host,
+        (route) => {
+            if (DEBUG) {
+                console.log('Preventing external call to ' + route.request().url());
+            }
+            route.abort();
         }
-        route.abort();
-    });
+    );
 }
 
 /**
@@ -748,14 +718,16 @@ async function setupContext(context) {
 async function createHandler(match, handlers = {}, context) {
     const methodHandlers = {};
     const result = {};
-    ['get', 'post', 'put', 'patch', 'delete'].forEach(method => Object.defineProperty(result, method, {
-        get: () => undefined,
-        set: (value) => createMethodHandler(method, ...parseOptions(value)),
-        configurable: true
-    }));
+    ['get', 'post', 'put', 'patch', 'delete'].forEach((method) =>
+        Object.defineProperty(result, method, {
+            get: () => undefined,
+            set: (value) => createMethodHandler(method, ...parseOptions(value)),
+            configurable: true,
+        })
+    );
 
     context = context || page;
-    Object.entries(handlers).forEach(([k, v]) => result[k] = v);
+    Object.entries(handlers).forEach(([k, v]) => (result[k] = v));
 
     await context.route(urlPredicate, (route, request) => {
         if (DEBUG) {
@@ -770,7 +742,6 @@ async function createHandler(match, handlers = {}, context) {
         }
     });
 
-
     return result;
 
     function createMethodHandler(method, returns, options) {
@@ -784,7 +755,7 @@ async function createHandler(match, handlers = {}, context) {
 
         const props = {
             waitForRequest: () => context.waitForRequest(urlPredicate),
-            waitForResponse: () => context.waitForResponse(urlPredicate)
+            waitForResponse: () => context.waitForResponse(urlPredicate),
         };
         Object.defineProperty(props, 'isCalled', { get: () => called });
         Object.defineProperty(result, method, { get: () => props });
@@ -805,13 +776,16 @@ async function createHandler(match, handlers = {}, context) {
 }
 
 function respond(data, options = {}) {
-    options = Object.assign({
-        json: true,
-        status: 200
-    }, options);
+    options = Object.assign(
+        {
+            json: true,
+            status: 200,
+        },
+        options
+    );
 
     const headers = {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
     };
     if (options.json) {
         headers['Content-Type'] = 'application/json';
@@ -821,6 +795,6 @@ function respond(data, options = {}) {
     return {
         status: options.status,
         headers,
-        body: data
+        body: data,
     };
 }

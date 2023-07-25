@@ -1,5 +1,6 @@
 import { getAll } from '../api/data.js';
 import { html } from '../lib.js';
+import { updateNav } from './navigation.js';
 
 const homeTemplate = (theaters) => html`<section class="welcomePage">
     <div id="welcomeMessage">
@@ -37,5 +38,6 @@ const theatreTemplate = (theatre) => html` <div class="eventsInfo">
 export async function showHome(ctx) {
     const theaters = await getAll();
 
+    updateNav();
     ctx.render(homeTemplate(theaters));
 }

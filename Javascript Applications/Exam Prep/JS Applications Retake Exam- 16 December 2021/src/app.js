@@ -5,13 +5,14 @@ import { showCreate } from './views/create.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
 import { updateNav } from './views/navigation.js';
+import { showProfile } from './views/profile.js';
 import { showRegister } from './views/register.js';
 
 const main = document.getElementById('content');
 
 page(decorateContext);
 page('/', showHome);
-page('/profile', () => console.log('Profile Page'));
+page('/profile', showProfile);
 page('/create', showCreate);
 page('/details/:id', () => console.log('Details Page'));
 page('/edit/:id', () => console.log('Edit Page'));

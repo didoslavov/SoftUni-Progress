@@ -1,7 +1,7 @@
 import { del, get, post, put } from './api.js';
 
 const endpoints = {
-    getMyBooks: (userId) => `/data/books?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`,
+    getMyTheaters: (userId) => `/data/theaters?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`,
     getAll: '/data/theaters?sortBy=_createdOn%20desc&distinct=title',
     getById: '/data/theaters/',
     create: '/data/theaters',
@@ -17,7 +17,7 @@ export async function getAll() {
 }
 
 export async function getMyTheaters(id) {
-    return get(endpoints.getTheaters(id));
+    return get(endpoints.getMyTheaters(id));
 }
 
 export async function getById(id) {

@@ -2,23 +2,18 @@ import { logout } from '../api/users.js';
 import { html, page, render } from '../lib.js';
 import { getUserData } from '../util.js';
 
-const header = document.getElementById('site-header');
+const header = document.querySelector('header');
 
-const navTemplate = (user) => html`<nav class="navbar">
-    <section class="navbar-dashboard">
-        <a href="/catalog">Dashboard</a>
+const navTemplate = (user) => html`<nav>
+    <a href="/">Theater</a>
+    <ul>
         ${user
-            ? html`<div id="user">
-                  <span>Welcome, ${user.email}</span>
-                  <a class="button" href="/my-books">My Books</a>
-                  <a class="button" href="/create">Add Book</a>
-                  <a @click=${onLogout} class="button" href="javascript:void(0)">Logout</a>
-              </div>`
-            : html` <div id="guest">
-                  <a class="button" href="/login">Login</a>
-                  <a class="button" href="/register">Register</a>
-              </div>`}
-    </section>
+            ? html`<li><a href="/profile">Profile</a></li>
+                  <li><a href="/create">Create Event</a></li>
+                  <li><a href="javascript:void(0)">Logout</a></li>`
+            : html`<li><a href="/login">Login</a></li>
+                  <li><a href="/register">Register</a></li>`}
+    </ul>
 </nav>`;
 
 export function updateNav() {

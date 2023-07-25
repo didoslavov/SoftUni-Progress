@@ -1,26 +1,19 @@
 import { page } from './lib.js';
 import { render } from './lib.js';
 import { getUserData } from './util.js';
-import { showCatalog } from './views/catalog.js';
-import { showCreate } from './views/create.js';
-import { showDetails } from './views/details.js';
-import { showEdit } from './views/edit.js';
-import { showLogin } from './views/login.js';
-import { showMyBooks } from './views/my-books.js';
 import { updateNav } from './views/navigation.js';
-import { showRegister } from './views/register.js';
 
-const main = document.getElementById('site-content');
+const main = document.getElementById('content');
 
 page(decorateContext);
-page('/', showCatalog);
-page('/catalog', showCatalog);
-page('/my-books', showMyBooks);
-page('/create', showCreate);
-page('/details/:id', showDetails);
-page('/edit/:id', showEdit);
-page('/login', showLogin);
-page('/register', showRegister);
+page('/', () => console.log('Home Page'));
+page('/catalog', () => console.log('Catalog Page'));
+page('/profile', () => console.log('Profile Page'));
+page('/create', () => console.log('Create Page'));
+page('/details/:id', () => console.log('Details Page'));
+page('/edit/:id', () => console.log('Edit Page'));
+page('/login', () => console.log('Login Page'));
+page('/register', () => console.log('Register Page'));
 
 updateNav();
 page.start();

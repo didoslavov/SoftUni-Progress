@@ -25,12 +25,12 @@ const loginTemplate = (onSubmit) => html` <section id="loginPage">
 export function showLogin(ctx) {
     ctx.render(loginTemplate(createSubmitHandler(onSubmit)));
 
-    async function onSubmit({ email, passowrd }) {
-        if (email == '' || passowrd == '') {
+    async function onSubmit({ email, password }) {
+        if (email == '' || password == '') {
             return alert('All fields are required!');
         }
 
-        await login(email, passowrd);
+        await login(email, password);
         ctx.page.redirect('/');
     }
 }

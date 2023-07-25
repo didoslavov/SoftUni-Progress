@@ -28,16 +28,16 @@ const registerTemplate = (onSubmit) => html`<section id="registerPage">
 export function showRegister(ctx) {
     ctx.render(registerTemplate(createSubmitHandler(onSubmit)));
 
-    async function onSubmit({ email, passowrd, 'conf-pass': repass }) {
-        if (email == '' || passowrd == '') {
+    async function onSubmit({ email, password, 'conf-pass': repass }) {
+        if (email == '' || password == '') {
             return alert('All fields are required!');
         }
 
-        if (passowrd != repass) {
+        if (password != repass) {
             return alert("Passwords don't match!");
         }
 
-        await register(email, passowrd);
+        await register(email, password);
         ctx.page.redirect('/');
     }
 }

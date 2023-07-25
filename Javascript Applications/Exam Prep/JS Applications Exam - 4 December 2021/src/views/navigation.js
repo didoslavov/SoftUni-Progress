@@ -12,7 +12,7 @@ const navTemplate = (user) => html` <nav>
         <li><a href="/search">Search</a></li>
         ${user
             ? html`<li><a href="/create">Create Album</a></li>
-                  <li><a href="javascript:void(0)">Logout</a></li>`
+                  <li><a @click=${onLogout} href="javascript:void(0)">Logout</a></li>`
             : html`<li><a href="/login">Login</a></li>
                   <li><a href="/register">Register</a></li>`}
     </ul>

@@ -8,8 +8,9 @@ const endpoints = {
     edit: '/data/theaters/',
     delete: '/data/theaters/',
     like: '/data/likes',
-    allLikes: (bookId) => `/data/likes?where=bookId%3D%22${bookId}%22&distinct=_ownerId&count`,
-    userHasLiked: (bookId, userId) => `/data/likes?where=bookId%3D%22${bookId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
+    allLikes: (theaterId) => `/data/likes?where=theaterId%3D%22${theaterId}%22&distinct=_ownerId&count`,
+    userHasLiked: (theaterId, userId) =>
+        `/data/likes?where=theaterId%3D%22${theaterId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
 };
 
 export async function getAll() {
@@ -36,14 +37,14 @@ export async function deleteTheater(id) {
     return del(endpoints.delete + id);
 }
 
-export async function getAllLikes(bookId) {
-    return get(endpoints.allLikes(bookId));
+export async function getAllLikes(id) {
+    return get(endpoints.allLikes(id));
 }
 
-export async function like(bookId) {
-    return post(endpoints.like, { bookId });
+export async function like(theaterId) {
+    return post(endpoints.like, theaterId);
 }
 
-export async function userHasLiked(bookId, userId) {
-    return get(endpoints.userHasLiked(bookId, userId));
+export async function userHasLiked(theaterId, userId) {
+    return get(endpoints.userHasLiked(theaterId, userId));
 }

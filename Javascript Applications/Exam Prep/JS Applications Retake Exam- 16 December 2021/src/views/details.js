@@ -42,7 +42,7 @@ export async function showDetails(ctx) {
     ctx.render(detailsTemplate(theater, onDelete, totalLikes, onLike, hasLiked, isLogged, isOwner));
 
     async function onLike() {
-        await like({ theaterId });
+        like({ theaterId });
         ctx.page.redirect('/details/' + theaterId);
     }
 

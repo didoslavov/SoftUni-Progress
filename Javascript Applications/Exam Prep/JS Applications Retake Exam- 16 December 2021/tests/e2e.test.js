@@ -640,7 +640,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('btn-like')).to.be.false;
         });
 
-        it.only('Like button should be hidden(not visible) after a click on it [ 2.5 Points ]', async () => {
+        it('Like button should be hidden(not visible) after a click on it [ 2.5 Points ]', async () => {
             // Login user
             const user = mockData.users[0];
             const data = mockData.catalog[2];
@@ -680,7 +680,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('.btn-like')).to.be.false;
         });
 
-        it.only('Like button should increase total likes by 1 after a click on it [ 5 Points ]', async () => {
+        it('Like button should increase total likes by 1 after a click on it [ 5 Points ]', async () => {
             // Login user
             const user = mockData.users[0];
             const data = mockData.catalog[2];

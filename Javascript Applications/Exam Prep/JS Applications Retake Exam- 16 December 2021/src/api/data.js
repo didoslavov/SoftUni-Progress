@@ -2,7 +2,7 @@ import { del, get, post, put } from './api.js';
 
 const endpoints = {
     getMyBooks: (userId) => `/data/books?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`,
-    getAll: '/data/books?sortBy=_createdOn%20desc',
+    getAll: '/data/theaters?sortBy=_createdOn%20desc&distinct=title',
     getById: '/data/books/',
     create: '/data/books',
     edit: '/data/books/',

@@ -1,13 +1,13 @@
 import { page } from './lib.js';
 import { render } from './lib.js';
 import { getUserData } from './util.js';
+import { showHome } from './views/home.js';
 import { updateNav } from './views/navigation.js';
 
 const main = document.getElementById('content');
 
 page(decorateContext);
-page('/', () => console.log('Home Page'));
-page('/catalog', () => console.log('Catalog Page'));
+page('/', showHome);
 page('/profile', () => console.log('Profile Page'));
 page('/create', () => console.log('Create Page'));
 page('/details/:id', () => console.log('Details Page'));

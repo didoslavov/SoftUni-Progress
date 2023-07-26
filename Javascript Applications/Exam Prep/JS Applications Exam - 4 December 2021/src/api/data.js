@@ -6,6 +6,7 @@ const endpoints = {
     create: '/data/albums',
     edit: '/data/albums/',
     delete: '/data/albums/',
+    search: (query) => `/data/albums?where=name%20LIKE%20%22${query}%22`,
 };
 
 export async function getAll() {
@@ -30,4 +31,8 @@ export async function edit(id, data) {
 
 export async function deleteItem(id) {
     return del(endpoints.delete + id);
+}
+
+export async function searchItem(query) {
+    return get(endpoints.search(query));
 }

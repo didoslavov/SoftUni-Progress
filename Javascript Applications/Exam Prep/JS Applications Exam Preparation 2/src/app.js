@@ -7,6 +7,7 @@ import { showDetails } from './views/details.js';
 import { showEdit } from './views/edit.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
+import { showMyListings } from './views/my-listings.js';
 import { updateNav } from './views/navigation.js';
 import { showRegister } from './views/register.js';
 
@@ -15,7 +16,7 @@ const main = document.getElementById('site-content');
 page(decorateContext);
 page('/', showHome);
 page('/catalog', showCatalog);
-page('/my-listings', () => console.log('My listings Page'));
+page('/my-listings', showMyListings);
 page('/create', showCreate);
 page('/details/:id', showDetails);
 page('/edit/:id', showEdit);

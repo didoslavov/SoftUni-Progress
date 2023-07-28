@@ -3,6 +3,7 @@ import { del, get, post, put } from './api.js';
 const endpoints = {
     getAll: '/data/cars?sortBy=_createdOn%20desc',
     getById: '/data/cars/',
+    myListings: (userId) => `/data/cars?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`,
     create: '/data/cars',
     edit: '/data/cars/',
     delete: '/data/cars/',
@@ -13,8 +14,8 @@ export async function getAll() {
     return get(endpoints.getAll);
 }
 
-export async function getMyTheaters(id) {
-    return get(endpoints.getMyTheaters(id));
+export async function getMyListings(id) {
+    return get(endpoints.myListings(id));
 }
 
 export async function getById(id) {

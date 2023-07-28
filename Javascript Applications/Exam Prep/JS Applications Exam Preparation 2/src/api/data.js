@@ -1,11 +1,11 @@
 import { del, get, post, put } from './api.js';
 
 const endpoints = {
-    getAll: '/data/albums?sortBy=_createdOn%20desc&distinct=name',
-    getById: '/data/albums/',
-    create: '/data/albums',
-    edit: '/data/albums/',
-    delete: '/data/albums/',
+    getAll: '/data/cars?sortBy=_createdOn%20desc',
+    getById: '/data/cars/',
+    create: '/data/cars',
+    edit: '/data/cars/',
+    delete: '/data/cars/',
     search: (query) => `/data/albums?where=name%20LIKE%20%22${query}%22`,
 };
 

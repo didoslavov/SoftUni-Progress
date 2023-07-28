@@ -1,27 +1,20 @@
 import { page } from './lib.js';
 import { render } from './lib.js';
 import { getUserData } from './util.js';
-import { showCatalog } from './views/catalog.js';
-import { showCreate } from './views/create.js';
-import { showDetails } from './views/details.js';
-import { showEdit } from './views/edit.js';
-import { showHome } from './views/home.js';
-import { showLogin } from './views/login.js';
 import { updateNav } from './views/navigation.js';
-import { showRegister } from './views/register.js';
-import { showSearch } from './views/search.js';
 
-const main = document.getElementById('main-content');
+const main = document.getElementById('site-content');
 
 page(decorateContext);
-page('/', showHome);
-page('/catalog', showCatalog);
-page('/create', showCreate);
-page('/details/:id', showDetails);
-page('/edit/:id', showEdit);
-page('/search', showSearch);
-page('/login', showLogin);
-page('/register', showRegister);
+page('/', () => console.log('Home Page'));
+page('/catalog', () => console.log('Catalog Page'));
+page('/my-listings', () => console.log('My listings Page'));
+page('/create', () => console.log('Create Page'));
+page('/details/:id', () => console.log('Details Page'));
+page('/edit/:id', () => console.log('Edit Page'));
+page('/search', () => console.log('Search Page'));
+page('/login', () => console.log('Login Page'));
+page('/register', () => console.log('Register Page'));
 
 updateNav();
 page.start();

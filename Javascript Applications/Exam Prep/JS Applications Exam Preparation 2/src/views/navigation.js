@@ -10,10 +10,10 @@ const navTemplate = (user) => html`<nav>
     <a href="/search">By Year</a>
     ${user
         ? html`<div id="profile">
-              <a>Welcome username</a>
+              <a>Welcome ${user.username}</a>
               <a href="/my-listings">My Listings</a>
               <a href="/create">Create Listing</a>
-              <a href="javascript:void(0)">Logout</a>
+              <a @click=${onLogout} href="javascript:void(0)">Logout</a>
           </div>`
         : html`<div id="guest">
               <a href="/login">Login</a>

@@ -2,6 +2,7 @@ import { page } from './lib.js';
 import { render } from './lib.js';
 import { getUserData } from './util.js';
 import { showHome } from './views/home.js';
+import { showLogin } from './views/login.js';
 import { updateNav } from './views/navigation.js';
 
 const main = document.getElementById('site-content');
@@ -14,7 +15,7 @@ page('/create', () => console.log('Create Page'));
 page('/details/:id', () => console.log('Details Page'));
 page('/edit/:id', () => console.log('Edit Page'));
 page('/search', () => console.log('Search Page'));
-page('/login', () => console.log('Login Page'));
+page('/login', showLogin);
 page('/register', () => console.log('Register Page'));
 
 updateNav();

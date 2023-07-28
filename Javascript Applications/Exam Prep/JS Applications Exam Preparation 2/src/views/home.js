@@ -1,4 +1,5 @@
 import { html } from '../lib.js';
+import { updateNav } from './navigation.js';
 
 const homeTemplate = () => html`<section id="main">
     <div id="welcome-container">
@@ -13,4 +14,5 @@ const homeTemplate = () => html`<section id="main">
 
 export function showHome(ctx) {
     ctx.render(homeTemplate());
+    updateNav();
 }

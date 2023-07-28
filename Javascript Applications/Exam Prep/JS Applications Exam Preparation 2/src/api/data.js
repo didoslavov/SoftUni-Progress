@@ -7,7 +7,7 @@ const endpoints = {
     create: '/data/cars',
     edit: '/data/cars/',
     delete: '/data/cars/',
-    search: (query) => `/data/albums?where=name%20LIKE%20%22${query}%22`,
+    search: (query) => `/data/cars?where=year%3D${query}`,
 };
 
 export async function getAll() {

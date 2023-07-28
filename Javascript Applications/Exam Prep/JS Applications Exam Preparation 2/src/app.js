@@ -10,6 +10,7 @@ import { showLogin } from './views/login.js';
 import { showMyListings } from './views/my-listings.js';
 import { updateNav } from './views/navigation.js';
 import { showRegister } from './views/register.js';
+import { showSearch } from './views/search.js';
 
 const main = document.getElementById('site-content');
 
@@ -20,7 +21,7 @@ page('/my-listings', showMyListings);
 page('/create', showCreate);
 page('/details/:id', showDetails);
 page('/edit/:id', showEdit);
-page('/search', () => console.log('Search Page'));
+page('/search', showSearch);
 page('/login', showLogin);
 page('/register', showRegister);
 

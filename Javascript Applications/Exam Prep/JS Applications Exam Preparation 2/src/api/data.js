@@ -10,6 +10,10 @@ const endpoints = {
     search: (query) => `/data/cars?where=year%3D${query}`,
 };
 
+export async function searchItem(query) {
+    return get(endpoints.search(query));
+}
+
 export async function getAll() {
     return get(endpoints.getAll);
 }
@@ -32,8 +36,4 @@ export async function edit(id, data) {
 
 export async function deleteItem(id) {
     return del(endpoints.delete + id);
-}
-
-export async function searchItem(query) {
-    return get(endpoints.search(query));
 }

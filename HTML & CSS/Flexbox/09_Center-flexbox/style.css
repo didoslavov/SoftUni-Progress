@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    align-items: center;
+}
+
+.card {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.3);
+    padding: 10px;
+    height: 120px;
+    width: 330px;
+    border-radius: 7px;
+}
+
+.card h1 {
+    padding: 0;
+    margin: 0;
+}

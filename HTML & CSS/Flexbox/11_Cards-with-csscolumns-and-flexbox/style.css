@@ -1,0 +1,81 @@
+body {
+    background-color: rgb(238, 238, 238);
+    padding: 0 20vw;
+}
+
+.masonry {
+    display: column;
+    columns: 3;
+    gap: 1rem;
+}
+
+.masonry > * {
+    break-inside: avoid;
+    margin-bottom: 1em;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: start;
+}
+
+.flex .card {
+    flex: 0 0 32%;
+    display: grid;
+    grid-template-rows: auto 3fr 100px;
+}
+
+.flex .card section {
+    height: auto;
+}
+
+.flex .card footer {
+    height: 100px;
+}
+
+.cards .card {
+    background-color: white;
+    border: 1px solid rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+}
+
+.cards .card img {
+    width: 100%;
+}
+
+.cards .card section {
+    padding: 20px;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+    font-family: sans-serif;
+}
+
+.cards .card section h3,
+.cards .card section p,
+.cards .card footer p {
+    color: rgb(0, 0, 0, 0.75);
+}
+
+.cards .card section h3 {
+    font-weight: normal;
+    margin: 2px 0;
+    font-size: 1em;
+}
+
+.cards .card section p {
+    margin: 0;
+    line-height: 25px;
+    font-size: 1em;
+}
+
+.cards .card footer {
+    padding: 20px;
+}
+
+.cards .card footer p {
+    font-size: 1.2em;
+    font-family: sans-serif;
+    margin: 5px 0;
+}

@@ -1,0 +1,73 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 15vw;
+    height: 35rem;
+    justify-content: start;
+    align-content: baseline;
+    padding: 50px;
+}
+
+.container span {
+    font-size: 20px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    width: 100px;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.container span:nth-child(1) {
+    order: 9;
+}
+
+.container span:nth-child(2) {
+    order: 2;
+}
+
+.container span:nth-child(3) {
+    order: 10;
+}
+
+.container span:nth-child(4) {
+    order: 4;
+}
+
+.container span:nth-child(5) {
+    order: 8;
+}
+
+.container span:nth-child(6) {
+    order: 7;
+}
+
+.container span:nth-child(7) {
+    order: 11;
+}
+
+.container span:nth-child(8) {
+    order: 5;
+}
+
+.container span:nth-child(9) {
+    order: 6;
+}
+
+.container span:nth-child(10) {
+    order: 12;
+}
+
+.container span:nth-child(11) {
+    order: 1;
+}
+
+.container span:nth-child(12) {
+    order: 3;
+}

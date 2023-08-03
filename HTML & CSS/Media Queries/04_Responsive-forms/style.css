@@ -1,0 +1,137 @@
+@import 'https://use.fontawesome.com/releases/v5.15.4/css/all.css';
+
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    font-size: 12px;
+}
+
+form {
+    margin-top: 40px;
+    width: 85%;
+    background-color: #f8f8f8;
+    font-size: 1rem;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+form fieldset {
+    border: none;
+}
+
+form legend {
+    display: inline-block;
+    width: 30%;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    transform: translateY(-50%);
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+form p {
+    width: 100%;
+    position: relative;
+}
+
+form p label {
+    display: block;
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+form p input {
+    display: inline;
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid rgb(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+form p i {
+    display: inline;
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+}
+
+form button {
+    display: block;
+    font-size: 1rem;
+    font-weight: bolder;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    form {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    form {
+        width: 45%;
+        padding: 30px 30px;
+        border: 1px solid rgb(0, 0, 0, 0.5);
+    }
+
+    form legend {
+        border: 1px solid rgb(0, 0, 0, 0.5);
+    }
+
+    form p {
+        display: flex;
+        position: relative;
+    }
+
+    form p label {
+        display: grid;
+        align-content: center;
+        margin-right: 5px;
+        font-weight: bolder;
+    }
+
+    form p input {
+        display: inline-block;
+        height: 2rem;
+        border: 1px solid rgb(0, 0, 0, 0.2);
+        margin-bottom: 5px;
+    }
+
+    form p i {
+        display: inline-block;
+        position: absolute;
+        top: 0.5rem;
+        left: 6rem;
+    }
+
+    form button {
+        margin-top: 25px;
+        padding: 7px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    form {
+        width: 35%;
+        border-radius: 5px;
+        border: 1px solid rgb(0, 0, 0, 0.5);
+    }
+
+    form legend {
+        border: 1px solid rgb(0, 0, 0, 0.5);
+    }
+}

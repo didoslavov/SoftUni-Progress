@@ -1,0 +1,75 @@
+body {
+    padding: 2.5rem;
+    background-color: #eeeeee;
+}
+
+table {
+    display: grid;
+    border: 1px solid rgb(0, 0, 0, 0.3);
+    font-size: 2rem;
+}
+
+table thead {
+    display: none;
+}
+
+table tbody tr {
+    display: grid;
+    grid-template-columns: 0.3fr auto;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: white;
+}
+
+table tbody tr th,
+table tbody tr td {
+    padding: 10px;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.3);
+}
+
+table tbody tr:last-child th:nth-child(5),
+table tbody tr:last-child td:last-child {
+    border-bottom: unset;
+}
+
+@media screen and (min-width: 425px) {
+    html {
+        font-size: 12px;
+    }
+
+    table thead {
+        display: block;
+    }
+
+    table thead tr {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: #333333;
+        color: #fff;
+        font-family: sans-serif;
+    }
+
+    table thead tr td {
+        padding: 0.5rem;
+        border: 1px solid rgb(255, 255, 255, 0.5);
+    }
+
+    table tbody tr {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+    }
+
+    table tbody tr th {
+        display: none;
+    }
+
+    table tbody tr:last-child td {
+        border-bottom: unset;
+    }
+
+    table td {
+        border: 1px solid rgb(0, 0, 0, 0.1);
+    }
+}

@@ -1,0 +1,174 @@
+@media (min-width: 1800px) {
+    body {
+        font-size: 23px;
+    }
+
+    .page main section img {
+        border: 2px solid black;
+        padding: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background-color: rgb(255, 255, 255);
+    }
+
+    .page main section:nth-child(1) img {
+        float: right;
+        height: 200px;
+        margin: 0 20px 20px 20px;
+    }
+
+    .page main section:nth-child(3) img {
+        float: left;
+        margin: 0 20px 20px 0;
+    }
+
+    .page main section blockquote {
+        float: right;
+        width: 49%;
+        color: rgb(0, 0, 0, 0.5);
+        font-family: Georgia, serif;
+        border-left: 3px solid rgb(0, 0, 0, 0.1);
+        padding-left: 40px;
+        box-sizing: border-box;
+        align-content: start;
+        height: 180px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1799px) and (min-width: 1300px) {
+    body {
+        font-size: 21px;
+    }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 800px) {
+    body {
+        font-size: 18px;
+        padding: 30px;
+    }
+
+    .page header h1 {
+        font-size: 4rem;
+    }
+
+    .page main section img {
+        padding: 10px;
+    }
+
+    .page main section:nth-child(1) img {
+        height: 330px;
+        margin: 0 25px 25px 25px;
+    }
+
+    .page main section blockquote {
+        height: 380px;
+        color: rgb(0, 0, 0, 0.7);
+    }
+
+    .page main section blockquote p {
+        font-size: 1.4rem;
+        line-height: 1.5;
+        margin-bottom: 40px;
+    }
+
+    .page main section:nth-child(3) img {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 799px) and (min-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 599px) and (min-width: 500px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    padding: 50px 70px;
+    font-size: 12px;
+}
+
+.page {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.page header {
+    width: 100vw;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+
+.page header h1 {
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.page main section {
+    margin-bottom: 50px;
+}
+
+.page main h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 3rem;
+}
+
+.page main section p {
+    font-size: 1.71rem;
+    line-height: 0.98;
+}
+
+.page main section img {
+    border: 6px solid black;
+    padding: 15px;
+}
+
+.page main section:nth-child(1) img,
+.page main section:nth-child(3) img {
+    float: unset;
+    margin: 0;
+}
+
+.page main section:nth-child(1) img {
+    height: 700px;
+}
+
+.page main section:nth-child(3) img {
+    height: 300px;
+}
+
+.page main section blockquote {
+    float: unset;
+    color: rgb(0, 0, 0);
+    height: auto;
+    width: 100%;
+    border-left: 7px solid rgb(0, 0, 0, 0.1);
+    padding-bottom: 60px;
+    padding-left: 80px;
+}
+
+.page main section blockquote p {
+    margin: 0;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.page main section blockquote h3 {
+    text-align: right;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.page main p {
+    font-size: 1.2rem;
+}

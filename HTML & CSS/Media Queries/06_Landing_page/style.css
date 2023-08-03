@@ -167,7 +167,6 @@ footer section p {
     padding: 15px 0;
     font-size: 12px;
     font-family: sans-serif;
-    text-space: 2px;
 }
 
 footer .sitemap h3,
@@ -184,7 +183,6 @@ footer .sitemap ul {
 footer .sitemap ul li {
     font-family: sans-serif;
     font-size: 12px;
-    text-space: 2px;
 }
 
 footer .contacts ul li {
@@ -194,7 +192,6 @@ footer .contacts ul li {
 }
 
 footer .contacts ul li span {
-    text-space: 0;
     font-family: sans-serif;
     font-size: 14px;
 }

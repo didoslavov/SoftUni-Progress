@@ -1,0 +1,200 @@
+@import 'https://use.fontawesome.com/releases/v5.15.4/css/all.css';
+@import url('typography.css');
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 30px 20px;
+}
+
+.navigation header h1 {
+    color: var(--header-logo-color);
+    font-size: 30px;
+    margin: 10px 0;
+    font-weight: bold;
+    font-family: Cambria, serif;
+}
+
+.navigation header p {
+    font-size: 8px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    transform: scaleY(1.5);
+}
+
+.navigation nav ul {
+    display: none;
+}
+
+.navigation nav a {
+    text-decoration: none;
+    color: var(--main-black-color);
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.about {
+    padding: 20px;
+    display: grid;
+    width: 100%;
+    box-sizing: border-box;
+    grid-template-areas:
+        'title title icon'
+        'paragraph paragraph icon'
+        'paragraph paragraph icon'
+        'button button icon';
+    grid-template-columns: 220px 0 auto;
+}
+
+.about h2 {
+    grid-area: title;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+}
+
+.about p {
+    grid-area: paragraph;
+    font-family: Helvetica, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.about button {
+    grid-area: button;
+    width: 80%;
+    font-size: 12px;
+}
+
+.about i {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-area: icon;
+    font-size: 110px;
+}
+
+.our-team header,
+.testimonials header {
+    display: flex;
+    justify-content: center;
+}
+
+.our-team header h2,
+.testimonials header h2 {
+    font-size: 40px;
+    margin: 15px;
+    position: relative;
+    padding: 20px;
+}
+
+.our-team main,
+.testimonials main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.sign-up-newsletter {
+    background-color: #68347b;
+    padding: 30px 15px;
+}
+
+.sign-up-newsletter .subscribe {
+    display: grid;
+    grid-template-columns: 2.1fr 0.9fr;
+    gap: 10px;
+}
+
+.sign-up-newsletter h2 {
+    font-size: 32px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.sign-up-newsletter .subscribe {
+    padding: 10px 0;
+}
+
+.sign-up-newsletter .subscribe input {
+    border-radius: unset;
+    padding: 10px;
+}
+
+.sign-up-newsletter .subscribe button {
+    font-size: 11px;
+    border-radius: unset;
+    font-weight: bold;
+}
+
+.testimonials section p {
+    padding: 0 30px 10px 30px;
+    font-size: 14px;
+    font-style: normal;
+    font-family: cursive;
+}
+
+.testimonials section .name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.testimonials section .work-position {
+    font-size: 12px;
+}
+
+footer {
+    padding: 30px 20px !important;
+}
+
+footer section {
+    display: block;
+}
+
+footer section h2 {
+    font-size: 2rem;
+    margin: 5px 0;
+}
+
+footer section p {
+    font-style: normal;
+    text-align: unset;
+    padding: 15px 0;
+    font-size: 12px;
+    font-family: sans-serif;
+    text-space: 2px;
+}
+
+footer .sitemap h3,
+footer .contacts h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+footer .sitemap ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+footer .sitemap ul li {
+    font-family: sans-serif;
+    font-size: 12px;
+    text-space: 2px;
+}
+
+footer .contacts ul li {
+    display: grid;
+    grid-template-columns: 25px auto;
+    padding: 5px 0;
+}
+
+footer .contacts ul li span {
+    text-space: 0;
+    font-family: sans-serif;
+    font-size: 14px;
+}

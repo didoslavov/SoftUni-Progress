@@ -1,0 +1,61 @@
+section {
+    display: grid;
+    justify-items: center;
+}
+
+section span {
+    display: block;
+}
+
+section .image {
+    display: block;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    box-sizing: border-box;
+    outline: 3px solid rgb(255, 255, 255, 0.15);
+    outline-offset: -3px;
+    border-radius: 50%;
+    margin: 30px;
+}
+
+section .image img {
+    width: 100%;
+}
+
+section .name {
+    font-weight: bold;
+    margin: 5px;
+}
+
+section .work-position {
+    font-family: sans-serif;
+}
+
+section p {
+    padding: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.h2-after::after {
+    content: '';
+    width: 80px;
+    border-bottom-style: solid;
+    border-bottom-color: #000000;
+    border-bottom-width: 3px;
+    display: block;
+    margin: 20px auto;
+}
+
+.pb-normal {
+    padding-bottom: 60px;
+}
+
+.pb-big {
+    padding-bottom: 130px;
+}
+
+.bs {
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.2);
+}

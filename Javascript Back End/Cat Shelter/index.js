@@ -5,6 +5,7 @@ const path = require('path');
 const { addBreedView } = require('./handlers/addBreed.js');
 const { createCatView } = require('./handlers/createCat.js');
 const { editCatView } = require('./handlers/editCat.js');
+const { shelterCatView } = require('./handlers/shelterCat.js');
 
 const app = express();
 app.listen(3000);
@@ -16,3 +17,4 @@ app.get('/', homeView);
 app.get('/cats/add-breed', addBreedView);
 app.get('/cats/add-cat', createCatView);
 app.get('/cats/edit', editCatView);
+app.get('/cats/shelter', shelterCatView);

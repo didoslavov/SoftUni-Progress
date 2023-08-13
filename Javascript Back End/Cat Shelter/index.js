@@ -1,20 +1,28 @@
 const express = require('express');
-const { homeView } = require('./handlers/home.js');
-const favicon = require('serve-favicon');
+const hbr = require('express-handlebars');
 const path = require('path');
-const { addBreedView } = require('./handlers/addBreed.js');
-const { createCatView } = require('./handlers/createCat.js');
-const { editCatView } = require('./handlers/editCat.js');
-const { shelterCatView } = require('./handlers/shelterCat.js');
+const favicon = require('serve-favicon');
+
+const homeController = require('./controllers/homeController');
+const addBreedController = require('./controllers/addBreedController');
+const createCatController = require('./controllers/createCatController');
+const editCatController = require('./controllers/editCatController');
+const shelterCatController = require('./controllers/shelterCatController');
+
+const handlebars = hbr.create({ extname: '.hbs' });
 
 const app = express();
-app.listen(3000);
+
+app.engine('.hbs', handlebars.engine);
+app.set('view engine', '.hbs');
 
 app.use(express.static(path.join(__dirname, 'content')));
 app.use(favicon(path.join(__dirname, 'content/images', 'pawprint.ico'))); // not working, check it later!
 
-app.get('/', homeView);
-app.get('/cats/add-breed', addBreedView);
-app.get('/cats/add-cat', createCatView);
-app.get('/cats/edit', editCatView);
-app.get('/cats/shelter', shelterCatView);
+app.use(homeController);
+app.use('/cats/add-breed', addBreedController);
+app.use('/cats/add-cat', createCatController);
+app.use('/cats/edit', editCatController);
+app.use('/cats/shelter', shelterCatController);
+
+app.listen(3000);

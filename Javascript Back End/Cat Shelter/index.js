@@ -22,7 +22,7 @@ app.use(favicon(path.join(__dirname, 'content/images', 'pawprint.ico'))); // not
 app.use(homeController);
 app.use('/cats/add-breed', addBreedController);
 app.use('/cats/add-cat', createCatController);
-app.use('/cats/edit', editCatController);
-app.use('/cats/shelter', shelterCatController);
+app.use('/cats/edit/', editCatController);
+app.use('/cats/shelter/:id', shelterCatController);
 
 app.listen(3000);

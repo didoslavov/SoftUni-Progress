@@ -1,236 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Movies</title>
-    <link rel="icon" type="image/png" href="/static/favicon.ico" />
-    <link href="static/css/site.css" type="text/css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous" />
-    <script src="src/app.js" type="module"></script>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Movies</title>
+        <link rel="icon" type="image/png" href="/static/favicon.ico" />
+        <link href="static/css/site.css" type="text/css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous" />
+        <script src="src/app.js" type="module"></script>
+    </head>
 
-  <body>
-    <div id="container">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a id="homeLink" class="navbar-brand text-light" href="/">Movies</a>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item user">
-            <a id="welcomeMsg" class="nav-link" id="welcome-msg"
-              >Welcome, email</a
-            >
-          </li>
-          <li class="nav-item user">
-            <a id="logoutBtn" class="nav-link" href="#">Logout</a>
-          </li>
-          <li class="nav-item guest">
-            <a id="loginLink" class="nav-link" href="#">Login</a>
-          </li>
-          <li class="nav-item guest">
-            <a id="registerLink" class="nav-link" href="#">Register</a>
-          </li>
-        </ul>
-      </nav>
-
-      <main id="main"></main>
-
-      <div id="hidden">
-        <section id="home-page" class="view-section">
-          <div
-            class="jumbotron jumbotron-fluid text-light"
-            style="background-color: #343a40">
-            <img
-              src="https://slicksmovieblog.files.wordpress.com/2014/08/cropped-movie-banner-e1408372575210.jpg"
-              class="img-fluid"
-              alt="Responsive image"
-              style="width: 150%; height: 200px" />
-            <h1 class="display-4">Movies</h1>
-            <p class="lead">
-              Unlimited movies, TV shows, and more. Watch anywhere. Cancel
-              anytime.
-            </p>
-          </div>
-
-          <h1 class="text-center">Movies</h1>
-
-          <section id="add-movie-button" class="user">
-            <a id="createLink" href="#" class="btn btn-warning">Add Movie</a>
-          </section>
-
-          <section id="movie">
-            <div class="mt-3">
-              <div class="row d-flex d-wrap">
-                <ul
-                  id="movies-list"
-                  class="card-deck d-flex justify-content-center">
-                  <!-- movie list -->
+    <body>
+        <div id="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a id="homeLink" class="navbar-brand text-light" href="/">Movies</a>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item user">
+                        <a id="welcomeMsg" class="nav-link" id="welcome-msg">Welcome, email</a>
+                    </li>
+                    <li class="nav-item user">
+                        <a id="logoutBtn" class="nav-link" href="#">Logout</a>
+                    </li>
+                    <li class="nav-item guest">
+                        <a id="loginLink" class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item guest">
+                        <a id="registerLink" class="nav-link" href="#">Register</a>
+                    </li>
                 </ul>
-              </div>
-            </div>
-          </section>
-        </section>
+            </nav>
 
-        <section id="add-movie" class="view-section">
-          <form
-            id="add-movie-form"
-            class="text-center border border-light p-5"
-            action="#"
-            method="">
-            <h1>Add Movie</h1>
-            <div class="form-group">
-              <label for="title">Movie Title</label>
-              <input
-                id="title"
-                type="text"
-                class="form-control"
-                placeholder="Title"
-                name="title"
-                value="" />
-            </div>
-            <div class="form-group">
-              <label for="description">Movie Description</label>
-              <textarea
-                class="form-control"
-                placeholder="Description"
-                name="description"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="imageUrl">Image url</label>
-              <input
-                id="imageUrl"
-                type="text"
-                class="form-control"
-                placeholder="Image Url"
-                name="img"
-                value="" />
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </section>
+            <main id="main"></main>
 
-        <section id="movie-example" class="view-section">
-          <!-- Movie Details -->
-        </section>
+            <div id="hidden">
+                <section id="home-page" class="view-section">
+                    <div class="jumbotron jumbotron-fluid text-light" style="background-color: #343a40">
+                        <img
+                            src="https://slicksmovieblog.files.wordpress.com/2014/08/cropped-movie-banner-e1408372575210.jpg"
+                            class="img-fluid"
+                            alt="Responsive image"
+                            style="width: 150%; height: 200px" />
+                        <h1 class="display-4">Movies</h1>
+                        <p class="lead">Unlimited movies, TV shows, and more. Watch anywhere. Cancel anytime.</p>
+                    </div>
 
-        <section id="edit-movie" class="view-section">
-          <form
-            class="text-center border border-light p-5"
-            action="#"
-            method="">
-            <h1>Edit Movie</h1>
-            <div class="form-group">
-              <label for="title">Movie Title</label>
-              <input
-                id="title"
-                type="text"
-                class="form-control"
-                placeholder="Movie Title"
-                value=""
-                name="title" />
-            </div>
-            <div class="form-group">
-              <label for="description">Movie Description</label>
-              <textarea
-                class="form-control"
-                placeholder="Movie Description..."
-                name="description"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="imageUrl">Image url</label>
-              <input
-                id="imageUrl"
-                type="text"
-                class="form-control"
-                placeholder="Image Url"
-                value=""
-                name="img" />
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </section>
+                    <h1 class="text-center">Movies</h1>
 
-        <section id="form-login" class="view-section">
-          <form
-            id="login-form"
-            class="text-center border border-light p-5"
-            action=""
-            method="">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                class="form-control"
-                placeholder="Email"
-                name="email"
-                value="" />
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                id="password"
-                type="password"
-                class="form-control"
-                placeholder="Password"
-                name="password"
-                value="" />
-            </div>
+                    <section id="add-movie-button" class="user">
+                        <a id="createLink" href="#" class="btn btn-warning">Add Movie</a>
+                    </section>
 
-            <button type="submit" class="btn btn-primary">Login</button>
-          </form>
-        </section>
+                    <section id="movie">
+                        <div class="mt-3">
+                            <div class="row d-flex d-wrap">
+                                <ul id="movies-list" class="card-deck d-flex justify-content-center">
+                                    <!-- movie list -->
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </section>
 
-        <section id="form-sign-up" class="view-section">
-          <form
-            id="register-form"
-            class="text-center border border-light p-5"
-            action=""
-            method="">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                class="form-control"
-                placeholder="Email"
-                name="email"
-                value="" />
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                id="password"
-                type="password"
-                class="form-control"
-                placeholder="Password"
-                name="password"
-                value="" />
-            </div>
+                <section id="add-movie" class="view-section">
+                    <form id="add-movie-form" class="text-center border border-light p-5" action="#" method="">
+                        <h1>Add Movie</h1>
+                        <div class="form-group">
+                            <label for="title">Movie Title</label>
+                            <input id="title" type="text" class="form-control" placeholder="Title" name="title" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Movie Description</label>
+                            <textarea class="form-control" placeholder="Description" name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="imageUrl">Image url</label>
+                            <input id="imageUrl" type="text" class="form-control" placeholder="Image Url" name="img" value="" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </section>
 
-            <div class="form-group">
-              <label for="repeatPassword">Repeat Password</label>
-              <input
-                id="repeatPassword"
-                type="password"
-                class="form-control"
-                placeholder="Repeat-Password"
-                name="repeatPassword"
-                value="" />
-            </div>
+                <section id="movie-example" class="view-section">
+                    <!-- Movie Details -->
+                </section>
 
-            <button type="submit" class="btn btn-primary">Register</button>
-          </form>
-        </section>
-      </div>
-      <footer class="page-footer font-small">
-        <div class="footer-copyright text-center py-3">
-          &copy; 2020
-          <a href="#" class="text-dark">JS Applications</a>
+                <section id="edit-movie" class="view-section">
+                    <form class="text-center border border-light p-5" action="#" method="">
+                        <h1>Edit Movie</h1>
+                        <div class="form-group">
+                            <label for="title">Movie Title</label>
+                            <input id="title" type="text" class="form-control" placeholder="Movie Title" value="" name="title" />
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Movie Description</label>
+                            <textarea class="form-control" placeholder="Movie Description..." name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="imageUrl">Image url</label>
+                            <input id="imageUrl" type="text" class="form-control" placeholder="Image Url" value="" name="img" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </section>
+
+                <section id="form-login" class="view-section">
+                    <form id="login-form" class="text-center border border-light p-5" action="" method="">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" class="form-control" placeholder="Email" name="email" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input
+                                id="password"
+                                type="password"
+                                class="form-control"
+                                placeholder="Password"
+                                name="password"
+                                value="" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </section>
+
+                <section id="form-sign-up" class="view-section">
+                    <form id="register-form" class="text-center border border-light p-5" action="" method="">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" class="form-control" placeholder="Email" name="email" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input
+                                id="password"
+                                type="password"
+                                class="form-control"
+                                placeholder="Password"
+                                name="password"
+                                value="" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="repeatPassword">Repeat Password</label>
+                            <input
+                                id="repeatPassword"
+                                type="password"
+                                class="form-control"
+                                placeholder="Repeat-Password"
+                                name="repeatPassword"
+                                value="" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </section>
+            </div>
+            <footer class="page-footer font-small">
+                <div class="footer-copyright text-center py-3">
+                    &copy; 2020
+                    <a href="#" class="text-dark">JS Applications</a>
+                </div>
+            </footer>
         </div>
-      </footer>
-    </div>
-  </body>
+    </body>
 </html>

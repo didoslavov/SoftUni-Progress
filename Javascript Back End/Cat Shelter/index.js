@@ -18,11 +18,12 @@ app.set('view engine', '.hbs');
 
 app.use(express.static(path.join(__dirname, 'content')));
 app.use(favicon(path.join(__dirname, 'content/images', 'pawprint.ico'))); // not working, check it later!
+app.use(express.urlencoded({ extended: false }));
 
 app.use(homeController);
 app.use('/cats/add-breed', addBreedController);
 app.use('/cats/add-cat', createCatController);
 app.use('/cats/edit/', editCatController);
-app.use('/cats/shelter/:id', shelterCatController);
+app.use('/cats/shelter/', shelterCatController);
 
 app.listen(3000);

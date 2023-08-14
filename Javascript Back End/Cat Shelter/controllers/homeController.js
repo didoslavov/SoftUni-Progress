@@ -1,4 +1,4 @@
-const { getCats, getCatById } = require('../services/catsService.js');
+const { getCats } = require('../services/catsService.js');
 
 const router = require('express').Router();
 

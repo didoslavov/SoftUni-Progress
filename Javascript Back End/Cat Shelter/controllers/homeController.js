@@ -2,8 +2,8 @@ const { getCats } = require('../services/catsService.js');
 
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    const cats = getCats();
+router.get('/', async (req, res) => {
+    const cats = await getCats();
     res.render('home', { cats });
 });
 

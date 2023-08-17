@@ -1,32 +1,45 @@
-const fs = require('fs');
-const path = require('path');
-
-const cats = JSON.parse(fs.readFileSync(path.join(__dirname, '../data', 'cats.json')));
+const Cat = require('../models/Cat');
 
 function getCats() {
-    return cats;
+    return Cat.find({}).lean();
 }
 
 function getCatById(id) {
-    return cats.find((c) => c.id == id);
+    return Cat.findById(id).lean();
 }
 
 async function createCat(data) {
-    const id = ('0000' + Math.floor((Math.random() * 999999999) | 0)).slice(-13);
-    data.id = id;
+    const cat = {
+        name: data.name,
+        description: data.description,
+        image: data.image,
+        breed: data.breed,
+    };
 
-    cats.push(data);
+    const result = await Cat.create(cat);
 
-    return new Promise((resolve, reject) => {
-        fs.writeFile(path.join(__dirname, '../data', 'cats.json'), JSON.stringify(cats, null, 2), (err) => {
-            if (err == null) {
-                resolve();
-            } else {
-                reject(err);
-            }
-        });
-    });
+    return result;
 }
+
+// async function editCat(data) {
+//     const catIndex = cats.findIndex((c) => c.id == data.id);
+//     cats.splice(catIndex, 1);
+//     cats.push(data);
+
+//     await persist();
+// }
+
+// async function persist() {
+//     return new Promise((resolve, reject) => {
+//         fs.writeFile(path.join(__dirname, '../data', 'cats.json'), JSON.stringify(cats, null, 2), (err) => {
+//             if (err == null) {
+//                 resolve();
+//             } else {
+//                 reject(err);
+//             }
+//         });
+//     });
+// }
 
 module.exports = {
     getCats,

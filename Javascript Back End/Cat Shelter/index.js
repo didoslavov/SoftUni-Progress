@@ -1,29 +1,16 @@
 const express = require('express');
-const hbr = require('express-handlebars');
-const path = require('path');
-const favicon = require('serve-favicon');
+const expressConfig = require('./config/express');
+const routesConfig = require('./config/routes');
+const databaseConfig = require('./config/database');
 
-const homeController = require('./controllers/homeController');
-const addBreedController = require('./controllers/addBreedController');
-const createCatController = require('./controllers/createCatController');
-const editCatController = require('./controllers/editCatController');
-const shelterCatController = require('./controllers/shelterCatController');
+async function start() {
+    const app = express();
 
-const handlebars = hbr.create({ extname: '.hbs' });
+    await databaseConfig(app);
+    expressConfig(app);
+    routesConfig(app);
 
-const app = express();
+    app.listen(3000, () => console.log('Server listening on port 3000'));
+}
 
-app.engine('.hbs', handlebars.engine);
-app.set('view engine', '.hbs');
-
-app.use(express.static(path.join(__dirname, 'content')));
-app.use(favicon(path.join(__dirname, 'content/images', 'pawprint.ico'))); // not working, check it later!
-app.use(express.urlencoded({ extended: false }));
-
-app.use(homeController);
-app.use('/cats/add-breed', addBreedController);
-app.use('/cats/add-cat', createCatController);
-app.use('/cats/edit/', editCatController);
-app.use('/cats/shelter/', shelterCatController);
-
-app.listen(3000);
+start();

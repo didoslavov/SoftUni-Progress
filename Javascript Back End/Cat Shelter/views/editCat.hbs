@@ -1,15 +1,15 @@
 <h1>Cat Shelter</h1>
-<form action='#' method='' class='cat-form' enctype='multipart/form-data'>
+<form action='/cats/edit/{{cat.id}}' method='post' class='cat-form'>
     <h2>Edit Cat</h2>
     <label for='name'>Name</label>
     <input type='text' id='name' value={{cat.name}} />
     <label for='description'>Description</label>
     <textarea id='description'>{{cat.description}}</textarea>
     <label for='image'>Image</label>
-    <input type='file' id='image' value={{cat.image}} />
+    <input type='text' id='image' value={{cat.image}} />
     <label for='group'>Breed</label>
     <select id='group'>
-        <option value='Fluffy Cat'>{{cat.breed}}</option>
+        <option>{{cat.breed}}</option>
     </select>
     <button>Edit Cat</button>
 </form>

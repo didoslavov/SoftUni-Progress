@@ -7,9 +7,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    await createCat(req.body);
-
-    res.redirect('/');
+    try {
+        await createCat(req.body);
+        res.redirect('/');
+    } catch (error) {
+        console.error(error.massege);
+    }
 });
 
 module.exports = router;

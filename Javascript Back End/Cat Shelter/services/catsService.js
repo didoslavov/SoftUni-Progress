@@ -1,10 +1,10 @@
 const Cat = require('../models/Cat');
 
-function getCats() {
+async function getCats() {
     return Cat.find({}).lean();
 }
 
-function getCatById(id) {
+async function getCatById(id) {
     return Cat.findById(id).lean();
 }
 

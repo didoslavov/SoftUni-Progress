@@ -21,28 +21,20 @@ async function createCat(data) {
     return result;
 }
 
-// async function editCat(data) {
-//     const catIndex = cats.findIndex((c) => c.id == data.id);
-//     cats.splice(catIndex, 1);
-//     cats.push(data);
+async function editCat(id, data) {
+    const cat = await Cat.findById(id);
 
-//     await persist();
-// }
+    cat.name = data.name;
+    cat.description = data.description;
+    cat.image = data.image;
+    cat.breed = data.breed;
 
-// async function persist() {
-//     return new Promise((resolve, reject) => {
-//         fs.writeFile(path.join(__dirname, '../data', 'cats.json'), JSON.stringify(cats, null, 2), (err) => {
-//             if (err == null) {
-//                 resolve();
-//             } else {
-//                 reject(err);
-//             }
-//         });
-//     });
-// }
+    cat.save();
+}
 
 module.exports = {
     getCats,
     getCatById,
     createCat,
+    editCat,
 };

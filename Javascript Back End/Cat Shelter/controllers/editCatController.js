@@ -6,7 +6,7 @@ const router = require('express').Router();
 router.get('/:id', async (req, res) => {
     const id = req.params.id;
     const cat = await getCatById(id);
-    const breeds = await getAllBreeds();
+    const breeds = (await getAllBreeds()).filter((b) => b.breed != cat.breed);
 
     res.render('editCat', { cat, breeds });
 });

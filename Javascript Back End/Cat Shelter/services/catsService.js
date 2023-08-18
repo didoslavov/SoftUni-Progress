@@ -32,9 +32,14 @@ async function editCat(id, data) {
     cat.save();
 }
 
+async function deleteCat(id) {
+    return await Cat.findByIdAndDelete(id);
+}
+
 module.exports = {
     getCats,
     getCatById,
     createCat,
     editCat,
+    deleteCat,
 };

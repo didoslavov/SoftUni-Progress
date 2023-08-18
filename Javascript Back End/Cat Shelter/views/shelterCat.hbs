@@ -1,13 +1,13 @@
 <h1>Cat Shelter</h1>
-<form action='#' method='' class='cat-form'>
+<form action='/cats/shelter/{{cat._id}}' method='post' class='cat-form'>
     <h2>Shelter the cat</h2>
     <img alt='cat' src={{cat.image}} />
     <label for='name'>Name</label>
-    <input type='text' id='name' value={{cat.name}} disabled />
+    <input type='text' id='name' name='name' value={{cat.name}} disabled />
     <label for='description'>Description</label>
-    <textarea id='description' disabled>{{cat.description}}</textarea>
+    <textarea id='description' name='description' disabled>{{cat.description}}</textarea>
     <label for='group'>Breed</label>
-    <select id='group' disabled>
+    <select id='group' name='breed' disabled>
         <option value='Fluffy Cat'>{{cat.breed}}</option>
     </select>
     <button>SHELTER THE CAT</button>

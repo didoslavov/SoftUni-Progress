@@ -1,7 +1,7 @@
 <h1>Cat Shelter</h1>
-<form action='/search'>
-    <input type='text' />
-    <button type='button'>Search</button>
+<form method='get'>
+    <input name='search' type='text' value='{{search}}' />
+    <button type='submit'>Search</button>
 </form>
 
 <section class='cats'>
@@ -10,7 +10,7 @@
             {{#each cats}}
                 <li>
                     <img src={{image}} alt='Black Cat' />
-                    <h3></h3>
+                    <h3>Name: {{name}}</h3>
                     <p><span>Breed: </span>{{breed}}</p>
                     <p>
                         <span>Description: </span>{{description}}

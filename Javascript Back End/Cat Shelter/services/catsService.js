@@ -1,7 +1,8 @@
 const Cat = require('../models/Cat');
 
-async function getCats() {
-    return Cat.find({}).lean();
+async function getCats(search) {
+    console.log(search);
+    return Cat.find({ name: new RegExp(search, 'i') }).lean();
 }
 
 async function getCatById(id) {

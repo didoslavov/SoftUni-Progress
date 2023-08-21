@@ -1,7 +1,18 @@
 const Cube = require('../models/Cube.js');
 
-async function getAllCubes() {
-    return await Cube.find({}).lean();
+async function getAllCubes(query) {
+    const name = query.search || '';
+    const from = query.from || '';
+    const to = query.to || '';
+
+    const difficultyFilter = from && to ? { difficultyLevel: { $gte: from, $lte: to } } : {};
+
+    const filter = {
+        name: new RegExp(name, 'i'),
+        ...difficultyFilter,
+    };
+
+    return await Cube.find(filter).lean();
 }
 
 async function getCubeById(id) {

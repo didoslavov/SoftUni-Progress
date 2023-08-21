@@ -1,5 +1,9 @@
 const Cube = require('../models/Cube.js');
 
+async function getAllCubes() {
+    return await Cube.find({}).lean();
+}
+
 async function createCube(data) {
     const cube = {
         name: data.name,
@@ -15,4 +19,5 @@ async function createCube(data) {
 
 module.exports = {
     createCube,
+    getAllCubes,
 };

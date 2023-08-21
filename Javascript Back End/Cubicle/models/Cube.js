@@ -4,7 +4,7 @@ const cubeSchema = new Schema({
     name: String,
     description: String,
     difficultyLevel: Number,
-    image: String,
+    imageUrl: String,
 });
 
 const Cube = model('Cube', cubeSchema);

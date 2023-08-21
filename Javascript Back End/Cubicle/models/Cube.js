@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const cubeSchema = new Schema({
     name: String,
     description: String,
-    level: Number,
+    difficultyLevel: Number,
     image: String,
 });
 

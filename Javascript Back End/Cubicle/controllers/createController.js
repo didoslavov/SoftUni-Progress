@@ -1,6 +1,6 @@
 const createController = require('express').Router();
 
-createController.get('/create', async (req, res) => {
+createController.get('/', async (req, res) => {
     res.render('create');
 });
 

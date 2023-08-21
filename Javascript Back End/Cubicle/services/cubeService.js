@@ -2,10 +2,10 @@ const Cube = require('../models/Cube.js');
 
 async function getAllCubes(query) {
     const name = query.search || '';
-    const from = query.from || '';
-    const to = query.to || '';
+    const from = Number(query.from) || 1;
+    const to = Number(query.to) || 6;
 
-    const difficultyFilter = from && to ? { difficultyLevel: { $gte: from, $lte: to } } : {};
+    const difficultyFilter = from || to ? { difficultyLevel: { $gte: from, $lte: to } } : {};
 
     const filter = {
         name: new RegExp(name, 'i'),

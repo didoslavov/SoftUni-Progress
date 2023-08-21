@@ -7,11 +7,17 @@
     <input type='submit' value='search' />
 </form>
 
-{{#each cubes}}
-    <div class='cube'>
-        <img class='cube' src={{imageUrl}} />
-        <p class='name'>{{name}}</p>
-        <p><span>Difficulty level:</span> {{difficultyLevel}}</p>
-        <a class='btn' href='/details/{{_id}}'>Details</a>
-    </div>
-{{/each}}
+{{#if cubes}}
+
+    {{#each cubes}}
+        <div class='cube'>
+            <img class='cube' src={{imageUrl}} />
+            <p class='name'>{{name}}</p>
+            <p><span>Difficulty level:</span> {{difficultyLevel}}</p>
+            <a class='btn' href='/details/{{_id}}'>Details</a>
+        </div>
+    {{/each}}
+
+{{else}}
+    <h1>NO CUBES WERE FOUND</h1>
+{{/if}}

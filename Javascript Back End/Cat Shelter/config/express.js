@@ -1,6 +1,5 @@
 const express = require('express');
 const hbs = require('express-handlebars').create({ extname: '.hbs' });
-const path = require('path');
 
 module.exports = (app) => {
     app.engine('.hbs', hbs.engine);

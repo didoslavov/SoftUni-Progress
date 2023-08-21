@@ -4,6 +4,10 @@ async function getAllCubes() {
     return await Cube.find({}).lean();
 }
 
+async function getCubeById(id) {
+    return await Cube.findById(id).lean();
+}
+
 async function createCube(data) {
     const cube = {
         name: data.name,
@@ -20,4 +24,5 @@ async function createCube(data) {
 module.exports = {
     createCube,
     getAllCubes,
+    getCubeById,
 };

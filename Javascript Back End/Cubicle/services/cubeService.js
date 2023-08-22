@@ -1,18 +1,25 @@
 const Cube = require('../models/Cube.js');
 
 async function getCubes(query) {
-    const name = query.search || '';
-    const from = Number(query.from) || 1;
-    const to = Number(query.to) || 6;
+    const options = {};
 
-    const difficultyFilter = from || to ? { difficultyLevel: { $gte: from, $lte: to } } : {};
+    if (query.search) {
+        options.name = new RegExp(query.search, 'i');
+    }
 
-    const filter = {
-        name: new RegExp(name, 'i'),
-        ...difficultyFilter,
-    };
+    if (query.from) {
+        options.difficultyLevel = { $gte: Number(query.from) };
+    }
 
-    return await Cube.find(filter).lean();
+    if (query.to) {
+        if (!options.difficultyLevel) {
+            options.difficultyLevel = {};
+        }
+
+        options.difficultyLevel.$lte = Number(query.to);
+    }
+
+    return await Cube.find(options).lean();
 }
 
 async function getCubeById(id) {

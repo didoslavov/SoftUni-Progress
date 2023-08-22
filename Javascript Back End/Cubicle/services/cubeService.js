@@ -1,6 +1,6 @@
 const Cube = require('../models/Cube.js');
 
-async function getAllCubes(query) {
+async function getCubes(query) {
     const name = query.search || '';
     const from = Number(query.from) || 1;
     const to = Number(query.to) || 6;
@@ -34,6 +34,6 @@ async function createCube(data) {
 
 module.exports = {
     createCube,
-    getAllCubes,
+    getCubes,
     getCubeById,
 };

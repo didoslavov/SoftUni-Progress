@@ -8,8 +8,8 @@ const homeController = require('../controllers/homeController.js');
 module.exports = (app) => {
     app.use(homeController);
 
-    app.use('/create/accessory', createAccessoryController);
     app.use('/create', createCubeController);
+    app.use('/create-accessory', createAccessoryController);
     app.use('/about', aboutController);
     app.use('/:id', detailsController);
 

@@ -7,4 +7,27 @@
         <p><span>Difficulty level:</span> {{difficultyLevel}}</p>
         <a class='btn' href='/'>Back</a>
     </div>
+
+    <h2>Accessories</h2>
+    <div class='accessories'>
+        {{#if accessories}}
+            <div class='accessory'>
+                <img src='https://images-na.ssl-images-amazon.com/images/I/61J8UP8pySL._SX425_.jpg' alt='stickerName' />
+                <h3>Accessory Name</h3>
+                <p>Accessory Description</p>
+            </div>
+            <div class='accessory'>
+                <img src='https://images-na.ssl-images-amazon.com/images/I/61J8UP8pySL._SX425_.jpg' alt='stickerName' />
+                <h3>Accessory Name</h3>
+                <p>Accessory Description</p>
+            </div>
+            <div class='accessory'>
+                <img src='https://images-na.ssl-images-amazon.com/images/I/61J8UP8pySL._SX425_.jpg' alt='stickerName' />
+                <h3>Accessory Name</h3>
+                <p>Accessory Description</p>
+            </div>
+        {{else}}
+            <h3 class='italic'>This cube has no accessories yet...</h3>
+        {{/if}}
+    </div>
 {{/with}}

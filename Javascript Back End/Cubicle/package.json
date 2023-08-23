@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "main": "pathToMain",
     "scripts": {
-        "start": "nodemon index.js --ext js"
+        "start": "nodemon index.js"
     },
     "dependencies": {
         "express": "^4.17.1",

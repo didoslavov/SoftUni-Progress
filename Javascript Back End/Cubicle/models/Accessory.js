@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const validateImageUrl = require('../util');
+const { maxLength, validateImageUrl } = require('./validators');
 
 const accessorySchema = new Schema({
     name: { type: String, required: true },
@@ -8,8 +8,7 @@ const accessorySchema = new Schema({
         required: true,
         validate: { validator: validateImageUrl, message: 'You need to provide valid url!' },
     },
-    description: { type: String, required: true, maxLength: [500, 'Description must be max 500 chars.'] },
-    difficultyLevel: Number,
+    description: { type: String, required: true, maxLength: maxLength },
 });
 
 const Accessory = model('Accessory', accessorySchema);

@@ -5,6 +5,7 @@ const createCubeController = require('../controllers/createCubeController.js');
 const defaultController = require('../controllers/defaultController.js');
 const detailsController = require('../controllers/detailsController.js');
 const homeController = require('../controllers/homeController.js');
+const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
 
 module.exports = (app) => {
@@ -16,6 +17,7 @@ module.exports = (app) => {
     app.use('/about', aboutController);
     app.use('/:id', detailsController);
     app.use('/register', registerController);
+    app.use('/login', loginController);
 
     app.use('*', defaultController);
 };

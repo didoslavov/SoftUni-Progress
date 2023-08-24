@@ -1,5 +1,16 @@
 const Cube = require('../models/Cube.js');
 
+function cubeViewModel(cube) {
+    return {
+        id: cube._id,
+        name: cube.name,
+        description: cube.description,
+        imageUrl: cube.imageUrl,
+        difficultyLevel: cube.difficultyLevel,
+        accessories: cube.accessories,
+    };
+}
+
 async function getCubes(query) {
     const options = {};
 
@@ -19,11 +30,19 @@ async function getCubes(query) {
         options.difficultyLevel.$lte = Number(query.to);
     }
 
-    return await Cube.find(options).lean();
+    const cubes = await Cube.find(options);
+
+    return cubes.map(cubeViewModel);
 }
 
 async function getCubeById(id) {
-    return await Cube.findById(id).lean();
+    const cube = await Cube.findById(id);
+
+    if (!cube) {
+        return undefined;
+    }
+
+    return cubeViewModel(cube);
 }
 
 async function createCube(data) {
@@ -39,8 +58,16 @@ async function createCube(data) {
     return result;
 }
 
+async function attachAccessory(cubeId, accessoryId) {
+    const cube = await Cube.findById(cubeId);
+
+    cube.accessories.push(accessoryId);
+    await cube.save();
+}
+
 module.exports = {
     createCube,
     getCubes,
     getCubeById,
+    attachAccessory,
 };

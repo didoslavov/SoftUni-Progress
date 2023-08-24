@@ -1,4 +1,8 @@
-const { Schema, model } = require('mongoose');
+const {
+    Schema,
+    model,
+    Types: { ObjectId },
+} = require('mongoose');
 const { maxLength, validateImageUrl } = require('./validators');
 
 const cubeSchema = new Schema({
@@ -10,6 +14,7 @@ const cubeSchema = new Schema({
         required: true,
         validate: { validator: validateImageUrl, message: 'You need to provide valid url!' },
     },
+    accessories: { type: [ObjectId], default: [], ref: 'Accessory' },
 });
 
 const Cube = model('Cube', cubeSchema);

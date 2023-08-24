@@ -14,7 +14,8 @@ createAccessoryController.post('/', async (req, res) => {
             imageUrl: req.body.imageUrl,
             difficultyLevel: Number(req.body.difficultyLevel),
         };
-        await createAccessory(req.body);
+
+        await createAccessory(accessory);
 
         res.redirect('/');
     } catch (error) {

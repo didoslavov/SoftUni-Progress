@@ -1,4 +1,5 @@
 const aboutController = require('../controllers/aboutController.js');
+const attachAccessoryController = require('../controllers/attachAccessoryController.js');
 const createAccessoryController = require('../controllers/createAccessoryController.js');
 const createCubeController = require('../controllers/createCubeController.js');
 const defaultController = require('../controllers/defaultController.js');
@@ -10,6 +11,7 @@ module.exports = (app) => {
 
     app.use('/create', createCubeController);
     app.use('/create-accessory', createAccessoryController);
+    app.use('/attach-accessory', attachAccessoryController);
     app.use('/about', aboutController);
     app.use('/:id', detailsController);
 

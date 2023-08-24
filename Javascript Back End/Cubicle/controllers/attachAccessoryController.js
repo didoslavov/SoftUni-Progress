@@ -1,4 +1,4 @@
-const { getAccessories } = require('../services/accessoryService.js');
+const { getUnattachedAccessories } = require('../services/accessoryService.js');
 const { getCubeById, attachAccessory } = require('../services/cubeService.js');
 
 const attachAccessoryController = require('express').Router();
@@ -7,10 +7,9 @@ attachAccessoryController.get('/:id', async (req, res) => {
     const id = req.params.id;
 
     try {
-        const [cube, accessories] = await Promise.all([getCubeById(id), getAccessories()]);
+        const cube = await getCubeById(id);
 
-        const cubeAccessories = Array.from(cube.accessories).map((id) => id.toString());
-        const unattachedAccessories = accessories.filter((a) => !cubeAccessories.includes(a.id.toString()));
+        const unattachedAccessories = await getUnattachedAccessories(cube);
 
         res.render('attachAccessory', { cube, unattachedAccessories });
     } catch (error) {

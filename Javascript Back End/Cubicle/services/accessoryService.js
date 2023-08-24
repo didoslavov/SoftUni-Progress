@@ -21,7 +21,27 @@ async function getAccessories() {
     return data.map(mapToViewModel);
 }
 
+async function getUnattachedAccessories(cube) {
+    const accessories = await getAccessories();
+
+    const cubeAccessories = Array.from(cube.accessories).map((id) => id.toString());
+    const unattachedAccessories = accessories.filter((a) => !cubeAccessories.includes(a.id.toString()));
+
+    return unattachedAccessories;
+}
+
+async function getAttachedAccessories(cube) {
+    const accessories = await getAccessories();
+
+    const cubeAccessories = Array.from(cube.accessories).map((id) => id.toString());
+    const attachedAccessories = accessories.filter((a) => cubeAccessories.includes(a.id.toString()));
+
+    return attachedAccessories;
+}
+
 module.exports = {
     createAccessory,
     getAccessories,
+    getUnattachedAccessories,
+    getAttachedAccessories,
 };

@@ -90,8 +90,8 @@ p.name {
     border-bottom: 1px solid #2b415433;
 }
 
-
-button, main a.btn {
+button,
+main a.btn {
     border: none;
     padding: 8px;
     text-align: center;
@@ -105,10 +105,18 @@ button, main a.btn {
     color: white;
 }
 
+.details a.btn {
+    width: 28%;
+}
+
 button:hover {
-    background-color: #0B2133;
+    background-color: #0b2133;
     color: white;
     cursor: pointer;
+}
+
+a.btn:hover {
+    text-decoration: underline;
 }
 
 a {
@@ -140,10 +148,9 @@ div.about {
     padding: 3em;
 }
 
-
 div.about a {
     text-decoration: none;
-    color: #0B2133;
+    color: #0b2133;
     font-weight: bold;
 }
 
@@ -155,8 +162,9 @@ form label {
     border-top-right-radius: 4px;
 }
 
-input[type=text],
-input[type=number],
+input[type='text'],
+input[type='number'],
+input[type='password'],
 select,
 textarea {
     width: 100%;
@@ -176,7 +184,7 @@ input.search {
     width: 50%;
 }
 
-input[type=submit] {
+input[type='submit'] {
     background-color: #545775;
     border: none;
     padding: 8px;
@@ -191,8 +199,8 @@ input[type=submit] {
     border-radius: 4px;
 }
 
-input[type=submit]:hover {
-    background-color: #718F94;
+input[type='submit']:hover {
+    background-color: #718f94;
     cursor: pointer;
 }
 
@@ -206,7 +214,7 @@ div.form {
 span.error {
     animation: fadeOut 1s forwards;
     animation-delay: 2s;
-    background: #EF5542;
+    background: #ef5542;
     color: white;
     padding: 10px;
     text-align: center;
@@ -220,16 +228,16 @@ span.error {
     display: block;
 }
 
-img#sadFaceImg{
+img#sadFaceImg {
     display: block;
     margin: 0 auto;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
-.accessories .accessory{
+.accessories .accessory {
     display: inline-block;
     background-color: #f3f3f2;
     width: 20%;
@@ -237,7 +245,8 @@ h2{
     margin: 1%;
 }
 
-.accessories, .italic{
+.accessories,
+.italic {
     text-align: center;
     font-style: italic;
 }
@@ -252,7 +261,6 @@ footer {
 
 /*Animations & Transitions
 */
-
 
 @-webkit-keyframes fadeOut {
     from {

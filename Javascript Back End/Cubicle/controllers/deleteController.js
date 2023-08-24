@@ -1,6 +1,6 @@
 const deleteController = require('express').Router();
 
-deleteController.get('/', async (req, res) => {
+deleteController.get('/:id', async (req, res) => {
     res.render('delete');
 });
 

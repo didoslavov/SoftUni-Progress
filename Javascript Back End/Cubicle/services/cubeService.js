@@ -65,6 +65,10 @@ async function attachAccessory(cubeId, accessoryId) {
     await cube.save();
 }
 
+async function deleteCube(id) {
+    // TODO delete functionality
+}
+
 module.exports = {
     createCube,
     getCubes,

@@ -1,4 +1,4 @@
-const { getAccessories, getAttachedAccessories } = require('../services/accessoryService.js');
+const { getAttachedAccessories } = require('../services/accessoryService.js');
 const { getCubeById } = require('../services/cubeService.js');
 
 const detailsController = require('express').Router();

@@ -9,19 +9,20 @@ const editController = require('../controllers/editController.js');
 const homeController = require('../controllers/homeController.js');
 const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
+const { hasUser } = require('../middlewares/guards.js');
 
 module.exports = (app) => {
     app.use(homeController);
 
-    app.use('/create', createCubeController);
-    app.use('/create-accessory', createAccessoryController);
-    app.use('/attach-accessory', attachAccessoryController);
+    app.use('/create', hasUser(), createCubeController);
+    app.use('/create-accessory', hasUser(), createAccessoryController);
+    app.use('/attach-accessory', hasUser(), attachAccessoryController);
     app.use('/about', aboutController);
-    app.use('/details/', detailsController);
+    app.use('/details/', hasUser(), detailsController);
     app.use('/register', registerController);
     app.use('/login', loginController);
-    app.use('/delete/', deleteController);
-    app.use('/edit/', editController);
+    app.use('/delete/', hasUser(), deleteController);
+    app.use('/edit/', hasUser(), editController);
 
     app.use('*', defaultController);
 };

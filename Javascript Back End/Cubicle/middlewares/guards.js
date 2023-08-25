@@ -3,7 +3,7 @@ function hasUser() {
         if (req.user != undefined) {
             next();
         } else {
-            res.status(401).redirect('/login');
+            res.redirect('/login');
         }
     };
 }

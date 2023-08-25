@@ -10,7 +10,7 @@ detailsController.get('/:id', async (req, res) => {
 
     const attachedAccessories = await getAttachedAccessories(cube);
 
-    res.render('details', { cube, attachedAccessories });
+    res.render('details', { cube, attachedAccessories, title: 'Details' });
 });
 
 module.exports = detailsController;

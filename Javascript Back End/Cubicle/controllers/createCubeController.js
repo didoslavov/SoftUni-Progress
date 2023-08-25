@@ -1,9 +1,12 @@
+const { isGuest } = require('../middlewares/guards.js');
 const { createCube } = require('../services/cubeService.js');
 
 const createCubeController = require('express').Router();
 
 createCubeController.get('/', (req, res) => {
-    res.render('createCube');
+    res.render('createCube', {
+        title: 'Add a Cube',
+    });
 });
 
 createCubeController.post('/', async (req, res) => {

@@ -11,7 +11,7 @@ attachAccessoryController.get('/:id', async (req, res) => {
 
         const unattachedAccessories = await getUnattachedAccessories(cube);
 
-        res.render('attachAccessory', { cube, unattachedAccessories });
+        res.render('attachAccessory', { cube, unattachedAccessories, title: 'Attach Accessory' });
     } catch (error) {
         res.redirect('404');
     }

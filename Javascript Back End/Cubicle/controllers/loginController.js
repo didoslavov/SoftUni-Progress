@@ -2,7 +2,9 @@ const loginController = require('express').Router();
 const { login } = require('../services/authService.js');
 
 loginController.get('/', async (req, res) => {
-    res.render('login');
+    res.render('login', {
+        title: 'Login',
+    });
 });
 
 loginController.post('/', async (req, res) => {

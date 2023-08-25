@@ -3,7 +3,9 @@ const { register } = require('../services/authService.js');
 const registerController = require('express').Router();
 
 registerController.get('/', async (req, res) => {
-    res.render('register');
+    res.render('register', {
+        title: 'Register',
+    });
 });
 
 registerController.post('/', async (req, res) => {

@@ -1,6 +1,8 @@
 const express = require('express');
 const hbs = require('express-handlebars').create({ extname: '.hbs' });
 
+const defaultTitle = require('../middlewares/defaultTitle');
+const userNav = require('../middlewares/userNav');
 const cookieParser = require('cookie-parser');
 const auth = require('../middlewares/authMiddleware');
 
@@ -14,4 +16,7 @@ module.exports = (app) => {
     app.use(express.static('static'));
     app.use(cookieParser());
     app.use(auth(jwtSecret));
+    app.use(userNav());
+
+    app.use(defaultTitle('Cubicle'));
 };

@@ -9,7 +9,7 @@ const editController = require('../controllers/editController.js');
 const homeController = require('../controllers/homeController.js');
 const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
-const { hasUser } = require('../middlewares/guards.js');
+const { hasUser, isGuest } = require('../middlewares/guards.js');
 
 module.exports = (app) => {
     app.use(homeController);
@@ -19,8 +19,8 @@ module.exports = (app) => {
     app.use('/attach-accessory', hasUser(), attachAccessoryController);
     app.use('/about', aboutController);
     app.use('/details/', hasUser(), detailsController);
-    app.use('/register', registerController);
-    app.use('/login', loginController);
+    app.use('/register', isGuest(), registerController);
+    app.use('/login', isGuest(), loginController);
     app.use('/delete/', hasUser(), deleteController);
     app.use('/edit/', hasUser(), editController);
 

@@ -22,14 +22,12 @@ async function register(username, password) {
 
 async function login(username, password) {
     const user = await User.findOne({ username: { $regex: new RegExp(username, 'i') } });
-    console.log(user);
 
     if (!user) {
         throw new Error('Incorect username or password!');
     }
 
     const match = await bcrypt.compare(password, user.hashedPassword);
-    console.log(match);
 
     if (!match) {
         throw new Error('Incorect username or password!');

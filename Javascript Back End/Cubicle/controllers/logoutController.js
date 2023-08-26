@@ -1,6 +1,6 @@
 const logoutController = require('express').Router();
 
-logoutController.post('/', (req, res) => {
+logoutController.get('/', (req, res) => {
     res.clearCookie('jwt');
     res.redirect('/');
 });

@@ -45,12 +45,13 @@ async function getCubeById(id) {
     return cubeViewModel(cube);
 }
 
-async function createCube(data) {
+async function createCube(data, ownerId) {
     const cube = {
         name: data.name,
         description: data.description,
         imageUrl: data.imageUrl,
         difficultyLevel: data.difficultyLevel,
+        owner: ownerId,
     };
 
     const result = await Cube.create(cube);

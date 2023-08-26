@@ -11,7 +11,10 @@ createCubeController.get('/', (req, res) => {
 
 createCubeController.post('/', async (req, res) => {
     try {
-        await createCube(req.body);
+        const cube = req.body;
+        const ownerId = req.user._id;
+
+        await createCube(cube, ownerId);
 
         res.redirect('/');
     } catch (error) {

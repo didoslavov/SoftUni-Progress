@@ -9,6 +9,17 @@ const userSchema = new Schema({
     hashedPassword: { type: String, required: true },
 });
 
+userSchema.index(
+    { username: 1 },
+    {
+        unique: true,
+        collation: {
+            locale: 'en',
+            strength: 2,
+        },
+    }
+);
+
 const User = model('User', userSchema);
 
 module.exports = User;

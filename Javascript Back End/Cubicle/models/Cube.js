@@ -15,6 +15,7 @@ const cubeSchema = new Schema({
         validate: { validator: validateImageUrl, message: 'You need to provide valid url!' },
     },
     accessories: { type: [ObjectId], default: [], ref: 'Accessory' },
+    owner: { type: ObjectId, ref: 'User', required: true },
 });
 
 const Cube = model('Cube', cubeSchema);

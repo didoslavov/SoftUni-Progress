@@ -40,6 +40,29 @@ header ul li {
     vertical-align: middle;
 }
 
+header ul li form {
+    margin-bottom: 0;
+}
+
+header ul li form button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+header ul li form button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
 header ul li a {
     text-decoration: none;
     text-transform: uppercase;

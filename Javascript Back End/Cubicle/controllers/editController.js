@@ -9,12 +9,26 @@ editController.get('/:id', async (req, res) => {
 
     const options = getSelectedOption(cube.difficultyLevel);
 
-    res.render('edit', {
-        id,
-        options,
-        cube,
-        title: 'Edit',
-    });
+    try {
+        if (!req.user || cube.ownerId != req.user._id) {
+            throw new Error("You're not creator of this cube!");
+        }
+
+        res.render('edit', {
+            id,
+            options,
+            cube,
+            title: 'Edit',
+        });
+    } catch (error) {
+        res.render('details', {
+            id,
+            options,
+            cube,
+            title: 'Details',
+            error: error.message.split(','),
+        });
+    }
 });
 
 editController.post('/:id', async (req, res) => {
@@ -23,6 +37,10 @@ editController.post('/:id', async (req, res) => {
     const options = getSelectedOption(cube.difficultyLevel);
 
     try {
+        if (!req.user || cube.ownerId != req.user._id) {
+            throw new Error("You're not creator of this cube!");
+        }
+
         await editCube(id, cube);
         res.redirect('/details/' + id);
     } catch (error) {

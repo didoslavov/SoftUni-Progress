@@ -1,3 +1,8 @@
+{{#if error}}
+    <div id='notifications'>
+        <p id='notification-message'>{{error}}</p>
+    </div>
+{{/if}}
 {{#with cube}}
     <h1>{{name}}</h1>
     <img class='cube' src={{imageUrl}} />

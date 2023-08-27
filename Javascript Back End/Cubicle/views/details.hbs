@@ -5,11 +5,11 @@
         <p><span>Description:</span>
             {{description}}</p>
         <p><span>Difficulty level:</span> {{difficultyLevel}}</p>
-        {{#if hasUser}}
+        {{#if isOwner}}
             <a class='btn' href='/edit/{{id}}'>Edit</a>
             <a class='btn' href='/delete/{{id}}'>Delete</a>
+            <a class='btn' href='/attach-accessory/{{id}}'>Attach accessory</a>
         {{/if}}
-        <a class='btn' href='/attach-accessory/{{id}}'>Attach accessory</a>
         <a class='btn' href='/'>Back</a>
     </div>
 {{/with}}

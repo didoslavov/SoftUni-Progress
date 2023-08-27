@@ -8,6 +8,7 @@ function cubeViewModel(cube) {
         imageUrl: cube.imageUrl,
         difficultyLevel: cube.difficultyLevel,
         accessories: cube.accessories,
+        ownerId: cube.owner,
     };
 }
 
@@ -67,7 +68,11 @@ async function attachAccessory(cubeId, accessoryId) {
 }
 
 async function deleteCube(id) {
-    // TODO delete functionality
+    await Cube.findByIdAndDelete(id);
+}
+
+async function editCube(id, data) {
+    await Cube.findByIdAndUpdate(id, data);
 }
 
 module.exports = {
@@ -75,4 +80,6 @@ module.exports = {
     getCubes,
     getCubeById,
     attachAccessory,
+    editCube,
+    deleteCube,
 };

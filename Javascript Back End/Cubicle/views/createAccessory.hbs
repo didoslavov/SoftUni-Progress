@@ -1,3 +1,10 @@
+{{#if error}}
+    <div id='notifications'>
+        {{#each error}}
+            <p id='notification-message'>{{this}}</p>
+        {{/each}}
+    </div>
+{{/if}}
 <h1>Create Accessory</h1>
 <div class='form'>
     <form action='/create-accessory' method='POST'>

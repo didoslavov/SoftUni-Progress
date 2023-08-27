@@ -18,7 +18,10 @@ createCubeController.post('/', async (req, res) => {
 
         res.redirect('/');
     } catch (error) {
-        console.error(error.massege);
+        res.render('createCube', {
+            title: 'Add a Cube',
+            error: error.message.split(','),
+        });
     }
 });
 

@@ -1,3 +1,10 @@
+{{#if error}}
+    <div id='notifications'>
+        {{#each error}}
+            <p id='notification-message'>{{this}}</p>
+        {{/each}}
+    </div>
+{{/if}}
 <h1>Register Form</h1>
 <div class='form'>
     <form action='/register' method='POST'>

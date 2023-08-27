@@ -29,7 +29,10 @@ registerController.post('/', async (req, res) => {
         res.redirect('/');
     } catch (error) {
         console.error(error.message);
-        res.redirect('/register');
+        res.render('register', {
+            title: 'Register',
+            error: error.message.split('\n'),
+        });
     }
 });
 

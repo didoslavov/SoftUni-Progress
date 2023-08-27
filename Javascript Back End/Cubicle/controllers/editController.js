@@ -4,11 +4,13 @@ const { getSelectedOption } = require('./utils/utils.js');
 const editController = require('express').Router();
 
 editController.get('/:id', async (req, res) => {
-    const cube = await getCubeById(req.params.id);
+    const id = req.params.id;
+    const cube = await getCubeById(id);
 
     const options = getSelectedOption(cube.difficultyLevel);
 
     res.render('edit', {
+        id,
         options,
         cube,
         title: 'Edit',
@@ -25,9 +27,11 @@ editController.post('/:id', async (req, res) => {
         res.redirect('/details/' + id);
     } catch (error) {
         res.render('edit', {
+            id,
             options,
             cube,
             title: 'Edit',
+            error: error.message.split(','),
         });
     }
 });

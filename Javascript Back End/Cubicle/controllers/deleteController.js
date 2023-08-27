@@ -28,6 +28,7 @@ deleteController.post('/:id', async (req, res) => {
             title: 'Delete',
             cube,
             options,
+            error: error.message.split(','),
         });
     }
 });

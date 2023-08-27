@@ -21,8 +21,10 @@ createAccessoryController.post('/', async (req, res) => {
 
         res.redirect('/');
     } catch (error) {
-        console.error(error.message);
-        res.redirect('/create-accessory');
+        res.render('createAccessory', {
+            title: 'Add Accessory',
+            error: error.message.split(','),
+        });
     }
 });
 

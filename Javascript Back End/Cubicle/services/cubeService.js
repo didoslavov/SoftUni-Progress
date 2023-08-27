@@ -72,7 +72,16 @@ async function deleteCube(id) {
 }
 
 async function editCube(id, data) {
-    await Cube.findByIdAndUpdate(id, data);
+    const cube = await Cube.findById(id);
+
+    cube.name = data.name;
+    cube.description = data.description;
+    cube.imageUrl = data.imageUrl;
+    cube.difficultyLevel = data.difficultyLevel;
+
+    await cube.save();
+
+    return cube;
 }
 
 module.exports = {

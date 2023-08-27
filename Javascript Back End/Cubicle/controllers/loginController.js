@@ -23,7 +23,10 @@ loginController.post('/', async (req, res) => {
         res.redirect('/');
     } catch (error) {
         console.error(error.message);
-        res.redirect('/login');
+        res.render('login', {
+            title: 'Login',
+            error: error.message.split('\n'),
+        });
     }
 });
 

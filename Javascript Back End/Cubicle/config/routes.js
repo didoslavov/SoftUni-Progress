@@ -19,7 +19,7 @@ module.exports = (app) => {
     app.use('/create-accessory', hasUser(), createAccessoryController);
     app.use('/attach-accessory', hasUser(), attachAccessoryController);
     app.use('/about', aboutController);
-    app.use('/details/', hasUser(), detailsController);
+    app.use('/details/', detailsController);
     app.use('/register', isGuest(), registerController);
     app.use('/login', isGuest(), loginController);
     app.use('/logout', logoutController);

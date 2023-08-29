@@ -12,6 +12,7 @@
         "cookie-parser": "^1.4.6",
         "express": "^4.17.1",
         "express-handlebars": "^7.1.2",
+        "express-validator": "^7.0.1",
         "jsonwebtoken": "^9.0.1",
         "mongodb": "^5.7.0",
         "mongoose": "^7.4.3"

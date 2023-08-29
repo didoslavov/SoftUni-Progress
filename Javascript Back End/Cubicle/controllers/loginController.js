@@ -1,4 +1,5 @@
 const loginController = require('express').Router();
+const { body, validationResult } = require('express-validator');
 const { login } = require('../services/authService.js');
 
 loginController.get('/', async (req, res) => {
@@ -7,27 +8,33 @@ loginController.get('/', async (req, res) => {
     });
 });
 
-loginController.post('/', async (req, res) => {
-    const username = req.body.username.trim();
-    const password = req.body.password.trim();
+loginController.post(
+    '/',
+    body('username').trim().notEmpty().withMessage('Username is required!'),
+    body('password').trim().notEmpty().withMessage('Password is required!'),
+    async (req, res) => {
+        const username = req.body.username;
+        const password = req.body.password;
 
-    try {
-        if (username == '' || password == '') {
-            throw new Error('All fields are required!');
+        const { errors } = validationResult(req);
+
+        try {
+            if (errors.length > 0) {
+                throw errors;
+            }
+
+            const result = await login(username, password);
+            const token = req.signJwt(result);
+
+            res.cookie('jwt', token, { maxAge: 14400000 });
+            res.redirect('/');
+        } catch (error) {
+            res.render('login', {
+                title: 'Login',
+                error: error.map((e) => e.msg),
+            });
         }
-
-        const result = await login(username, password);
-        const token = req.signJwt(result);
-
-        res.cookie('jwt', token, { maxAge: 14400000 });
-        res.redirect('/');
-    } catch (error) {
-        console.error(error.message);
-        res.render('login', {
-            title: 'Login',
-            error: error.message.split('\n'),
-        });
     }
-});
+);
 
 module.exports = loginController;

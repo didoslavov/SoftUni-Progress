@@ -29,7 +29,6 @@ createCubeController.post(
 
             res.redirect('/');
         } catch (error) {
-            err = error.errors ? error.errors.imageUrl.properties.message : error.map((e) => e.msg);
             res.render('createCube', {
                 title: 'Add a Cube',
                 cube: req.body,

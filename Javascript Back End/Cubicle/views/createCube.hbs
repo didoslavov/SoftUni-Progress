@@ -8,13 +8,15 @@
 <h1>Create</h1>
 <div class='form'>
     <form action='/create' method='post'>
-        <label for='name'>Name</label>
-        <input type='text' id='name' name='name' />
-        <label for='name'>Description</label>
-        <textarea id='name' name='description'></textarea>
-        <label for='image'>ImageUrl</label>
-        <input type='text' id='image' name='imageUrl' />
-        <label for='difficulty'>Difficulty</label>
+        {{#with cube}}
+            <label for='name'>Name</label>
+            <input type='text' id='name' name='name' value='{{name}}' />
+            <label for='name'>Description</label>
+            <textarea id='name' name='description'>{{description}}</textarea>
+            <label for='image'>ImageUrl</label>
+            <input type='text' id='image' name='imageUrl' value='{{imageUrl}}' />
+            <label for='difficulty'>Difficulty</label>
+        {{/with}}
         <select id='difficulty' name='difficultyLevel'>
             <option value='1'>1 - Very Easy</option>
             <option value='2'>2 - Easy</option>

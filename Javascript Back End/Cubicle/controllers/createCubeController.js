@@ -1,3 +1,4 @@
+const { body, validationResult } = require('express-validator');
 const { isGuest } = require('../middlewares/guards.js');
 const { createCube } = require('../services/cubeService.js');
 
@@ -9,20 +10,33 @@ createCubeController.get('/', (req, res) => {
     });
 });
 
-createCubeController.post('/', async (req, res) => {
-    try {
-        const cube = req.body;
-        const ownerId = req.user._id;
+createCubeController.post(
+    '/',
+    body('name').trim().notEmpty().withMessage('Name is required!'),
+    body('description').trim().notEmpty().withMessage('Description is required!'),
+    body('imageUrl').trim().notEmpty().withMessage('Type valid image url!'),
+    async (req, res) => {
+        try {
+            const cube = req.body;
+            const ownerId = req.user._id;
+            const { errors } = validationResult(req);
 
-        await createCube(cube, ownerId);
+            if (errors.length > 0) {
+                throw errors;
+            }
 
-        res.redirect('/');
-    } catch (error) {
-        res.render('createCube', {
-            title: 'Add a Cube',
-            error: error.message.split(','),
-        });
+            await createCube(cube, ownerId);
+
+            res.redirect('/');
+        } catch (error) {
+            err = error.errors ? error.errors.imageUrl.properties.message : error.map((e) => e.msg);
+            res.render('createCube', {
+                title: 'Add a Cube',
+                cube: req.body,
+                error: error.errors ? [error.errors.imageUrl.properties.message] : error.map((e) => e.msg),
+            });
+        }
     }
-});
+);
 
 module.exports = createCubeController;

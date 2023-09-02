@@ -8,7 +8,7 @@ export default function Footer() {
                     </h3>
                     <form className="form-horizontal" data-toggle="validator" role="form">
                         <div className="form-group">
-                            <label for="name" className="col-sm-3 control-label">
+                            <label htmlFor="name" className="col-sm-3 control-label">
                                 Name<sup>*</sup>
                             </label>
                             <div className="col-sm-9">
@@ -18,7 +18,7 @@ export default function Footer() {
                             </div>
                         </div>
                         <div className="form-group">
-                            <label for="email" className="col-sm-3 control-label">
+                            <label htmlFor="email" className="col-sm-3 control-label">
                                 Email<sup>*</sup>
                             </label>
                             <div className="col-sm-9">
@@ -34,7 +34,7 @@ export default function Footer() {
                             </div>
                         </div>
                         <div className="form-group">
-                            <label for="message" className="col-sm-3 control-label">
+                            <label htmlFor="message" className="col-sm-3 control-label">
                                 Your Message<sup>*</sup>
                             </label>
                             <div className="col-sm-9">

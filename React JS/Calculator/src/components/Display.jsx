@@ -1,7 +1,14 @@
 import React from 'react';
 
-function Display({ input, setInput }) {
-    return <input type="text" id="display" value={input} disabled />;
+function Display({ currentOperand, previousOperand, operation }) {
+    return (
+        <>
+            <div id="previous">
+                {previousOperand} {operation}
+            </div>
+            <div id="display">{currentOperand}</div>
+        </>
+    );
 }
 
 export default Display;

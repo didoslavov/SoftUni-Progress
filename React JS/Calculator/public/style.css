@@ -28,7 +28,16 @@ body {
     border: none;
     background-color: transparent;
     color: white;
-    font-size: 48px;
+    font-size: 36px;
+    text-align: right;
+}
+
+#previous {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: rgb(191, 187, 187);
+    font-size: 28px;
     text-align: right;
 }
 

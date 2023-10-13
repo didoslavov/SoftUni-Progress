@@ -1,0 +1,8 @@
+<h1>Register page</h1>
+
+<form method='POST' action='/auth/register'>
+    <label>Username: <input type='text' name='username' value='{{body.username}}' /></label>
+    <label>Password: <input type='text' name='password' /></label>
+    <label>RePass: <input type='text' name='rePass' /></label>
+    <input type='submit' value='Register' />
+</form>

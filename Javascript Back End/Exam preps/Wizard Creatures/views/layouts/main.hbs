@@ -2,19 +2,38 @@
     <head>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <link href='/static/css/style.css' type='text/css' rel='stylesheet' />
         <title>{{title}}</title>
     </head>
     <body>
-        <a href='/auth/login'>Login</a>
-        <a href='/auth/register'>Register</a>
-        <a href='/auth/logout'>Logout</a>
-        {{#if errors}}
-            <div>
-                {{#each errors}}
-                    <p>{{this}}</p>
-                {{/each}}
-            </div>
-        {{/if}}
-        {{{body}}}
+        <div id='box'>
+            <nav>
+                <img src='/static/img/logo.png' alt='logo' />
+
+                <ul class='menu'>
+                    <li><a href='/'>Home</a></li>
+                    <li><a href='/posts/catalog'>All Posts</a></li>
+                    {{#if user}}
+                        <li><a href='/posts/create'>Create Post</a></li>
+                        <li><a href='/posts/{{user._id}}/profile'>Profile</a></li>
+                        <li><a href='/auth/logout'>Logout</a></li>
+                    {{else}}
+                        <li><a href='/auth/register'>Register</a></li>
+                        <li><a href='/auth/login'>Login</a></li>
+                    {{/if}}
+                </ul>
+
+            </nav>
+            {{#if errors}}
+                <div class='error-container'>
+                    {{#each errors}}
+                        <p>{{this}}</p>
+                    {{/each}}
+                </div>
+            {{/if}}
+            {{{body}}}
+
+            <footer>© JS Back-End Exam 2023</footer>
+        </div>
     </body>
 </html>

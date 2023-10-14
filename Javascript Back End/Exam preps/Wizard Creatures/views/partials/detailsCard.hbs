@@ -1,0 +1,14 @@
+<div class='flip flip-vertical'>
+    <div class='front'>
+        <img src='{{this.image}}' alt='Thestral' />
+    </div>
+    <div class='back'>
+        <h1>{{this.name}}</h1>
+        <h2>Species: {{this.species}}</h2>
+        <p>
+            Description:
+            {{this.description}}
+        </p>
+        <a href='/posts/{{this._id}}/details' class='details'>Details</a>
+    </div>
+</div>

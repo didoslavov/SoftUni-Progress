@@ -1,0 +1,20 @@
+<div class='my-card'>
+    <div class='card-header'>
+        <img src='{{this.image}}' />
+    </div>
+    <div class='card-body'>
+        <span class='tag tag-teal'>Species: {{this.species}}</span>
+        <h4>
+            Name:
+            {{this.name}}
+        </h4>
+        <div class='user'>
+            <div class='user-info'>
+                <h5>Author: {{this.owner.firstName}} {{this.owner.lastName}}</h5>
+                <small>Rating of votes: {{this.votes.length}}</small>
+                <a href='/posts/{{this._id}}/details' class='details_btn'>Details</a>
+
+            </div>
+        </div>
+    </div>
+</div>

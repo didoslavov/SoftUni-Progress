@@ -16,7 +16,7 @@ function isOwner() {
         const userId = req.user._id;
 
         const post = await getPostById(postId);
-        console.log(post);
+
         if (req.user && userId === post.owner._id.toString()) {
             next();
         } else {
@@ -31,7 +31,7 @@ function canVote() {
         const userId = req.user._id;
 
         const post = await getPostById(postId);
-        console.log(post);
+
         if (req.user && userId !== post.owner._id.toString()) {
             next();
         } else {

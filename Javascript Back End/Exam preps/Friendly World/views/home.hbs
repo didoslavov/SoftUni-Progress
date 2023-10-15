@@ -9,14 +9,18 @@
     </section>
 
     <section id='last-added'>
-        <div>
-            <img src='/static/images/animal4.jpg' />
-            <p>Name: Blue</p>
-            <p>Need of: Medicine</p>
-            <a class='details-btn' href='#'>Details</a>
-        </div>
-
-        <!--  <p class="no-post">There are no animals in need!</p> -->
+        {{#if animals}}
+            {{#each animals}}
+                <div>
+                    <img src='{{this.image}}' />
+                    <p>Name: {{this.name}}</p>
+                    <p>Need of: {{this.need}}</p>
+                    <a class='details-btn' href='/animals/{{this._id}}/details'>Details</a>
+                </div>
+            {{/each}}
+        {{else}}
+            <p class='no-post'>There are no animals in need!</p>
+        {{/if}}
 
     </section>
 </main>

@@ -1,9 +1,10 @@
+const { isGuest } = require('../middlewares/guards.js');
 const { register, login } = require('../services/userService.js');
 const { parseError } = require('../util/parser.js');
 
 const authController = require('express').Router();
 
-authController.get('/register', (req, res) => {
+authController.get('/register', isGuest(), (req, res) => {
     //TODO: replace with actual view by assignment
     res.render('register', {
         title: 'Register Page',
@@ -11,10 +12,10 @@ authController.get('/register', (req, res) => {
 });
 
 authController.post('/register', async (req, res) => {
-    const { username, password, rePass } = req.body;
+    const { email, password, rePass } = req.body;
 
     try {
-        if (!username || !password) {
+        if (!email || !password) {
             throw new Error('All fields are required!');
         }
 
@@ -22,7 +23,7 @@ authController.post('/register', async (req, res) => {
             throw new Error("Passwords don't match!");
         }
 
-        const token = await register(username, password);
+        const token = await register(email, password);
 
         res.cookie('token', token);
         res.redirect('/');
@@ -34,13 +35,13 @@ authController.post('/register', async (req, res) => {
             titile: 'Register Page',
             errors,
             body: {
-                username,
+                username: email,
             },
         });
     }
 });
 
-authController.get('/login', (req, res) => {
+authController.get('/login', isGuest(), (req, res) => {
     //TODO: replace with actual view by assignment
     res.render('login', {
         title: 'Login Page',
@@ -48,14 +49,14 @@ authController.get('/login', (req, res) => {
 });
 
 authController.post('/login', async (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     try {
-        if (!username || !password) {
+        if (!email || !password) {
             throw new Error('All fields are required!');
         }
 
-        const token = await login(username, password);
+        const token = await login(email, password);
 
         res.cookie('token', token);
         res.redirect('/');
@@ -67,7 +68,7 @@ authController.post('/login', async (req, res) => {
             titile: 'Login Page',
             errors,
             body: {
-                username,
+                username: email,
             },
         });
     }

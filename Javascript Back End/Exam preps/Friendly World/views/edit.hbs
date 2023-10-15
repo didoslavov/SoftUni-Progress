@@ -3,17 +3,14 @@
     <section id='create'>
         <div class='form'>
             <h2>Edit item</h2>
-            <form class='create-form'>
-                <input type='text' name='' id='name' placeholder='Name' value='Show' />
-                <input type='text' name='' id='years' placeholder='Years' value='1' />
-                <input type='text' name='' id='kind' placeholder='Kind' value='Lion' />
-                <input type='text' name='' id='animal-img' placeholder='Image url' value='' />
-                <input type='text' name='' id='needs-of' placeholder='Needs of' value='Medicine' />
-                <input type='text' name='' id='location' placeholder='Location' value='San Diego Zoo' />
-                <textarea id='description' placeholder='Description...' name=''>Your donation goes a long way towards our cause.
-                    Every dollar and item donated goes to the care of lions, animals, and caretakers in urgent need, as well as
-                    providing grants to exceptional sanctuaries, and emergency relief efforts in the US and around the world. Tell
-                    us where you'd like your gift to go and we will customize your introductory packet to your preferences!</textarea>
+            <form class='create-form' method='POST' action='/animals/{{animal._id}}/edit'>
+                <input type='text' name='name' id='name' placeholder='Name' value='{{animal.name}}' />
+                <input type='text' name='years' id='years' placeholder='Years' value='{{animal.years}}' />
+                <input type='text' name='kind' id='kind' placeholder='Kind' value='{{animal.kind}}' />
+                <input type='text' name='image' id='animal-img' placeholder='Image url' value='{{animal.image}}' />
+                <input type='text' name='need' id='needs-of' placeholder='Needs of' value='{{animal.need}}' />
+                <input type='text' name='location' id='location' placeholder='Location' value='{{animal.location}}' />
+                <textarea id='description' placeholder='Description...' name='description'>{{animal.description}}</textarea>
 
                 <button type='submit'>Edit</button>
             </form>

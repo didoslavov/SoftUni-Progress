@@ -109,8 +109,9 @@ postsController.post('/:postId/edit', async (req, res) => {
         res.redirect(`/posts/${postId}/details`);
     } catch (error) {
         const errors = parseError(error);
+        const post = { ...req.body, _id: postId };
 
-        res.render('edit', { title: 'Edit Page', errors });
+        res.render('edit', { title: 'Edit Page', errors, post });
     }
 });
 

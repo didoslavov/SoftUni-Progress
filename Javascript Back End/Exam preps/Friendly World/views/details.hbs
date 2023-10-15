@@ -2,9 +2,9 @@
     <!-- Details page -->
     <section id='details'>
         <div id='details-wrapper'>
-            <p id='details-title'>Name: Show</p>
+            <p id='details-title'>Name: {{animal.name}}</p>
             <div id='img-wrapper'>
-                <img src='/static/images/animal1.jpg' />
+                <img src='{{animal.image}}' />
             </div>
             <div id='info-wrapper'>
                 <table>
@@ -12,36 +12,39 @@
                         <td>
                             <p>
                                 Years:
-                                <span id='details-years'>5</span>
+                                <span id='details-years'>{{animal.years}}</span>
                             </p>
                         </td>
                         <td>
-                            <p>Kind: <span id='details-kind'>Lion</span></p>
+                            <p>Kind: <span id='details-kind'>{{animal.kind}}</span></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>Need of: <span id='details-need'>Medicine</span></p>
+                            <p>Need of: <span id='details-need'>{{animal.need}}</span></p>
                         </td>
                         <td>
-                            <p>Location: <span id='details-location'>San Diego Zoo</span></p>
+                            <p>Location: <span id='details-location'>{{animal.location}}</span></p>
                         </td>
                     </tr>
                 </table>
                 <p>Description:
-                    <span id='details-description'>Your donation goes a long way towards our cause. Every dollar and item donated
-                        goes to the care of lions, animals, and caretakers in urgent need, as well as providing grants to
-                        exceptional sanctuaries, and emergency relief efforts in the US and around the world. Tell us where you'd
-                        like your gift to go and we will customize your introductory packet to your preferences!</span></p>
+                    <span id='details-description'>{{animal.description}}</span></p>
             </div>
-
-            <!--Edit and Delete are only for creator-->
-            <div id='action-buttons'>
-                <a href='#' id='edit-btn'>Edit</a>
-                <a href='#' id='delete-btn'>Delete</a>
-                <a href='#' id='donation-btn'>Donation</a>
-                <p id='already-donated'>You already donated!</p>
-            </div>
+            {{#if user}}
+                <div id='action-buttons'>
+                    {{#if isOwner}}
+                        <a href='/animals/{{animal._id}}/edit' id='edit-btn'>Edit</a>
+                        <a href='/animals/{{animal._id}}/delete' id='delete-btn'>Delete</a>
+                    {{else}}
+                        {{#if hasDonated}}
+                            <p id='already-donated'>You already donated!</p>
+                        {{else}}
+                            <a href='/animals/{{animal._id}}/donate' id='donation-btn'>Donation</a>
+                        {{/if}}
+                    {{/if}}
+                </div>
+            {{/if}}
         </div>
     </section>
 </main>

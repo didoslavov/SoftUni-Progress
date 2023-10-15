@@ -1,24 +1,26 @@
 <main class='dashboard'>
     <section id='dashboard'>
         <h2>Animals in Need</h2>
-        <ul class='card-wrapper'>
-            <!-- Display a li with information about every post (if any)-->
-            <li class='card'>
-                <img src='/static/images/animal1.jpg' />
-                <p>
-                    <strong>Name: </strong><span class='name'>Show</span>
-                </p>
-                <p>
-                    <strong>Location: </strong><span class='location'>San Diego Zoo</span>
-                </p>
-                <p><strong>Need of:</strong><span class='need-of'>Medicine</span></p>
-                <a class='details-btn' href='#'>Details</a>
-            </li>
-        </ul>
-
-        <!-- Display an h2 if there are no posts -->
-        <!-- <div id="no-post">
-                    <h2>There are no animals in need now! </h2>
-                </div> -->
+        {{#if animals}}
+            <ul class='card-wrapper'>
+                {{#each animals}}
+                    <li class='card'>
+                        <img src='{{this.image}}' />
+                        <p>
+                            <strong>Name: </strong><span class='name'>{{this.name}}</span>
+                        </p>
+                        <p>
+                            <strong>Location: </strong><span class='location'>{{this.location}}</span>
+                        </p>
+                        <p><strong>Need of:</strong><span class='need-of'>{{this.need}}</span></p>
+                        <a class='details-btn' href='/animals/{{this._id}}/details'>Details</a>
+                    </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <div id='no-post'>
+                <h2>There are no animals in need now! </h2>
+            </div>
+        {{/if}}
     </section>
 </main>

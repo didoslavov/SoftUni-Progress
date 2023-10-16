@@ -1,0 +1,28 @@
+<main id='catalog'>
+    <section class='game-market'>
+        <h1>Game Trade Code</h1>
+        {{#if games}}
+            <div class='offer-list'>
+                {{#each games}}
+                    <div class='game'>
+                        <div class='game-img'>
+                            <img src='{{this.image}}' />
+                        </div>
+                        <div class='game-info'>
+                            <h1>{{this.name}}</h1>
+                            <p><span>Platform: </span>{{this.platform}}</p>
+                            <p><span>Genre: </span>{{this.genre}}</p>
+                            <p><span>Price: </span>${{this.price}}</p>
+                        </div>
+
+                        <a href='/games/{{this._id}}/details' class='btn-details'>Details</a>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class='no-offer'>
+                <p>There are no game offers found!</p>
+            </div>
+        {{/if}}
+    </section>
+</main>

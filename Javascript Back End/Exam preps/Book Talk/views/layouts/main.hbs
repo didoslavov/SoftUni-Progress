@@ -1,15 +1,31 @@
 <html lang='en'>
     <head>
         <meta charset='UTF-8' />
+        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <title>{{title}}</title>
+        <link rel='stylesheet' href='/static/css/style.css' />
+
     </head>
     <body>
-        <a href='/auth/login'>Login</a>
-        <a href='/auth/register'>Register</a>
-        <a href='/auth/logout'>Logout</a>
+        <header class='header'>
+            <div class='header'>
+                <nav class='navbar'>
+                    <a href='/'>Home</a>
+                    <a href='/reviews/catalog'>Catalog</a>
+                    {{#if user}}
+                        <a href='/reviews/profile'>Profile</a>
+                        <a href='/reviews/create'>Create Review</a>
+                        <a href='/auth/logout'>Logout</a>
+                    {{else}}
+                        <a href='/auth/login'>Login</a>
+                        <a href='/auth/register'>Register</a>
+                    {{/if}}
+                </nav>
+            </div>
+        </header>
         {{#if errors}}
-            <div>
+            <div class='errorContainer'>
                 {{#each errors}}
                     <p>{{this}}</p>
                 {{/each}}

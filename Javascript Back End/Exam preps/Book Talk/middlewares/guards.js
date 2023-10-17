@@ -1,3 +1,5 @@
+const { getReviewById } = require('../services/reviewService.js');
+
 function hasUser() {
     return (req, res, next) => {
         if (req.user) {
@@ -18,7 +20,39 @@ function isGuest() {
     };
 }
 
+function isOwner() {
+    return async (req, res, next) => {
+        const { reviewId } = req.params;
+        const userId = req.user._id;
+
+        const review = await getReviewById(reviewId);
+
+        if (req.user && userId === review.owner._id.toString()) {
+            next();
+        } else {
+            res.redirect(`/reviews/${reviewId}/details`);
+        }
+    };
+}
+
+function canWish() {
+    return async (req, res, next) => {
+        const { reviewId } = req.params;
+        const userId = req.user?._id;
+
+        const review = await getReviewById(reviewId);
+
+        if (req.user && userId !== review.owner._id.toString()) {
+            next();
+        } else {
+            res.redirect(`/reviews/${reviewId}/details`);
+        }
+    };
+}
+
 module.exports = {
     hasUser,
     isGuest,
+    isOwner,
+    canWish,
 };

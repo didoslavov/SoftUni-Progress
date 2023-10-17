@@ -4,20 +4,21 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'myNewSecret123456';
 
-async function register(username, password) {
-    const duplicated = await User.findOne({ username }).collation({
+async function register(username, email, password) {
+    const duplicated = await User.findOne({ email }).collation({
         locale: 'en',
         strength: 2,
     });
 
     if (duplicated) {
-        throw new Error('Username already exists');
+        throw new Error('Email already exists');
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
         username,
+        email,
         hashedPassword,
     });
 
@@ -25,8 +26,8 @@ async function register(username, password) {
     return createSession(user);
 }
 
-async function login(username, password) {
-    const user = await User.findOne({ username }).collation({
+async function login(email, password) {
+    const user = await User.findOne({ email }).collation({
         locale: 'en',
         strength: 2,
     });
@@ -44,10 +45,10 @@ async function login(username, password) {
     return createSession(user);
 }
 
-function createSession({ _id, username }) {
+function createSession({ _id, email }) {
     const payload = {
         _id,
-        username,
+        email,
     };
 
     return jwt.sign(payload, JWT_SECRET);

@@ -1,0 +1,22 @@
+<section class='catalog' id='catalog'>
+    <h2>Book Reviews</h2>
+    <div class='container'>
+        {{#if reviews}}
+            {{#each reviews}}
+                <div class='book'>
+                    <div class='info-container'>
+                        <img src='{{this.image}}' />
+                        <div class='info'>
+                            <h2>{{this.title}}</h2>
+                        </div>
+                    </div>
+                    <div class='details-btn'>
+                        <a href='/reviews/{{this._id}}/details' class='details'>Details</a>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+            <h2 class='no-record'>There are no book reviews found yet...</h2>
+        {{/if}}
+    </div>
+</section>

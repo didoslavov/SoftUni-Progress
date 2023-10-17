@@ -1,0 +1,39 @@
+<main>
+    {{#if errors}}
+        <div>
+            <div class='errorContainer'>
+                {{#each errors}}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+        </div>
+    {{/if}}
+    <section id='create-container'>
+        <div class='create-container-info'>
+            <h1>Create Announcement</h1>
+            <h4>Post your coins to sell</h4>
+            <form action='/crypto/create' method='POST'>
+                <label for='name'>Name:</label>
+                <input type='text' id='name' name='name' placeholder='Bitcoin' value='{{coin.name}}' />
+                <label for='image'>Image:</label>
+                <input type='text' id='image' name='image' placeholder='http://...' value='{{coin.image}}' />
+                <label for='price'>Price:</label>
+                <input type='number' id='price' name='price' placeholder='31,166.71' step='any' value='{{coin.price}}' />
+                <label for='description'>Description:</label>
+                <textarea
+                    id='description'
+                    name='description'
+                    placeholder='Introduce your coins...'
+                >{{coin.description}}</textarea>
+                <label for='payment'>Payment method:</label>
+                <select id='payment' name='payment'>
+                    <option value='crypto-wallet'>Crypto Wallet</option>
+                    <option value='credit-card'>Credit Card</option>
+                    <option value='debit-card'>Debit Card</option>
+                    <option value='paypal'>PayPal</option>
+                </select>
+                <input type='submit' id='btn' value='TRADE' />
+            </form>
+        </div>
+    </section>
+</main>

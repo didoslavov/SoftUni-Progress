@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 //! change 'scaffooldDB' to whatever you need to be the name of the DB
-const CONNECTION_STRING = 'mongodb://localhost:27017/scaffoldDB';
+const CONNECTION_STRING = 'mongodb://localhost:27017/auctions';
 
 module.exports = async (app) => {
     try {

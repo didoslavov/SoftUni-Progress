@@ -1,13 +1,17 @@
 const { Schema, model } = require('mongoose');
 
+const emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
+
 //TODO: Add user properties and validation according to assignment
 const userSchema = new Schema({
-    username: { type: String, required: true, unique: true, minLength: [3, 'Username must be atleast 3 characters long.'] },
+    email: { type: String, required: true, unique: true, match: [emailRegex, 'Please fill a valid email address'] },
+    firstName: { type: String, required: true, minLength: [1, 'First Name must be atleast 1 characters long.'] },
+    lastName: { type: String, required: true, minLength: [1, 'Last Name must be atleast 1 characters long.'] },
     hashedPassword: { type: String, required: true },
 });
 
 userSchema.index(
-    { username: 1 },
+    { email: 1 },
     {
         collation: {
             locale: 'en',

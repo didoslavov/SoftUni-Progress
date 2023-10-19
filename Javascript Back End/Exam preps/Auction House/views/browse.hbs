@@ -1,0 +1,32 @@
+<section id='catalog-section' class='spaced'>
+    <h1 class='item'>Auctions</h1>
+    {{#if auctions}}
+        <ul class='catalog cards'>
+            {{#each auctions}}
+                {{#unless this.isClosed}}
+                    <li class='item'>
+                        <header class='pad-med'>
+                            <h2>{{title}}</h2>
+                        </header>
+
+                        <div class='align-center'>
+                            <img class='img-thumb' src='{{image}}' />
+                        </div>
+
+                        <footer class='align-center pad-med'>
+                            <p>Current price: <strong>${{price}}</strong></p>
+                            <a class='action' href='/auctions/{{_id}}/details'>See details</a>
+                        </footer>
+                    </li>
+                {{/unless}}
+            {{/each}}
+        </ul>
+    {{else}}
+        <div class='item pad-large align-center'>
+            <p>Nothing has been listed yet. Be the first!</p>
+            <div>
+                <a class='action' href='/auctions/create'>Publish Auction</a>
+            </div>
+        </div>
+    {{/if}}
+</section>

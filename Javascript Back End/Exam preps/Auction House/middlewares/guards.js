@@ -1,4 +1,4 @@
-const { getGameById } = require('../services/gameService.js');
+const { getAuctionById } = require('../services/auctionService.js');
 
 function hasUser() {
     return (req, res, next) => {
@@ -12,30 +12,30 @@ function hasUser() {
 
 function isOwner() {
     return async (req, res, next) => {
-        const { gameId } = req.params;
-        const userId = req.user._id;
+        const { auctionId } = req.params;
+        const userId = req.user?._id;
 
-        const game = await getGameById(gameId);
-
-        if (req.user && userId === game.owner._id.toString()) {
+        const auction = await getAuctionById(auctionId);
+        if (req.user && userId === auction.author._id.toString()) {
             next();
         } else {
-            res.redirect(`/games/${gameId}/details`);
+            res.redirect(`/auctions/${auctionId}/details`);
         }
     };
 }
 
-function canBuy() {
+function canBid() {
     return async (req, res, next) => {
-        const { gameId } = req.params;
+        const { auctionId } = req.params;
         const userId = req.user?._id;
 
-        const game = await getGameById(gameId);
+        const auction = await getAuctionById(auctionId);
 
-        if (req.user && userId !== game.owner._id.toString()) {
+        if (req.user && userId !== auction.author._id.toString()) {
             next();
         } else {
-            res.redirect(`/games/${gameId}/details`);
+            console.log('here');
+            res.redirect(`/`);
         }
     };
 }
@@ -54,5 +54,5 @@ module.exports = {
     hasUser,
     isGuest,
     isOwner,
-    canBuy,
+    canBid,
 };

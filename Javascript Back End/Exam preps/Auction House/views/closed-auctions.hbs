@@ -1,0 +1,27 @@
+<section id='catalog-section' class='spaced'>
+    <h1 class='item'>Closed Auctions</h1>
+    {{#if auctions}}
+        <ul class='catalog cards'>
+            {{#each auctions}}
+                <li class='item'>
+                    <header class='pad-med'>
+                        <h2>{{title}}</h2>
+                    </header>
+                    <div class='align-center'>
+                        <img class='img-thumb' src='{{image}}' />
+                    </div>
+                    <footer class='align-center pad-med'>
+                        <p>Closing price: <strong>${{price}}</strong></p>
+                        from
+                        {{owner.firstName}}
+                        {{owner.lastName}}
+                    </footer>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <div class='item pad-large align-center'>
+            <p>You haven't closed any auctions yet.</p>
+        </div>
+    {{/if}}
+</section>

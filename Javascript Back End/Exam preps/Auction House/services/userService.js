@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'myNewSecret123456';
 
-async function register(username, password) {
-    const duplicated = await User.findOne({ username }).collation({
+async function register(email, firstName, lastName, password) {
+    const duplicated = await User.findOne({ email }).collation({
         locale: 'en',
         strength: 2,
     });
@@ -17,7 +17,9 @@ async function register(username, password) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
-        username,
+        email,
+        firstName,
+        lastName,
         hashedPassword,
     });
 
@@ -25,8 +27,8 @@ async function register(username, password) {
     return createSession(user);
 }
 
-async function login(username, password) {
-    const user = await User.findOne({ username }).collation({
+async function login(email, password) {
+    const user = await User.findOne({ email }).collation({
         locale: 'en',
         strength: 2,
     });
@@ -44,10 +46,12 @@ async function login(username, password) {
     return createSession(user);
 }
 
-function createSession({ _id, username }) {
+function createSession({ _id, email, firstName, lastName }) {
     const payload = {
         _id,
-        username,
+        email,
+        firstName,
+        lastName,
     };
 
     return jwt.sign(payload, JWT_SECRET);

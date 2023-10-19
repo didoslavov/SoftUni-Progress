@@ -1,8 +1,38 @@
-<h1>Register page</h1>
+<section id='register-section' class='narrow'>
 
-<form method='POST' action='/auth/register'>
-    <label>Username: <input type='text' name='username' value='{{body.username}}' /></label>
-    <label>Password: <input type='text' name='password' /></label>
-    <label>RePass: <input type='text' name='rePass' /></label>
-    <input type='submit' value='Register' />
-</form>
+    <h1 class='item'>Register</h1>
+
+    <div class='item padded align-center'>
+
+        <form class='aligned' method='POST' action='/auth/register'>
+
+            <label>
+                <span>Email</span>
+                <input type='text' name='email' />
+            </label>
+            <label>
+                <span>First name</span>
+                <input type='text' name='firstName' />
+            </label>
+            <label>
+                <span>Last name</span>
+                <input type='text' name='lastName' />
+            </label>
+            <label>
+                <span>Password</span>
+                <input type='password' name='password' />
+            </label>
+            <label>
+                <span>Repeat Password</span>
+                <input type='password' name='rePass' />
+            </label>
+
+            <div class='align-center'>
+                <input class='action' type='submit' value='Create Account' />
+            </div>
+
+        </form>
+
+    </div>
+
+</section>

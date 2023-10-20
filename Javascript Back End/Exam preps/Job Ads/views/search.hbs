@@ -1,0 +1,25 @@
+<main>
+    <form class='search' action='/ads/search' method='GET'>
+        <input type='search' name='search' value='' placeholder='Search email...' />
+        <button type='submit' class='btn-search'>
+            <img src='/static/img/search-icon.png' alt='search-icon' />
+            Search
+        </button>
+    </form>
+    <section id='search-page'>
+        <h2>Search result:</h2>
+        {{#if ads}}
+            {{#each ads}}
+                <article class='search-page-result'>
+                    <p class='search-page-result-headline'>Headline: {{title}}</p>
+                    <p class='search-page-result-companyName'>Company Name: {{company}}</p>
+                </article>
+            {{/each}}
+        {{else}}
+            <article class='search-page-no-result'>
+                <p class='search-page-no-result-message'>No match found.</p>
+            </article>
+        {{/if}}
+    </section>
+
+</main>

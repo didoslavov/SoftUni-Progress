@@ -1,8 +1,34 @@
-<h1>Register page</h1>
+<main>
+    <section id='register-page'>
+        <article class='register-page-container'>
+            <form action='/auth/register' method='POST' class='register-page-form'>
+                <h2>Register</h2>
+                <p>Join us and find the perfect job.</p>
 
-<form method='POST' action='/auth/register'>
-    <label>Username: <input type='text' name='username' value='{{body.username}}' /></label>
-    <label>Password: <input type='text' name='password' /></label>
-    <label>RePass: <input type='text' name='rePass' /></label>
-    <input type='submit' value='Register' />
-</form>
+                <label for='email'>Email:</label>
+                <input type='text' id='email' placeholder='petar@abv.bg' name='email' />
+
+                <label for='password'>Password:</label>
+                <input type='password' id='password' placeholder='******' name='password' />
+
+                <label for='repeat-password'>Repeat Password:</label>
+                <input type='password' id='repeat-password' placeholder='******' name='rePass' />
+
+                <label for='description'>Briefly describe your skills:</label>
+                <input type='text' id='description' placeholder='Experience with HTML 5, CSS 3, Node.js' name='skills' />
+
+                <article class='register-page-button'>
+                    <button class='btn-register'>Register</button>
+                </article>
+
+                <article class='account'>
+                    <p>Already have an account? <a href='/auth/login'>Sign in</a></p>
+                </article>
+            </form>
+
+            <article class='register-page-image'>
+                <img src='/static/img/job.png' alt='image' />
+            </article>
+        </article>
+    </section>
+</main>

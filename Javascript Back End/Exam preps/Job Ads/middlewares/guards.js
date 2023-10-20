@@ -1,4 +1,4 @@
-const { getGameById } = require('../services/gameService.js');
+const { getAdById } = require('../services/adService.js');
 
 function hasUser() {
     return (req, res, next) => {
@@ -12,30 +12,30 @@ function hasUser() {
 
 function isOwner() {
     return async (req, res, next) => {
-        const { gameId } = req.params;
+        const { adId } = req.params;
         const userId = req.user._id;
 
-        const game = await getGameById(gameId);
+        const ad = await getAdById(adId);
 
-        if (req.user && userId === game.owner._id.toString()) {
+        if (req.user && userId === ad.owner._id.toString()) {
             next();
         } else {
-            res.redirect(`/games/${gameId}/details`);
+            res.redirect(`/`);
         }
     };
 }
 
-function canBuy() {
+function canApply() {
     return async (req, res, next) => {
-        const { gameId } = req.params;
+        const { adId } = req.params;
         const userId = req.user?._id;
 
-        const game = await getGameById(gameId);
+        const ad = await getAdById(adId);
 
-        if (req.user && userId !== game.owner._id.toString()) {
+        if (req.user && userId !== ad.owner._id.toString()) {
             next();
         } else {
-            res.redirect(`/games/${gameId}/details`);
+            res.redirect(`/`);
         }
     };
 }
@@ -54,5 +54,5 @@ module.exports = {
     hasUser,
     isGuest,
     isOwner,
-    canBuy,
+    canApply,
 };

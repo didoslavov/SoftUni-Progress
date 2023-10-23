@@ -1,0 +1,41 @@
+<section id='createPage'>
+    <form id='createForm' action='/electronics/create' method='POST'>
+        <label for='name'>Name:</label>
+        <input type='text' id='name' name='name' placeholder='Name...' value='{{product.name}}' />
+
+        <label for='type'>Type:</label>
+        <input type='text' id='type' name='type' placeholder='Type...' value='{{product.type}}' />
+
+        <label for='production'>Year of Production:</label>
+        <input
+            type='number'
+            id='production'
+            name='production'
+            placeholder='Year of Production...'
+            value='{{product.production}}'
+        />
+
+        <label for='exploitation'>Years of Exploitation:</label>
+        <input
+            type='number'
+            id='exploitation'
+            name='exploitation'
+            placeholder='Year of Exploitation...'
+            value='{{product.exploitation}}'
+        />
+
+        <label for='damages'>Damages:</label>
+        <input type='text' id='damages' name='damage' placeholder='Damages...' value='{{product.damage}}' />
+
+        <label for='image'>Image:</label>
+        <input type='text' id='image' name='image' placeholder='Image...' value='{{product.image}}' />
+
+        <label for='price'>Price:</label>
+        <input type='number' id='price' name='price' placeholder='Price...' value='{{product.price}}' />
+
+        <label for='description'>Description:</label>
+        <input type='text' id='description' name='description' placeholder='Description...' value='{{product.description}}' />
+
+        <input type='submit' class='create' value='Create Offer' />
+    </form>
+</section>

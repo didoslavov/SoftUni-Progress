@@ -1,4 +1,4 @@
--- Active: 1703858659093@@127.0.0.1@3306@geography
+-- Active: 1703858659093@@127.0.0.1@3306@soft_uni
 USE soft_uni;
 
 /******** 1 ********/
@@ -99,7 +99,7 @@ FROM
     JOIN employees_projects AS ep ON e.employee_id = ep.employee_id
     JOIN projects AS p ON ep.project_id = p.project_id
 WHERE
-    p.start_date > '2002-08-13'
+    DATE (p.start_date) > '2002-08-13'
     AND p.end_date IS NULL
 ORDER BY
     first_name,
@@ -145,8 +145,6 @@ FROM
     employees e
     JOIN employees e2 ON e.manager_id = e2.employee_id
     JOIN departments d ON e.department_id = d.department_id
-WHERE
-    e.manager_id IS NOT NULL
 ORDER BY
     employee_id
 LIMIT

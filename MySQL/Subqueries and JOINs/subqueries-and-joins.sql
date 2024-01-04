@@ -1,4 +1,4 @@
--- Active: 1703858659093@@127.0.0.1@3306@soft_uni
+-- Active: 1703858659093@@127.0.0.1@3306@geography
 USE soft_uni;
 
 /******** 1 ********/
@@ -187,10 +187,10 @@ FROM
     countries c
     JOIN mountains_countries mc ON c.country_code = mc.country_code
     JOIN mountains m ON mc.mountain_id = m.id
-WHERE
-    c.country_code IN ('BG', 'US', 'RU')
 GROUP BY
     country_code
+HAVING
+    c.country_code IN ('BG', 'US', 'RU')
 ORDER BY
     mountain_range DESC;
 

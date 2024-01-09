@@ -30,3 +30,8 @@ h1 {
   cursor: pointer;
   transition: color 0.3s, background-color 0.3s;
 }
+
+.btn-add:hover {
+  color: #fff;
+  background-color: var(--light-dark);
+}

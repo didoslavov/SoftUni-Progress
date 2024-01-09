@@ -1,79 +1,9 @@
-.fas {
-  pointer-events: none;
-}
-
 .todo {
   width: 800px;
   border-radius: 5px;
   background: #fff;
   box-shadow: 4px 4px 5px rgba(82, 82, 82, 0.4);
   text-align: center;
-}
-
-.error-info {
-  margin-top: 20px;
-  color: var(--dark-blue);
-}
-
-.btn-add:hover {
-  color: #fff;
-  background-color: var(--light-dark);
-}
-
-.todolist {
-  padding: 20px 0;
-}
-
-.todolist h3 {
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.todolist li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px;
-  padding-left: 20px;
-  text-align: left;
-  list-style: none;
-  background-color: var(--light);
-}
-
-.tools {
-  display: inline-block;
-}
-
-.tools button {
-  padding: 15px 10px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.tools button:hover {
-  background-color: #ddd;
-}
-
-.complete {
-  color: var(--light-blue);
-}
-
-.edit {
-  font-weight: bold;
-  color: rgb(15, 179, 69);
-}
-
-.delete {
-  color: tomato;
-}
-
-.completed {
-  font-size: 12px;
-  color: var(--light-dark);
-  text-decoration: line-through;
-  font-style: italic;
 }
 
 .popup {

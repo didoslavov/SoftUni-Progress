@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { PopupComponent } from './popup/popup.component';
 import { ButtonComponent } from './button/button.component';
+import { InputComponent } from './input/input.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { ButtonComponent } from './button/button.component';
     TodoListComponent,
     PopupComponent,
     ButtonComponent,
+    InputComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

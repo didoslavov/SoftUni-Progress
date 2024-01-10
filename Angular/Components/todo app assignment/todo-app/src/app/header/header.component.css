@@ -19,19 +19,3 @@ h1 {
   color: var(--light-dark);
   background-color: var(--light);
 }
-
-.btn-add {
-  padding: 10px 22px;
-  border: none;
-  border-radius: 5px;
-  color: var(--deep-dark);
-  background-color: var(--light);
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color 0.3s, background-color 0.3s;
-}
-
-.btn-add:hover {
-  color: #fff;
-  background-color: var(--light-dark);
-}

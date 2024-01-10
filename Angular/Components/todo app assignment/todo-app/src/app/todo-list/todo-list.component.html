@@ -2,25 +2,12 @@
     <h3>List of Works Todo:</h3>
     <p class="error-info"></p>
     <ul>
-        <li data-id='test1' class="completed">Shopping with class "completed"
+        <li *ngFor="let todo of todos">
+            <p>{{todo.todo}}</p>
             <div class="tools">
-                <app-button buttonClass="complete"><i class="fas fa-check"></i></app-button>
-                <app-button buttonClass="edit">EDIT</button>
-                    <app-button buttonClass="delete"><i class="fas fa-times"></i></button>
-            </div>
-        </li>
-        <li data-id='test2'>Rent Pay
-            <div class="tools">
-                <app-button buttonClass="complete"><i class="fas fa-check"></i></button>
-                    <app-button buttonClass="edit">EDIT</button>
-                        <app-button buttonClass="delete"><i class="fas fa-times"></i></button>
-            </div>
-        </li>
-        <li data-id='test3'>Cleaning
-            <div class="tools">
-                <app-button buttonClass="complete"><i class="fas fa-check"></i></button>
-                    <app-button buttonClass="edit">EDIT</button>
-                        <app-button buttonClass="delete"><i class="fas fa-times"></i></button>
+                <app-button buttonClass="action-button complete"><i class="fas fa-check"></i></app-button>
+                <app-button buttonClass="action-button edit">EDIT</app-button>
+                <app-button buttonClass="action-button delete"><i class="fas fa-times"></i></app-button>
             </div>
         </li>
     </ul>

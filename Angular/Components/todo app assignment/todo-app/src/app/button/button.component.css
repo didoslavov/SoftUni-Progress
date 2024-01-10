@@ -1,0 +1,59 @@
+.btn-add {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 5px;
+  color: var(--deep-dark);
+  background-color: var(--light);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.btn-add:hover {
+  color: #fff;
+  background-color: var(--light-dark);
+}
+
+.popup-btn {
+  width: 30%;
+  display: inline-block;
+  padding: 10px 22px;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+  color: var(--deep-dark);
+  background-color: var(--light);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.popup-btn:hover {
+  color: #fff;
+  background-color: var(--light-blue);
+}
+
+.complete {
+  color: var(--light-blue);
+}
+
+.edit {
+  font-weight: bold;
+  color: rgb(15, 179, 69);
+}
+
+.delete {
+  color: tomato;
+}
+
+.action-button {
+  padding: 15px 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #ddd;
+}

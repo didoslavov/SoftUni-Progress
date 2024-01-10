@@ -26,31 +26,6 @@
   display: inline-block;
 }
 
-.tools button {
-  padding: 15px 10px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.tools button:hover {
-  background-color: #ddd;
-}
-
-.complete {
-  color: var(--light-blue);
-}
-
-.edit {
-  font-weight: bold;
-  color: rgb(15, 179, 69);
-}
-
-.delete {
-  color: tomato;
-}
-
 .error-info {
   margin-top: 20px;
   color: var(--dark-blue);

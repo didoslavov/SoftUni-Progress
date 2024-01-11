@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../types/Todo';
 import { ButtonComponent } from '../button/button.component';
 import { CommonModule } from '@angular/common';
 import { todos } from '../todos';
+import { EditService } from '../edit.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,4 +14,7 @@ import { todos } from '../todos';
 })
 export class TodoListComponent {
   @Input() todos: Todo[] = todos;
+  @Input() onEdit: any;
+
+  constructor(public editService: EditService) {}
 }

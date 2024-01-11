@@ -1,5 +1,5 @@
 <div class="todo">
   <app-header />
-  <app-todo-list />
+  <app-todo-list [onEdit]="onEdit" />
 </div>
-<app-popup />
+<app-popup [showPopup]="editService.showPopup" />

@@ -1,5 +1,5 @@
-<div class="popup">
-    <h3>Edit your todo:</h3>
+<div class="popup" [ngClass]="{'show': showPopup}">
+    <h3>Edit your todo: {{showPopup}}</h3>
     <div class="popup-body">
         <p class="popup-info"></p>
         <input type="text" class="popup-input" placeholder="Edit..." />

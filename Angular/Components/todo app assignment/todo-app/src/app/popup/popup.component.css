@@ -1,5 +1,5 @@
 .popup {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -11,6 +11,10 @@
   color: var(--light);
   background-color: var(--light-dark);
   border-radius: 5px;
+}
+
+.popup.show {
+  display: flex;
 }
 
 .popup h3 {

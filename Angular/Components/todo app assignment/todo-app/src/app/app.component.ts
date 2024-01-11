@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { PopupComponent } from './popup/popup.component';
 import { ButtonComponent } from './button/button.component';
-import { todos } from './todos';
-import { Todo } from './types/Todo';
+import { EditService } from './edit.service';
 
 @Component({
   selector: 'app-root',
@@ -24,4 +23,11 @@ import { Todo } from './types/Todo';
 })
 export class AppComponent {
   title = 'todo-app';
+
+  constructor(public editService: EditService) {}
+
+  onEdit() {
+    this.editService.showPopup = !this.editService.showPopup;
+    console.log(this.editService.showPopup);
+  }
 }

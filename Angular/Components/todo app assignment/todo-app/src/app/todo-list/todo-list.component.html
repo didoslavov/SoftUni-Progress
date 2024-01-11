@@ -3,11 +3,13 @@
     <p class="error-info"></p>
     <ul>
         <li *ngFor="let todo of todos">
-            <p>{{todo.todo}}</p>
+            <p [class.completed]="todo.completed">{{todo.todo}}</p>
             <div class="tools">
-                <app-button buttonClass="action-button complete"><i class="fas fa-check"></i></app-button>
-                <app-button (click)="onEdit()" buttonClass="action-button edit">EDIT</app-button>
-                <app-button buttonClass="action-button delete"><i class="fas fa-times"></i></app-button>
+                <app-button (click)="onTodoConfirm(todo)" buttonClass="action-button complete"><i
+                        class="fas fa-check"></i></app-button>
+                <app-button (click)="onEditClickShowPopup(todo)" buttonClass="action-button edit">EDIT</app-button>
+                <app-button (click)="onDelete(todo)" buttonClass="action-button delete"><i
+                        class="fas fa-times"></i></app-button>
             </div>
         </li>
     </ul>

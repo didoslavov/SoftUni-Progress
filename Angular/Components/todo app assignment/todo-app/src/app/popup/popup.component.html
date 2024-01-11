@@ -1,9 +1,9 @@
 <div class="popup" [ngClass]="{'show': showPopup}">
-    <h3>Edit your todo: {{showPopup}}</h3>
+    <h3>Edit your todo:</h3>
     <div class="popup-body">
         <p class="popup-info"></p>
-        <input type="text" class="popup-input" placeholder="Edit..." />
-        <app-button buttonClass="popup-btn accept">Update</app-button>
-        <app-button buttonClass="popup-btn cancel">Cancel</app-button>
+        <input [(ngModel)]="todoValue" type="text" class="popup-input" placeholder="Edit..." />
+        <app-button (click)="onUpdate()" buttonClass="popup-btn accept">Update</app-button>
+        <app-button (click)="onClose()" buttonClass="popup-btn cancel">Cancel</app-button>
     </div>
 </div>

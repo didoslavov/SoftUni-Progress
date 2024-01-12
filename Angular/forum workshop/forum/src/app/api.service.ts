@@ -15,6 +15,10 @@ export class ApiService {
     return this.http.get<Theme[]>(environment.apiUrl + '/themes');
   }
 
+  getTheme(themeId: string): Observable<Theme> {
+    return this.http.get<Theme>(environment.apiUrl + `/themes/${themeId}`);
+  }
+
   getPosts(limit?: number): Observable<Post[]> {
     return this.http.get<Post[]>(
       `${environment.apiUrl}/posts${limit ? `?limit=${limit}` : ''}`

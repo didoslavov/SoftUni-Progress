@@ -6,7 +6,7 @@ body, form, input, textarea, option, select, button {
     font: inherit;
 }
 
-ul, ol {
+p, ul, ol {
     padding-bottom: 1.5em;
 }
 

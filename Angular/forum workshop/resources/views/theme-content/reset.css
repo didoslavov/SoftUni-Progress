@@ -7,12 +7,14 @@
     margin: 0;
 }
 
+/*
+*Reset CSS model sizing calculations
+*/
+
 html {
     box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
+*, *:before, *:after {
     box-sizing: inherit;
 }

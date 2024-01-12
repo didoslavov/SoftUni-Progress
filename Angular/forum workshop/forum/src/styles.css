@@ -29,6 +29,16 @@ body {
   justify-content: space-evenly;
 }
 
+.main {
+  width: 50%;
+}
+
+.aside-container {
+  width: 29%;
+  margin-top: 1em;
+  font-size: 0.8em;
+}
+
 h2 {
   text-align: center;
   border-bottom: 1px dashed #999;

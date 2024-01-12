@@ -4,6 +4,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ThemeContentComponent } from './theme/theme-content/theme-content.component';
 import { MainComponent } from './main/main.component';
+import { AddThemeComponent } from './theme/add-theme/add-theme.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: 'themes',
     component: MainComponent,
+  },
+  {
+    path: 'themes/add-theme',
+    component: AddThemeComponent,
   },
   {
     path: 'themes/theme-content/:themeId',

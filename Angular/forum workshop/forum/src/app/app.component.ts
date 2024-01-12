@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
-import { AsideComponent } from './aside/aside.component';
 import { FooterComponent } from './footer/footer.component';
 
 @Component({
@@ -14,7 +13,6 @@ import { FooterComponent } from './footer/footer.component';
     RouterOutlet,
     HeaderComponent,
     MainComponent,
-    AsideComponent,
     FooterComponent,
   ],
   templateUrl: './app.component.html',

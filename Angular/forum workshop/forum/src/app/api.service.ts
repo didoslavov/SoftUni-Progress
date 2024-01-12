@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Theme } from './types/Theme';
-import { Post } from './types/Post';
+import { Theme } from './types/theme';
+import { Post } from './types/post';
+import { environment } from '../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,13 @@ import { Post } from './types/Post';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Theme[]> {
-    return this.http.get<Theme[]>('http://localhost:3000/api/themes');
+  getThemes(): Observable<Theme[]> {
+    return this.http.get<Theme[]>(environment.apiUrl + '/themes');
   }
 
-  getLatest(): Observable<Post[]> {
-    return this.http.get<Post[]>('http://localhost:3000/api/posts?limit=5');
+  getPosts(limit?: number): Observable<Post[]> {
+    return this.http.get<Post[]>(
+      `${environment.apiUrl}/posts${limit ? `?limit=${limit}` : ''}`
+    );
   }
 }

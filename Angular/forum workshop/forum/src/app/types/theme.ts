@@ -1,4 +1,4 @@
-import { User } from './User';
+import { User } from './user';
 
 export interface Theme {
   _id: string;
@@ -8,4 +8,5 @@ export interface Theme {
   userId: User;
   created_at: string;
   updatedAt: string;
+  __v: number;
 }

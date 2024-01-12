@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../types/Post';
+import { Post } from '../types/post';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-aside',
+  selector: 'app-posts-list',
   standalone: true,
   imports: [],
-  templateUrl: './aside.component.html',
-  styleUrl: './aside.component.css',
+  templateUrl: './posts-list.component.html',
+  styleUrl: './posts-list.component.css',
 })
-export class AsideComponent implements OnInit {
+export class PostsComponent implements OnInit {
   posts: Post[] = [];
 
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.api.getLatest().subscribe({
+    this.api.getPosts(5).subscribe({
       next: (posts) => {
         this.posts = posts;
-        console.log(this.posts);
       },
     });
   }

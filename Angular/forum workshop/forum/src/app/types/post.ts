@@ -1,5 +1,5 @@
-import { Theme } from './Theme';
-import { User } from './User';
+import { Theme } from './theme';
+import { User } from './user';
 
 type ThemeWithUserIdAsString = {
   [K in keyof Theme]: K extends 'userId' ? string : Theme[K];
@@ -13,4 +13,5 @@ export interface Post {
   themeId: ThemeWithUserIdAsString;
   created_at: string;
   updatedAt: string;
+  __v: number;
 }

@@ -29,10 +29,6 @@ body {
   justify-content: space-evenly;
 }
 
-main {
-  width: 50%;
-}
-
 h2 {
   text-align: center;
   border-bottom: 1px dashed #999;

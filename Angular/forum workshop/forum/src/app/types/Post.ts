@@ -1,21 +1,16 @@
-export interface Theme {
-  _id: string;
-  subscribers: string[];
-  posts: string[];
-  themeName: string;
-  userId: User;
-  created_at: string;
-  updatedAt: string;
-}
+import { Theme } from './Theme';
+import { User } from './User';
 
-export interface User {
+type ThemeWithUserIdAsString = {
+  [K in keyof Theme]: K extends 'userId' ? string : Theme[K];
+};
+
+export interface Post {
+  likes: string[];
   _id: string;
-  themes: string[];
-  posts: string[];
-  tel: string;
-  email: string;
-  username: string;
-  password: string;
+  text: string;
+  userId: User;
+  themeId: ThemeWithUserIdAsString;
   created_at: string;
   updatedAt: string;
 }

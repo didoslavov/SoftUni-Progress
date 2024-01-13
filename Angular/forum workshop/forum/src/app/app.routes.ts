@@ -5,8 +5,14 @@ import { HomeComponent } from './home/home.component';
 import { ThemeContentComponent } from './theme/theme-content/theme-content.component';
 import { MainComponent } from './main/main.component';
 import { AddThemeComponent } from './theme/add-theme/add-theme.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/home',
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -14,6 +20,10 @@ export const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: 'home',

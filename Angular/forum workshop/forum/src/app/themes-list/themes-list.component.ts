@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Theme } from '../types/theme';
-import { ApiService } from '../api.service';
 import { RouterLink } from '@angular/router';
+import { ApiService } from '../services/api/api.service';
 
 @Component({
   selector: 'app-themes-list',

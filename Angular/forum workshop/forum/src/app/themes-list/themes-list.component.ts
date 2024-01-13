@@ -3,11 +3,12 @@ import { Theme } from '../types/theme';
 import { RouterLink } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
 import { UserService } from '../user/user.service';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
   selector: 'app-themes-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, WelcomeComponent],
   templateUrl: './themes-list.component.html',
   styleUrl: './themes-list.component.css',
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Theme } from '../types/theme';
 import { RouterLink } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-themes-list',
@@ -12,7 +13,11 @@ import { ApiService } from '../services/api/api.service';
 })
 export class ThemesListComponent implements OnInit {
   themes: Theme[] = [];
-  constructor(private api: ApiService) {}
+  userId: string | undefined;
+
+  constructor(private api: ApiService, userService: UserService) {
+    this.userId = userService.user?._id;
+  }
 
   ngOnInit(): void {
     this.api.getThemes().subscribe({
@@ -20,5 +25,9 @@ export class ThemesListComponent implements OnInit {
         this.themes = themes;
       },
     });
+  }
+
+  onSubscribe(themeId: string) {
+    this.api.subscribeTheme(themeId);
   }
 }

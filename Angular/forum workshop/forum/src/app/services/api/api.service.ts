@@ -19,6 +19,13 @@ export class ApiService {
     return this.http.get<Theme>(environment.apiUrl + `/themes/${themeId}`);
   }
 
+  subscribeTheme(themeId: string): Observable<Theme> {
+    return this.http.put<Theme>(
+      environment.apiUrl + `/themes/${themeId}}`,
+      JSON.stringify('')
+    );
+  }
+
   getPosts(limit?: number): Observable<Post[]> {
     return this.http.get<Post[]>(
       `${environment.apiUrl}/posts${limit ? `?limit=${limit}` : ''}`

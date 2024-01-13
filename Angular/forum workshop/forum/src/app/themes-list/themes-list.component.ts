@@ -15,8 +15,8 @@ export class ThemesListComponent implements OnInit {
   themes: Theme[] = [];
   userId: string | undefined;
 
-  constructor(private api: ApiService, userService: UserService) {
-    this.userId = userService.user?._id;
+  constructor(private api: ApiService, private userService: UserService) {
+    this.userId = this.userService.user?._id;
   }
 
   ngOnInit(): void {

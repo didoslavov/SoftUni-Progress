@@ -4,6 +4,7 @@
         you have in your programming language or in your study in SoftUni.</p>
     <div class="logged">
         <ul>
+            @if(!isLoggedIn) {
             <li>
                 <a routerLink="/login">
                     <i class="fas fa-sign-in-alt"></i>
@@ -16,6 +17,7 @@
                     Register
                 </a>
             </li>
+            }
         </ul>
     </div>
 </div>

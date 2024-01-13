@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -8,4 +9,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(private userService: UserService) {}
+
+  get isLoggedIn(): boolean {
+    return this.userService.isLoggedIn;
+  }
+}

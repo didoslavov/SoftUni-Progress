@@ -22,7 +22,7 @@ export class ApiService {
   subscribeTheme(themeId: string): Observable<Theme> {
     return this.http.put<Theme>(
       environment.apiUrl + `/themes/${themeId}}`,
-      JSON.stringify('')
+      null
     );
   }
 

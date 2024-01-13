@@ -13,10 +13,10 @@ import { UserService } from '../user/user.service';
 })
 export class ThemesListComponent implements OnInit {
   themes: Theme[] = [];
-  userId: string | undefined;
+  userId: string = '';
 
   constructor(private api: ApiService, private userService: UserService) {
-    this.userId = this.userService.user?._id;
+    this.userId = this.userService.user?._id || '';
   }
 
   ngOnInit(): void {
@@ -27,7 +27,16 @@ export class ThemesListComponent implements OnInit {
     });
   }
 
-  onSubscribe(themeId: string) {
-    this.api.subscribeTheme(themeId);
+  onSubscribe(theme: Theme) {
+    if (!theme.subscribers.includes(this.userId)) {
+      this.api.subscribeTheme(theme._id).subscribe({
+        next: (updatedTheme: Theme) => {
+          const index = this.themes.findIndex(
+            (t) => t._id === updatedTheme._id
+          );
+          this.themes[index] = updatedTheme;
+        },
+      });
+    }
   }
 }

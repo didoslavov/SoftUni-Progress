@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Theme } from '../../types/theme';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api/api.service';
+import { WelcomeComponent } from '../../welcome/welcome.component';
 
 @Component({
   selector: 'app-theme-content',
   standalone: true,
-  imports: [],
+  imports: [WelcomeComponent],
   templateUrl: './theme-content.component.html',
   styleUrl: './theme-content.component.css',
 })

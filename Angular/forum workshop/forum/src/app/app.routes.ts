@@ -6,6 +6,7 @@ import { ThemeContentComponent } from './theme/theme-content/theme-content.compo
 import { MainComponent } from './main/main.component';
 import { AddThemeComponent } from './theme/add-theme/add-theme.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -40,5 +41,9 @@ export const routes: Routes = [
   {
     path: 'themes/theme-content/:themeId',
     component: ThemeContentComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];

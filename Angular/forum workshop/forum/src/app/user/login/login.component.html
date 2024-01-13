@@ -5,18 +5,19 @@
 
         <p class="field field-icon">
             <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-            <input class="input-error" type="email" name="email" id="email" placeholder="john.doe@gmail.com">
+            <input #emailInput class="input-error" type="email" name="email" id="email"
+                placeholder="john.doe@gmail.com">
         </p>
-        <p class="error">
+        <!-- <p class="error">
             Email is required!
-        </p>
+        </p> -->
         <!-- <p class="error">
                     Email is not valid!
                 </p> -->
 
         <p class="field field-icon">
             <label for="password"><span><i class="fas fa-lock"></i></span></label>
-            <input type="password" name="password" id="password" placeholder="******">
+            <input #passwordInput type="password" name="password" id="password" placeholder="******">
         </p>
         <!-- <p class="error">
                     Password is required!
@@ -25,7 +26,7 @@
                     Password must be at least 4 characters!
                 </p> -->
 
-        <button disabled>Login</button>
+        <button (click)="onLogin(emailInput.value, passwordInput.value)">Login</button>
 
         <p class="text-center">
             Have an account?

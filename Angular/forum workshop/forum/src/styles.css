@@ -140,6 +140,19 @@ blockquote p.author {
   text-align: right;
 }
 
+/* errors  */
+
+p.error {
+  text-align: center;
+  border-radius: 0.3em;
+  color: red;
+  padding-top: 0;
+}
+
+.input-error {
+  border-left-color: red;
+}
+
 @media (min-width: 800px) {
   html {
     font-size: 14px;

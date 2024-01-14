@@ -73,14 +73,3 @@ button + button {
   border: 1px solid #333333;
   border-radius: 0.3em;
 }
-
-p.error {
-  text-align: left;
-  border-radius: 0.3em;
-  color: red;
-  padding-top: 0;
-}
-
-.input-error {
-  border-left-color: red;
-}

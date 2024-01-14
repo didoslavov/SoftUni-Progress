@@ -81,16 +81,3 @@ form.register {
   display: flex;
   padding-bottom: 0;
 }
-
-/* errors  */
-
-p.error {
-  text-align: left;
-  border-radius: 0.3em;
-  color: red;
-  padding-top: 0;
-}
-
-.input-error {
-  border-left-color: red;
-}

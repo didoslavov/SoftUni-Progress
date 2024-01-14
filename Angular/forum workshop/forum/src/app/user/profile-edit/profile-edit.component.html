@@ -4,12 +4,38 @@
     <form action="">
         <div class="flex">
             <p>Username: </p>
-            <input type="text" name="username" id="username" value="Johny">
+            <input ngModel #usernameInput="ngModel" required minlength="5" type="text" name="username" id="username"
+                value="Johny">
         </div>
+        @if(usernameInput.touched) {
+        @if(usernameInput.errors?.['required']) {
+        <p class="error">
+            Username is required!
+        </p>
+        }
+        @if(usernameInput.errors?.['minlength']) {
+        <p class="error">
+            Username must be atleast 5 symbols!
+        </p>
+        }
+        }
         <div class="flex">
             <p>Email: </p>
-            <input type="email" name="email" id="email" value="john.doe@gmail.com">
+            <input ngModel #emailInput="ngModel" [appEmail]="appEmailDomains" required="" type="email" name="email"
+                id="email" value="john.doe@gmail.com">
         </div>
+        @if (emailInput.touched) {
+        @if(emailInput.errors?.['appEmailValidator']) {
+        <p class="error">
+            Email is not valid!
+        </p>
+        }
+        @if (emailInput.errors?.['required']) {
+        <p class="error">
+            Email is required
+        </p>
+        }
+        }
         <div class="flex">
             <p>Phone: </p>
             <div>
@@ -19,7 +45,7 @@
                 <input type="text" name="tel" id="tel" value="885 888 888">
             </div>
         </div>
-        <button class="red-button">Cancel</button>
+        <button (click)="onCancel()" class="red-button">Cancel</button>
         <button class="green-button">Save</button>
     </form>
 </div>

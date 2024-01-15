@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Theme } from '../../types/theme';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../services/api/api.service';
+import { ApiService } from '../../services/dataService/data.service';
 import { WelcomeComponent } from '../../welcome/welcome.component';
 
 @Component({
@@ -15,14 +15,14 @@ export class ThemeContentComponent implements OnInit {
   themeId: string = '';
   theme: Theme | null = null;
 
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(private dataService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
+    this.route.params.subscribe((params): void => {
       this.themeId = params['themeId'];
 
-      this.api.getTheme(this.themeId).subscribe({
-        next: (theme: Theme) => {
+      this.dataService.getTheme(this.themeId).subscribe({
+        next: (theme: Theme): void => {
           this.theme = theme;
         },
       });

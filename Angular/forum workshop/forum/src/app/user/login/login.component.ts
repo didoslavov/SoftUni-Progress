@@ -23,7 +23,13 @@ export class LoginComponent {
       return;
     }
 
-    this.userService.login();
-    this.router.navigate(['/']);
+    const { email, password } = form.value as {
+      email: string;
+      password: string;
+    };
+
+    this.userService
+      .login(email, password)
+      .subscribe((): Promise<boolean> => this.router.navigate(['/']));
   }
 }

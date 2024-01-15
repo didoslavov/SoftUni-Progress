@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-import { User } from '../../types/user';
+import { Profile } from '../../types/profile';
 
 @Component({
   selector: 'app-profile',
@@ -11,22 +11,20 @@ import { User } from '../../types/user';
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent implements OnInit {
-  user: User | undefined = {
-    _id: '',
-    themes: [],
-    posts: [],
-    tel: '',
-    email: '',
+  profile: Profile = {
     username: '',
-    password: '',
-    created_at: '',
-    updatedAt: '',
-    __v: 0,
+    email: '',
+    tel: '',
   };
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.user = this.userService.user;
+    const { username, email, tel } = this.userService.user!;
+    this.profile = {
+      username,
+      email,
+      tel,
+    };
   }
 
   onEditClickHanlder(): void {

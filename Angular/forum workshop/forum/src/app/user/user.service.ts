@@ -1,50 +1,78 @@
-import { Injectable } from '@angular/core';
-import { LocalStorageService } from '../services/storage/local-storage.service';
+import { Injectable, OnDestroy } from '@angular/core';
 import { User } from '../types/user';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, Subscription, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
-  private _user: User | undefined;
-  private readonly USER_KEY = '[user]';
+export class UserService implements OnDestroy {
+  private user$$ = new BehaviorSubject<User | undefined>(undefined);
+  public user$ = this.user$$.asObservable();
 
-  get user(): User | undefined {
-    return this._user;
-  }
+  user: User | undefined;
 
   get isLoggedIn(): boolean {
-    return !!this._user;
+    return !!this.user;
   }
 
-  constructor(private localStorage: LocalStorageService) {
-    try {
-      const lsUser = this.localStorage.getItem(this.USER_KEY);
-      this._user = lsUser ? JSON.parse(lsUser) : undefined;
-    } catch (e) {
-      console.error('Error initializing UserService:', e);
-    }
+  subscription: Subscription;
+
+  constructor(private http: HttpClient) {
+    this.subscription = this.user$.subscribe(
+      (u): User | undefined => (this.user = u)
+    );
   }
 
-  login(): void {
-    this._user = {
-      _id: 'some25210fake10382id',
-      email: 'dido@abv.bf',
-      username: 'dido',
-      themes: [],
-      posts: [],
-      tel: '+359892349542',
-      password: 'some201fake245password',
-      created_at: '2024-11-01T07:17:27.217Z',
-      updatedAt: '2024-12-01T07:17:27.217Z',
-      __v: 1,
-    };
-
-    this.localStorage.setItem(this.USER_KEY, JSON.stringify(this._user));
+  login(email: string, password: string): Observable<User> {
+    return this.http
+      .post<User>('/login', { email, password })
+      .pipe(tap((u): void => this.user$$.next(u)));
   }
 
-  logout(): void {
-    this._user = undefined;
-    this.localStorage.removeItem(this.USER_KEY);
+  register(
+    username: string,
+    email: string,
+    password: string,
+    rePassword: string,
+    tel: string
+  ): Observable<User> {
+    return this.http
+      .post<User>('/register', {
+        username,
+        email,
+        password,
+        rePassword,
+        tel,
+      })
+      .pipe(tap((u): void => this.user$$.next(u)));
+  }
+
+  logout(): Observable<User> {
+    return this.http
+      .post<User>('/logout', {})
+      .pipe(tap((): void => this.user$$.next(undefined)));
+  }
+
+  getProfile(): Observable<User> {
+    return this.http
+      .get<User>('/users/profile')
+      .pipe(tap((u): void => this.user$$.next(u)));
+  }
+
+  updateProfile(
+    username: string,
+    email: string,
+    tel: string
+  ): Observable<User> {
+    return this.http.put<User>('/users/profile', {
+      username,
+      email,
+      tel,
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

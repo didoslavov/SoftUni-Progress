@@ -6,12 +6,17 @@
         <!-- username -->
         <p class="field field-icon">
             <label for="username"><span><i class="fas fa-user"></i></span></label>
-            <input ngModel #usernameInput="ngModel" required class="input-error" type="text" name="username"
-                id="username" placeholder="Johny">
+            <input ngModel #usernameInput="ngModel" required minlength="5" class="input-error" type="text"
+                name="username" id="username" placeholder="Johny">
         </p>
         @if (usernameInput.touched && usernameInput.errors?.['required']) {
         <p class="error">
             Username is required!
+        </p>
+        }
+        @if (usernameInput.touched && usernameInput.errors?.['minlength']) {
+        <p class="error">
+            Username must be atleast 5 chars long!
         </p>
         }
 
@@ -40,7 +45,7 @@
             <select name="select-tel" id="select-tel" class="tel">
                 <option value="00359">+359</option>
             </select>
-            <input type="text" name="tel" id="tel" placeholder="885 888 888">
+            <input ngModel #tel="ngModel" type="text" name="tel" id="tel" placeholder="885 888 888">
         </p>
 
         <!-- password -->

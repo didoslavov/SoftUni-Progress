@@ -1,11 +1,11 @@
 <div class="profile">
     <img src="../../../assets/profile.png" alt="default user">
     <h3>User Info:</h3>
-    <form action="">
+    <form #form="ngForm">
         <div class="flex">
             <p>Username: </p>
-            <input ngModel #usernameInput="ngModel" required minlength="5" type="text" name="username" id="username"
-                value="Johny">
+            <input ngModel #usernameInput="ngModel" required minlength="5" [ngModel]="user?.username" type="text"
+                name="username" id="username">
         </div>
         @if(usernameInput.touched) {
         @if(usernameInput.errors?.['required']) {
@@ -21,8 +21,8 @@
         }
         <div class="flex">
             <p>Email: </p>
-            <input ngModel #emailInput="ngModel" [appEmail]="appEmailDomains" required="" type="email" name="email"
-                id="email" value="john.doe@gmail.com">
+            <input ngModel #emailInput="ngModel" [appEmail]="appEmailDomains" required [ngModel]="user?.email"
+                type="email" name="email" id="email">
         </div>
         @if (emailInput.touched) {
         @if(emailInput.errors?.['appEmailValidator']) {
@@ -42,10 +42,10 @@
                 <select name="select-tel" id="select-tel" class="tel">
                     <option value="00359">+359</option>
                 </select>
-                <input type="text" name="tel" id="tel" value="885 888 888">
+                <input type="text" name="tel" id="tel" [ngModel]="user?.tel">
             </div>
         </div>
         <button (click)="onCancel()" class="red-button">Cancel</button>
-        <button class="green-button">Save</button>
+        <button (click)="onSave(usernameInput.value, emailInput.value)" class="green-button">Save</button>
     </form>
 </div>

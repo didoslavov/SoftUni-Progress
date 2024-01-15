@@ -63,13 +63,15 @@ export class UserService implements OnDestroy {
   updateProfile(
     username: string,
     email: string,
-    tel: string
+    tel?: string
   ): Observable<User> {
-    return this.http.put<User>('/users/profile', {
-      username,
-      email,
-      tel,
-    });
+    return this.http
+      .put<User>('/users/profile', {
+        username,
+        email,
+        tel,
+      })
+      .pipe(tap((u): void => this.user$$.next(u)));
   }
 
   ngOnDestroy(): void {

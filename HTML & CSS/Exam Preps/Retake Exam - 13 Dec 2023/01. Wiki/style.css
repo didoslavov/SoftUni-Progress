@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Agbalumo';
+    font-size: 10px;
+}
+
+body {
+    padding: 40px;
+    font-size: inherit;
+}
+
+.container {
+    max-width: 45%;
+    height: 70rem;
+    border: 2px solid #000;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* HEADER */
+
+.header {
+    background-color: #d5ebea;
+}
+
+.header__heading {
+    max-width: 90%;
+    margin-left: 2rem;
+    font-size: 3.6rem;
+    font-weight: 900;
+    padding: 2.4rem 0 0 0;
+}
+
+.header__subheading {
+    max-width: 90%;
+    margin-left: 2rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+/* MAIN CONTENT */
+
+.content {
+    padding: 3.6rem 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.content__img--container {
+    max-width: 34%;
+    border: 2px solid #000;
+    padding: 0.8rem 1.2rem 0.8rem 0.8rem;
+    text-align: start;
+}
+
+.content__img--container-img {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.content__img--container-text {
+    text-indent: 2.8rem;
+}
+
+.content__text {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    gap: 2rem;
+    line-height: 1.4;
+    max-width: 57%;
+    font-size: 1.6rem;
+    text-align: start;
+    text-indent: 3.2rem;
+}

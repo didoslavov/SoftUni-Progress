@@ -1,18 +1,17 @@
 .hero {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-}
-
-.hero-img {
-    width: 100%;
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 -5rem;
 }
 
 .hero-text-container {
+    align-self: flex-end;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    transform: translateY(-35%);
     background-color: #56dbb1;
 }
 

@@ -1,0 +1,25 @@
+.header {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.6rem 0;
+}
+
+.logo-container {
+    img {
+        width: 12rem;
+    }
+}
+
+.nav-list {
+    display: flex;
+    gap: 3.6rem;
+}
+
+.nav-list-item {
+    font-size: 1.9rem;
+    color: #fff;
+    text-transform: uppercase;
+}

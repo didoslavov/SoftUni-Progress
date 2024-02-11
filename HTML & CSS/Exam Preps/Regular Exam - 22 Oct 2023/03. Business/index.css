@@ -1,0 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Serif);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+@import 'general.css';
+@import 'header.css';
+@import 'hero.css';
+@import 'about.css';
+@import 'partners.css';
+@import 'footer.css';

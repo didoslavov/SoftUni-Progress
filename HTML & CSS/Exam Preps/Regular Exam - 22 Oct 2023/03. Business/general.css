@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* PT Sans */
+    font-family: 'PT Sans';
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 10px;
+    background: url(images/background.jpg) center / cover no-repeat;
+    height: 100vh;
+}
+
+main {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+}
+
+a:link,
+a:active {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited,
+a:hover {
+    color: inherit;
+}
+
+.grid {
+    display: grid;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-4-cols {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-2-cols {
+    grid-template-columns: repeat(2, 1fr);
+}

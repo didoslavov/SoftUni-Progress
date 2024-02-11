@@ -12,6 +12,10 @@ body {
     font-size: 10px;
 }
 
+main {
+    width: 100%;
+}
+
 ul {
     list-style: none;
 }

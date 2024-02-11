@@ -1,0 +1,26 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-img {
+    width: 100%;
+}
+
+.hero-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transform: translateY(-35%);
+    background-color: #56dbb1;
+}
+
+.hero-text {
+    width: 90%;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 5rem 6rem;
+    line-height: 2rem;
+    letter-spacing: 0.5px;
+}

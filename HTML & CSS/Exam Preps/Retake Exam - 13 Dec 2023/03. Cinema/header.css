@@ -3,6 +3,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    background-color: #fff;
 }
 
 .logo-container {
@@ -37,7 +41,7 @@
     color: #696969;
     text-transform: uppercase;
     background-color: #ececec;
-    padding: 1.6rem 1.6rem;
+    padding: 1.4rem;
     letter-spacing: 1.4px;
 }
 

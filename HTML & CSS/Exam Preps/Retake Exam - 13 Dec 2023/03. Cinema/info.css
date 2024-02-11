@@ -1,0 +1,17 @@
+.info {
+    background-color: #353434;
+    color: #fff;
+    padding: 8rem;
+}
+
+.info .card {
+    gap: 0;
+}
+
+.info .card-heading {
+    font-size: 1.8rem;
+}
+
+.info .card-text {
+    border: none;
+}

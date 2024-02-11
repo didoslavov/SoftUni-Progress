@@ -2,19 +2,6 @@
     background-color: #353434;
     color: #fff;
     padding: 8rem;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
-    align-items: center;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
 }
 
 .card-icon {

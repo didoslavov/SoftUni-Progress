@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Ubuntu';
+}
+
+body {
+    font-size: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+}
+
+a:link,
+a:active {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited,
+a:hover {
+    color: inherit;
+}

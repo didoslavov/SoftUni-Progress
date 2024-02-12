@@ -1,0 +1,47 @@
+.about {
+    padding: 6rem 8rem 6rem 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.about-img-container {
+    img {
+        width: 62rem;
+        height: 42rem;
+    }
+}
+
+.about-card {
+    display: flex;
+    gap: 4rem;
+}
+
+.about-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.about-subheading {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #595959;
+}
+
+.about-heading {
+    font-size: 4rem;
+}
+
+.about-text,
+.about-author {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #595959;
+    margin-bottom: 1rem;
+}
+
+.about-btn {
+    font-size: 2rem;
+    font-weight: 400;
+}

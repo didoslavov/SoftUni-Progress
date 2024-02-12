@@ -1,0 +1,44 @@
+.partners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.partners-heading {
+    font-family: 'PT Serif';
+    font-size: 6.4rem;
+    font-weight: 400;
+    color: #b0825c;
+    padding: 5rem 0 3.6rem 0;
+}
+
+.partners-text {
+    font-family: 'PT Sans';
+    color: #716567;
+    font-size: 2rem;
+    line-height: 3.6rem;
+    font-weight: 400;
+    padding-bottom: 5rem;
+    width: 77%;
+    text-align: center;
+}
+
+.partners-imgs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.imgs-container {
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 4rem;
+}
+
+.partners-img {
+    display: inline-block;
+    width: 12rem;
+    height: 12rem;
+}

@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Inter', sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    background: url(images/background.jpg) center / cover no-repeat;
+}
+
+.container {
+    display: flex;
+    width: 85%;
+    margin: 2rem auto;
+    gap: 4rem;
+}
+
+.left {
+    flex: 1 1 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.x {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 6.5rem 6rem 6.5rem 6rem;
+}
+
+.left-text {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.left-quotation {
+    font-size: 8rem;
+}
+
+.left-info {
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: #595959;
+}
+
+.left-name {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.left-img {
+    width: 24rem;
+    height: 24rem;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.left-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right {
+    flex: 1 1 36%;
+    display: flex;
+    flex-direction: column;
+}
+
+.y {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 30%;
+    padding: 8.5rem 4rem 2rem 4rem;
+    background-color: #fff;
+}
+
+.right-quotation {
+    font-size: 12rem;
+}
+
+.right-info {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #595959;
+}
+
+.right-name-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid #d9d9d9;
+}
+
+.right-name {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.right-name-pos {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #595959;
+}
+
+.right-img {
+    width: 14rem;
+    height: 14rem;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.right-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+img {
+    filter: grayscale(100%);
+}

@@ -1,0 +1,40 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #171720;
+}
+
+.footer-menu {
+    padding: 5rem 10rem 6rem 18rem;
+    align-items: flex-start;
+}
+
+.footer-menu-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    font-family: 'PT Sans';
+    color: #b3a6a8;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
+.footer-menu-heading {
+    font-family: 'PT Serif';
+    font-size: 2.6rem;
+    letter-spacing: -1px;
+    font-weight: 400;
+    margin-bottom: 4rem;
+}
+
+.copyright {
+    font-size: 1.6rem;
+    color: #b3a6a8;
+    padding: 2.4rem 18rem;
+    border-top: 1px solid #3a3a41;
+}

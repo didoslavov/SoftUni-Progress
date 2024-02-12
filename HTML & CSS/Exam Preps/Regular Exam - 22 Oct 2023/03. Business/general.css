@@ -5,15 +5,16 @@
 }
 
 html {
-    /* PT Sans */
+    /* PT Serif */
     font-family: 'PT Sans';
     font-size: 62.5%;
 }
 
 body {
-    font-size: 10px;
-    background: url(images/background.jpg) center / cover no-repeat;
     height: 100vh;
+    font-size: 10px;
+    color: #fff;
+    background: url(images/background.jpg) center / cover no-repeat;
 }
 
 main {

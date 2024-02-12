@@ -7,10 +7,8 @@
     padding: 2.6rem 0;
 }
 
-.logo-container {
-    img {
-        width: 12rem;
-    }
+.logo-container img {
+    width: 11rem;
 }
 
 .nav-list {
@@ -20,6 +18,6 @@
 
 .nav-list-item {
     font-size: 1.9rem;
-    color: #fff;
+    color: inherit;
     text-transform: uppercase;
 }

@@ -1,0 +1,24 @@
+.stats {
+    padding: 10rem 9rem 6rem 9rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.stats-number {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #ff7c4c;
+    margin-bottom: 6rem;
+}
+
+.stats-heading {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.stats-text {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #595959;
+}

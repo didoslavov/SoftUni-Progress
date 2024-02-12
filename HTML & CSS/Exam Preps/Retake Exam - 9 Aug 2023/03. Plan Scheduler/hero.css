@@ -1,0 +1,30 @@
+.hero {
+    height: 85vh;
+    padding: 16rem 32rem;
+    background: url(images/background.jpg) bottom / cover no-repeat;
+}
+
+.hero-content {
+    width: 57%;
+}
+
+.hero-heading {
+    font-size: 6rem;
+    margin-bottom: 11rem;
+}
+
+.hero-text {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6rem;
+}
+
+.hero-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem 4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 5px;
+}

@@ -1,0 +1,31 @@
+.about {
+    background-color: #fff;
+    color: #000;
+    padding: 17rem 22rem;
+    color: #37282b;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-heading {
+    font-family: 'PT Serif';
+    font-size: 6.4rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.card-text {
+    font-family: 'PT Sans';
+    font-size: 2rem;
+    line-height: 3.6rem;
+    font-weight: 400;
+    width: 95%;
+    margin-bottom: 4.4rem;
+}
+
+.about-btn {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #b0825c;
+    border: 2px solid #b0825c;
+    padding: 1.2rem 2rem;
+}

@@ -33,12 +33,6 @@ a:link,
 a:active {
     display: inline-block;
     text-decoration: none;
-    color: inherit;
-}
-
-a:visited,
-a:hover {
-    color: inherit;
 }
 
 .grid {

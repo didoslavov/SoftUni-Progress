@@ -18,6 +18,9 @@
 
 .nav-list-item {
     font-size: 1.9rem;
-    color: inherit;
     text-transform: uppercase;
+}
+
+.nav-list-link {
+    color: #fff;
 }

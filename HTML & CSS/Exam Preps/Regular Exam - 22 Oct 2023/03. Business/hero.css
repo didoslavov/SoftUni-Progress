@@ -2,18 +2,18 @@
     width: 54%;
     color: inherit;
     padding: 3rem 12rem;
-    margin-left: 12rem;
+    margin: 0 0 16rem 12rem;
 }
 
 .hero-heading {
     font-family: 'PT Serif';
     font-weight: 400;
-    font-size: 6.8rem;
+    font-size: 6.7rem;
     margin-bottom: 2rem;
 }
 
 .hero-text {
+    font-family: 'PT Sans';
     font-size: 2.5rem;
     line-height: 1.6;
-    font-family: 'PT Sans';
 }

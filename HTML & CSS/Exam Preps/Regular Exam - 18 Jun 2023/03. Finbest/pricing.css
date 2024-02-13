@@ -1,0 +1,109 @@
+.pricing {
+    text-align: center;
+    background-color: #f3f5fa;
+}
+
+.pricing-btn {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 7px;
+    color: #000;
+    background-color: #ade2df;
+    margin: 6rem 0 4rem 0;
+}
+
+.pricing-heading {
+    font-size: 5rem;
+    font-weight: 600;
+    margin-bottom: 6rem;
+}
+
+.pricing-list {
+    text-align: start;
+    border: 1px solid #dbdbdb;
+    border-radius: 2.5rem;
+    background-color: #fff;
+    margin-bottom: 8rem;
+}
+
+.pricing-card {
+    border-right: 1px solid #dbdbdb;
+    padding: 0 4rem;
+}
+
+.pricing-card-plan {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.pricing-card-planinfo {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.pricing-card-price {
+    font-size: 4.4rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+
+    span {
+        font-size: 2rem;
+        font-weight: 300;
+    }
+}
+
+.pricing-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 5rem;
+}
+
+.pricing-card-btn {
+    font-size: 2rem;
+    color: #000;
+    text-align: center;
+    border-radius: 2rem;
+    width: 100%;
+    padding: 3rem 4rem;
+    background-color: #ade2df;
+}
+
+.contacts {
+    background-color: #ade2df;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    padding: 4rem;
+}
+
+.contacts-heading {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+.contacts-heading:not(:first-child) {
+    text-align: start;
+    margin-bottom: 4rem;
+}
+
+.contacts > .pricing-card-btn {
+    background-color: #000;
+    color: #fff;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 20rem;
+}

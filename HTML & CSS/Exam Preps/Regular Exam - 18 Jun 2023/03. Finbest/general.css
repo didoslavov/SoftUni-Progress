@@ -38,6 +38,10 @@ a:active {
     align-items: center;
 }
 
+.grid-5-cols {
+    grid-template-columns: repeat(3, 0.85fr) 2fr;
+}
+
 .grid-4-cols {
     grid-template-columns: repeat(4, 1fr);
 }

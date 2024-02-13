@@ -1,6 +1,7 @@
 @media screen and (max-width: 600px) {
     .navigation-nav,
-    .home-text {
+    .home-text,
+    .home-image {
         display: none;
     }
 
@@ -14,10 +15,6 @@
 
     .home-tab-selector-cards-container {
         grid-template-columns: 1fr;
-    }
-
-    .home-image {
-        display: none;
     }
 
     .home-text10 {

@@ -1,0 +1,44 @@
+.header {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 0 2rem 0;
+}
+
+.logo-container img {
+    width: 11rem;
+}
+
+.nav-list {
+    display: flex;
+    gap: 4rem;
+}
+
+.nav-list-item {
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.nav-list-link {
+    color: #000;
+    font-weight: 300;
+}
+
+.header-btn {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #000;
+    border-radius: 10px;
+    padding: 2rem 4rem;
+    background-color: #fff;
+
+    :last-child {
+        background-color: #ade2df;
+    }
+}
+
+.header-btn:last-child {
+    background-color: #ade2df;
+}

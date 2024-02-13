@@ -1,0 +1,105 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap.');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Inter';
+    font-size: 62.5%;
+}
+
+body {
+    font-size: inherit;
+    background: url(image/background.jpg) center / cover no-repeat;
+}
+
+ul {
+    list-style: none;
+    display: inline-block;
+}
+
+li {
+    display: inline-block;
+}
+
+a:link,
+a:active {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.grid {
+    display: grid;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-4-cols {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-3-cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.container {
+    padding: 10rem 16rem;
+    gap: 3rem;
+}
+
+.card {
+    padding: 3rem 4rem;
+    background-color: #fff;
+}
+
+.card:nth-child(2) {
+    transform: scaleY(1.03);
+}
+
+.card-heading {
+    font-size: 3.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+}
+
+.card-price {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 4rem;
+
+    span {
+        font-size: 8rem;
+        font-weight: 700;
+    }
+}
+
+.card-billing {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #595959;
+    margin-bottom: 4rem;
+}
+
+.card-list {
+    font-size: 2rem;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 8rem;
+}
+
+.card-btn {
+    background-color: #000;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 2rem 4rem;
+    border-radius: 5px;
+}

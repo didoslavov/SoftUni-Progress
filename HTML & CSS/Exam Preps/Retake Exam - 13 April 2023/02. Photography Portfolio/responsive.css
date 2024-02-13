@@ -1,0 +1,35 @@
+@media screen and (max-width: 600px) {
+    .navigation-nav,
+    .home-text {
+        display: none;
+    }
+
+    .home-text01.Heading2 {
+        margin-top: 0;
+    }
+
+    .button.button-lg.button-secondary {
+        margin-bottom: 2em;
+    }
+
+    .home-tab-selector-cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .home-image {
+        display: none;
+    }
+
+    .home-text10 {
+        margin-right: 0.5em;
+    }
+
+    .home-top-part,
+    .home-links-container {
+        flex-direction: column;
+    }
+
+    .home-links-container {
+        gap: 2em;
+    }
+}

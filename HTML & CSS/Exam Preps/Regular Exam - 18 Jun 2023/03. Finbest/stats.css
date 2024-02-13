@@ -1,0 +1,32 @@
+.stats {
+    padding: 12rem 20rem 10rem 16rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats-card {
+    padding: 0 2rem;
+    border-left: 2px solid #dbdbdb;
+    text-align: center;
+}
+
+.stats-card:first-child {
+    border-left: 1px solid #dbdbdb;
+}
+
+.stats-card:last-child {
+    border-right: 1px solid #dbdbdb;
+}
+
+.stats-card-stat {
+    font-size: 4.4rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+}
+
+.stats-card-text {
+    font-size: 2.4rem;
+    font-weight: 300;
+    margin-bottom: 12rem;
+}

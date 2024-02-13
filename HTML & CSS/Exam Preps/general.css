@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Inter';
+    font-size: 62.5%;
+}
+
+body {
+    font-size: inherit;
+    background-color: #d9d9d9;
+}
+
+main {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+}
+
+a:link,
+a:active {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.grid {
+    display: grid;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-4-cols {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-3-cols {
+    grid-template-columns: repeat(3, 1fr);
+}

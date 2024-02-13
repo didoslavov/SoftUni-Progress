@@ -1,0 +1,17 @@
+.footer {
+    padding: 4rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-text,
+.footer-icons {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 2rem;
+}

@@ -1,0 +1,47 @@
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    background-color: #ade2df;
+}
+
+.about-img-container {
+    border: 2px dashed #98b8b6;
+    padding: 0 6rem;
+}
+
+.about-content {
+    flex: 0 1 40%;
+}
+
+.about-heading {
+    font-size: 5rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+}
+
+.about-subheading {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1.6rem;
+}
+
+.about-text {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 3.6rem;
+}
+
+.about-link {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #000;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid #000;
+
+    span {
+        font-size: 3rem;
+    }
+}

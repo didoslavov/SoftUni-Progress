@@ -1,0 +1,90 @@
+.pricing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.pricing-content {
+    width: 92%;
+    padding: 5rem;
+    background-color: #fff;
+    gap: 3rem;
+}
+
+.pricing-info {
+    align-self: self-start;
+    margin-top: 2rem;
+}
+
+.pricing-heading {
+    font-size: 3.8rem;
+    margin-bottom: 6rem;
+}
+
+.pricing-text {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #595959;
+}
+
+.pricing-card {
+    width: 95%;
+    background-color: #000;
+    padding: 3rem 0;
+    color: #fff;
+    text-align: center;
+    box-shadow: 1rem 1rem 1rem -2px rgba(0, 0, 0, 0.17);
+
+    .pricing-card-btn {
+        background-color: #fff;
+        color: #000;
+    }
+}
+
+.pricing-content div:nth-child(2) {
+    background-color: #ff7c4c;
+    color: #000;
+
+    .pricing-card-btn {
+        background-color: #000;
+        color: #fff;
+    }
+}
+
+.pricing-card-heading {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+.pricing-card-price {
+    font-size: 8rem;
+    font-weight: 200;
+    margin-bottom: 3rem;
+}
+
+.pricing-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.pricing-card-list-item {
+    font-size: 2rem;
+
+    span {
+        font-weight: 800;
+    }
+}
+
+.pricing-card-btn {
+    padding: 2rem 4rem;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.pricing-card-list-item:last-child {
+    font-weight: 800;
+    margin-bottom: 6rem;
+}

@@ -1,0 +1,110 @@
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 70%;
+    }
+
+    header .div-header {
+        display: none;
+    }
+
+    .options {
+        flex-direction: column;
+        align-items: center;
+
+        article {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+
+        article > div {
+            display: none;
+        }
+    }
+
+    .blog {
+        .blog-title {
+            padding-left: 50px;
+
+            h4 {
+                font-size: 24px;
+
+                span {
+                    display: none;
+                }
+            }
+
+            a {
+                display: none;
+            }
+        }
+
+        article {
+            div#about-blog {
+                width: 90%;
+
+                p {
+                    font-size: 10px;
+                }
+            }
+
+            img {
+                display: none;
+            }
+        }
+    }
+
+    .magazine {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .magazine-title {
+            align-self: flex-start;
+            padding: 0 0 0 50px;
+
+            h4 {
+                font-size: 15px;
+            }
+
+            a {
+                display: none;
+            }
+        }
+
+        .magazine-info {
+            margin: 0;
+            text-align: center;
+            font-size: 16px;
+
+            img {
+                width: 100%;
+            }
+
+            h3 {
+                margin-bottom: 24px;
+            }
+        }
+
+        article {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    footer {
+        flex-direction: column;
+        font-size: 12px;
+
+        .icons a {
+            i {
+                font-size: 16px;
+            }
+            display: block;
+        }
+    }
+}

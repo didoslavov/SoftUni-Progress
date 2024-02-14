@@ -1,0 +1,24 @@
+.animals {
+    text-align: center;
+    padding: 6rem 8rem;
+}
+
+.animals-heading {
+    font-size: 6rem;
+    font-weight: 1000;
+}
+
+.animals-text {
+    font-size: 2.4rem;
+    padding: 6rem 0;
+}
+
+.animals-img-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.animals-img {
+    width: 37rem;
+    height: 37rem;
+}

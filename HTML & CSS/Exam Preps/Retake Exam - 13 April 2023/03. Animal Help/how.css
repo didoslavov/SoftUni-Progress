@@ -1,0 +1,33 @@
+.how {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.how-heading {
+    font-size: 3.6rem;
+    margin-bottom: 2rem;
+}
+
+.how-content {
+    width: 75%;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+}
+
+.how-content-heading {
+    background-color: #85dcff;
+    font-size: 2.4rem;
+    font-weight: 700;
+    padding: 3.8rem;
+}
+
+.how-content-info {
+    font-size: 2.2rem;
+    font-weight: 700;
+    padding: 3.8rem;
+    line-height: 3.6rem;
+}

@@ -1,0 +1,57 @@
+.cta {
+    display: flex;
+}
+
+.cta-img-container,
+.cta-content {
+    width: 50%;
+}
+
+.cta-img {
+    width: 100%;
+}
+
+.cta-content {
+    padding: 10rem;
+}
+
+.cta-heading {
+    font-size: 4.2rem;
+    margin-bottom: 4rem;
+}
+
+.cta-text {
+    font-size: 2rem;
+    color: #212121;
+    font-weight: 400;
+    margin-bottom: 4rem;
+}
+
+.cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cta-form-input {
+    width: 50%;
+    border: 1px solid #e0e0e0;
+    border-radius: 1rem;
+    padding: 2.8rem;
+}
+
+.cta-form-input::placeholder {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.cta-form-btn {
+    width: 35%;
+    padding: 2.8rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    font-size: 2rem;
+    font-weight: 1000;
+}

@@ -1,0 +1,75 @@
+@media screen and (max-width: 600px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    .site-navigation {
+        display: none;
+    }
+
+    .site-main {
+        margin: 0;
+    }
+
+    .button.button-primary {
+        width: 24%;
+    }
+
+    .entry-header {
+        background-image: url(images/header-image.jpg);
+        background-size: cover;
+    }
+
+    .site-logos-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .site-information-image {
+        display: none;
+    }
+
+    .site-information-text {
+        display: flex;
+        flex: 0 0 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .entry-title {
+        font-size: 0.5rem;
+    }
+
+    .site-form {
+        margin-top: 0;
+    }
+
+    .site-form-container form {
+        p {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button.button-primary {
+            margin: 0 auto;
+        }
+    }
+
+    .site-blog-container {
+        padding: 4rem 6rem;
+    }
+
+    .entry-title {
+        font-size: 3.2rem;
+    }
+
+    .site-posts {
+        flex-direction: column;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}

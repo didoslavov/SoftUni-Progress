@@ -1,0 +1,31 @@
+.header {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+
+    .header-container {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        display: inline-block;
+
+        img {
+            width: 60%;
+        }
+    }
+
+    .nav {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #54546d;
+
+        .nav-list {
+            display: flex;
+            gap: 2rem;
+        }
+    }
+}

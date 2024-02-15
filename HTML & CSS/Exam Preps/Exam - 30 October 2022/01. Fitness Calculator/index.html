@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Fitness Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <media class="img-container">
+            <img src="image/calculator.png" alt="Image of person on treadmill">
+        </media>
+        <form action="POST" class="calculator">
+            <h1 class="heading">FITNESS CALCULATOR</h1>
+            <fieldset class="units">
+                <p class="units-us">
+                    <label for="us">Standart units (US)</label>
+                    <input type="radio" name="us" id="us">
+                </p>
+                <p class="units-metric">
+                    <label for="metric">Metric units</label>
+                    <input type="radio" name="metric" id="metric">
+                </p>
+            </fieldset>
+            <fieldset class="gender">
+                <legend>Gender</legend>
+                <p class="gender-select">
+                    <select name="gender" id="gender">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="number" name="years" id="years" placeholder="Years...">
+                </p>
+            </fieldset>
+            <fieldset class="weight">
+                <legend>Weight</legend>
+                <p>
+                    <input type="number" name="weight" id="weight" placeholder="Pounds...">
+                </p>
+            </fieldset>
+            <fieldset class="height">
+                <legend>Height</legend>
+                <p class="height">
+                    <input type="number" name="height" id="height-feet" placeholder="Feet...">
+                    <input type="number" name="height" id="height-inches" placeholder="Inches...">
+                </p>
+            </fieldset>
+            <button class="calculator-btn">Calculate</button>
+        </form>
+    </div>
+</body>
+
+</html>

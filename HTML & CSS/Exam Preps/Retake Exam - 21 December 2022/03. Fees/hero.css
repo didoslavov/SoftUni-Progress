@@ -1,0 +1,130 @@
+.hero {
+    padding: 11rem;
+    background: url(images/calculator-icon.svg) -9rem 11rem no-repeat,
+        linear-gradient(0deg, rgba(255, 255, 255, 1) 40%, rgba(84, 84, 109, 1) 0, rgba(84, 84, 109, 1) 0);
+    background-size: auto 32%, auto;
+
+    .hero-heading {
+        font-size: 3.8rem;
+        font-weight: 600;
+        text-align: center;
+        color: #fff;
+        margin-bottom: 6rem;
+    }
+
+    .hero-cards {
+        display: flex;
+        gap: 3.6rem;
+
+        .hero-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            flex: 0 1 40%;
+            padding: 4rem 3rem 0 3rem;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.5);
+            border-radius: 1rem;
+            overflow: hidden;
+
+            .hero-card-heading {
+                font-size: 3.2rem;
+                font-weight: 600;
+                color: #54546d;
+                margin-bottom: 3rem;
+            }
+
+            .hero-card-heading:has(~ .hero-card-btn) {
+                margin-bottom: -2rem;
+            }
+
+            .hero-card-text {
+                font-size: 2rem;
+                font-weight: 400;
+            }
+
+            .hero-card-text ~ .hero-card-text {
+                margin: 3rem 0 4rem 0;
+            }
+
+            .hero-card-text:has(~ .hero-card-btn) {
+                margin-bottom: 6rem;
+            }
+
+            .hero-card-btn {
+                font-size: 1.8rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #fff;
+                background-color: #9a5dc6;
+                padding: 2rem 4rem;
+                border-radius: 10rem;
+                margin-bottom: 4rem;
+            }
+
+            .pricing {
+                width: 120%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color: #fff;
+                font-weight: 500;
+                padding: 2rem;
+
+                .pricing-price {
+                    font-size: 3.2rem;
+                    margin-bottom: 2rem;
+                }
+
+                .pricing-info {
+                    font-size: 2rem;
+                    text-wrap: nowrap;
+                }
+            }
+
+            .pricing:has(.pricing-online) {
+                flex-direction: row;
+            }
+
+            .pricing-onside {
+                padding: 1rem 1.4rem;
+            }
+
+            .pricing-onside,
+            .pricing-online {
+                flex: 1 1 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        .hero-card:first-child {
+            .pricing {
+                background: linear-gradient(90deg, rgba(4, 156, 62, 1) 0%, rgba(74, 214, 128, 1) 100%);
+            }
+        }
+
+        .hero-card:nth-child(2) {
+            .pricing {
+                background: linear-gradient(90deg, rgba(77, 108, 136, 1) 0%, rgba(98, 154, 207, 1) 100%);
+
+                .pricing-onside {
+                    border-right: 2px solid #fff;
+                }
+            }
+        }
+
+        .hero-card:nth-child(3) {
+            .pricing {
+                background: linear-gradient(90deg, rgba(75, 56, 165, 1) 0%, rgba(140, 125, 225, 1) 100%);
+            }
+
+            .pricing-onside {
+                border-right: 1px solid #fff;
+            }
+        }
+    }
+}

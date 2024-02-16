@@ -1,0 +1,88 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Courgette';
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 80%;
+    margin: 10% auto;
+    text-align: center;
+
+    h1 {
+        font-size: 6rem;
+        font-weight: 100;
+        margin-bottom: 6rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    h1:after {
+        content: '+DESIGN';
+        color: #cb2027;
+        position: absolute;
+        right: -1.8rem;
+        bottom: -2.4rem;
+        font-size: 2.4rem;
+        font-weight: 700;
+        letter-spacing: 0.4rem;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        gap: 2.6rem;
+
+        .card {
+            flex: 0 1 25%;
+            background-color: #fff;
+            border-radius: 1rem;
+            overflow: hidden;
+            padding-bottom: 2rem;
+
+            img {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                margin: 0 auto 1rem auto;
+                font-size: 2.4rem;
+                margin-bottom: 1rem;
+                width: 90%;
+                border-bottom: 1px solid #cb2027;
+                padding-bottom: 2rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+                margin-bottom: 6rem;
+            }
+
+            a:link,
+            a:active {
+                font-size: 1.6rem;
+                text-decoration: none;
+                color: #000;
+
+                i {
+                    color: #cb2027;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}

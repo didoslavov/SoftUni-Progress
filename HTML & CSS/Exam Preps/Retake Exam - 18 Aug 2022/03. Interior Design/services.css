@@ -1,0 +1,27 @@
+.services {
+    background-color: #f2f0f3;
+    padding: 5rem 12rem;
+    color: #333;
+
+    .services-heading {
+        font-size: 3.6rem;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+    }
+
+    .services-text {
+        font-size: 1.6rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        line-height: 2.6rem;
+
+        i {
+            margin-right: 1rem;
+        }
+
+        span {
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    }
+}

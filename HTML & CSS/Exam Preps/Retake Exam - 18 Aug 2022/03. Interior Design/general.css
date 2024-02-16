@@ -9,6 +9,11 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    width: 1348px;
+    margin: 0 auto;
+}
+
 h1,
 h2,
 h3,
@@ -16,4 +21,12 @@ h4,
 h5,
 h6 {
     font-family: 'Abril Fatface';
+}
+
+.content {
+    width: 85%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 3fr 1fr;
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="POST">
+            <h2>Registration Form</h2>
+            <div class="name">
+                <div class="firstName">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstName">
+                </div>
+                <div class="lastName">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName">
+                </div>
+            </div>
+            <div class="email">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div class="password">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="repass">
+                <label for="repass">Confirm Password</label>
+                <input type="repass" name="repass" id="repass">
+            </div>
+            <div class="terms">
+                <input type="checkbox" name="terms" id="terms">
+                <label for="terms">I accept the Terms of Use & Privacy Policy.</label>
+            </div>
+            <button>Register Now</button>
+        </form>
+    </div>
+</body>
+
+</html>

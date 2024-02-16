@@ -15,6 +15,23 @@ body {
 
 main {
     width: 100%;
+    position: relative;
+}
+
+.section-heading {
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+.section-heading::after {
+    content: '';
+    background-color: #d01919;
+    width: 6rem;
+    height: 0.3rem;
+    position: absolute;
+    left: 93rem;
+    bottom: 38rem;
 }
 
 ul {

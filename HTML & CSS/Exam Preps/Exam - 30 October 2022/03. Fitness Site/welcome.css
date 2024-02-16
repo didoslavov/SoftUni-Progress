@@ -1,4 +1,33 @@
 .welcome {
-    height: 30vh;
+    text-align: center;
     background-color: #fff;
+    padding: 4rem 0;
+
+    .welcome-cards {
+        display: flex;
+        justify-content: space-around;
+
+        .welcome-card {
+            flex: 0 1 18%;
+            margin-bottom: 10rem;
+            position: relative;
+
+            i {
+                font-size: 6.8rem;
+                margin-bottom: 2rem;
+                padding-top: 3rem;
+            }
+
+            .welcome-card-heading {
+                color: #d01919;
+                font-size: 2.2rem;
+                font-weight: 500;
+                margin-bottom: 2rem;
+            }
+
+            .welcome-card-text {
+                font-size: 2rem;
+            }
+        }
+    }
 }

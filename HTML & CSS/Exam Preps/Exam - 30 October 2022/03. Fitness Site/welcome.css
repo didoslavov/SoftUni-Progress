@@ -3,6 +3,22 @@
     background-color: #fff;
     padding: 4rem 0;
 
+    .welcome-heading {
+        font-size: 4rem;
+        font-weight: 500;
+        margin-bottom: 4rem;
+    }
+
+    .welcome-heading::after {
+        content: '';
+        background-color: #d01919;
+        width: 6rem;
+        height: 0.3rem;
+        position: absolute;
+        left: 93rem;
+        bottom: 102rem;
+    }
+
     .welcome-cards {
         display: flex;
         justify-content: space-around;

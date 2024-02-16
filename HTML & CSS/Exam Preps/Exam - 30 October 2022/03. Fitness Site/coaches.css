@@ -1,0 +1,55 @@
+.coaches {
+    text-align: center;
+    background-color: #efefef;
+    padding: 4rem 0;
+
+    .coaches-heading {
+        font-size: 4rem;
+        font-weight: 500;
+        margin-bottom: 6rem;
+    }
+
+    .coaches-heading::after {
+        content: '';
+        background-color: #d01919;
+        width: 4.5rem;
+        height: 0.4rem;
+        position: absolute;
+        left: 93rem;
+        bottom: 52rem;
+    }
+
+    .coaches-cards {
+        display: flex;
+        justify-content: space-around;
+
+        .coaches-card {
+            flex: 0 1 19%;
+
+            img {
+                width: 100%;
+                margin-bottom: 1rem;
+                border-radius: 6px;
+            }
+
+            .coaches-name {
+                font-size: 2.2rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+
+            .coaches-card-heading {
+                font-size: 1.6rem;
+                font-weight: 700;
+                color: #d01919;
+                margin-bottom: 2rem;
+            }
+
+            .coaches-card-text {
+                font-size: 2rem;
+                color: #a6a1b6;
+                margin-bottom: 4rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.hero {
+    text-align: center;
+    background: url(image/fitness-main.jpg) top / cover no-repeat;
+    background-position: 0 -10rem;
+
+    .nav {
+        padding: 3rem 6rem;
+
+        .nav-list {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8.5rem;
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10rem;
+        }
+    }
+
+    .hero-heading {
+        font-size: 6rem;
+        letter-spacing: 1.2rem;
+        color: #fff;
+        margin-bottom: 4rem;
+    }
+
+    .hero-text {
+        font-size: 2rem;
+        color: #fff;
+        max-width: 58rem;
+        margin: 0 auto 4rem auto;
+    }
+
+    .hero-btn {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #fff;
+        background-color: #d01919;
+        padding: 0.8rem 2rem;
+        border-radius: 6px;
+        margin-bottom: 14rem;
+    }
+}

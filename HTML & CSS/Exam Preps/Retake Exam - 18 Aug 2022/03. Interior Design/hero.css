@@ -1,0 +1,49 @@
+.hero {
+    margin: 0 auto;
+    background: url(image/image.jpg) center / cover no-repeat;
+    width: 85%;
+    padding: 2rem 4rem 14rem 4rem;
+
+    .heading {
+        margin-bottom: 20rem;
+        box-shadow: 6px 1px 7px 3px rgba(136, 134, 134, 1);
+        display: inline-block;
+        color: #363434;
+        padding: 4rem 2rem;
+
+        h1 {
+            font-size: 3.2rem;
+            width: 50%;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+    }
+
+    .info {
+        margin-left: auto;
+        text-align: right;
+        width: 20%;
+        background: linear-gradient(90deg, rgba(156, 146, 138, 1) 0%, rgba(202, 199, 198, 1) 100%);
+        padding: 2rem 2rem;
+        box-shadow: 6px 1px 7px 3px rgba(136, 134, 134, 1);
+
+        i {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #8d8581;
+            margin-bottom: 1rem;
+        }
+
+        .info-text {
+            font-size: 1.8rem;
+            color: #f8fff8;
+            text-shadow: 1px 1px 1px #63615f;
+        }
+    }
+}

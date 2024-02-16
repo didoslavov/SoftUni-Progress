@@ -1,0 +1,23 @@
+.header {
+    background-color: #d01919;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 6rem;
+    font-size: 2rem;
+    color: #fff;
+
+    p {
+        i {
+            margin-right: 1rem;
+        }
+    }
+
+    .header-icons {
+        display: flex;
+        gap: 1rem;
+
+        span {
+            display: none;
+        }
+    }
+}

@@ -27,6 +27,6 @@ h6 {
     width: 85%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 1.25fr;
     grid-template-rows: 2fr 1fr;
 }

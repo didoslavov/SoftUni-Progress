@@ -1,4 +1,27 @@
 .stats {
     background-color: #a4b6c8;
     grid-area: 1 / 2 / span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5rem 2rem;
+    background-color: #bab1ad;
+
+    .stats-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 4.6rem;
+        text-transform: uppercase;
+
+        .stats-number {
+            color: #fff;
+            font-weight: 200;
+            font-size: 8rem;
+        }
+
+        .stats-info {
+            font-size: 1.6rem;
+            font-weight: 300;
+        }
+    }
 }

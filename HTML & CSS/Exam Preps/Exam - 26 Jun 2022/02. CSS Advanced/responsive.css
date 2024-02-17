@@ -1,0 +1,38 @@
+@media screen and (max-width: 600px) {
+    .left-to-right:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 500px;
+
+        article {
+            height: 300px;
+        }
+    }
+
+    main .left-to-right article {
+        border-radius: 20%;
+        padding: 4rem 2rem;
+        width: 100%;
+
+        button {
+            display: none;
+        }
+    }
+
+    main section.left-to-right:nth-child(3) {
+        article {
+            padding: 0 2rem;
+        }
+    }
+
+    main section:nth-child(2),
+    main section:nth-child(4) {
+        flex-direction: column;
+        margin: 0;
+
+        button {
+            display: none;
+        }
+    }
+}

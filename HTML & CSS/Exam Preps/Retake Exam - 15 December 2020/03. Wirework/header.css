@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem 3rem 4rem;
+
+    .header-logo {
+        color: #2c383b;
+        font-size: 1.6rem;
+
+        span:first-child {
+            font-size: 4.4rem;
+            font-weight: 700;
+            padding: 0 2rem;
+            box-shadow: inset -1px 0px 0px 0px rgba(217, 217, 217, 1);
+            border-right: 1px solid #b2b2b2;
+            margin-right: 2rem;
+        }
+
+        span:nth-child(2) {
+            color: #6c6c6c;
+        }
+    }
+
+    nav {
+        .nav-list {
+            display: flex;
+            gap: 0.2rem;
+
+            .nav-list-item {
+                font-size: 1.8rem;
+                font-weight: 400;
+                background-color: #ececec;
+                padding: 2.6rem 3rem;
+            }
+
+            .nav-list-item:first-child {
+                background-color: #e24e2a;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.testimonials {
+    padding: 10rem 7rem;
+    background-color: #383838;
+    color: #fff;
+    gap: 4rem;
+
+    .testimonials-card {
+        text-align: center;
+
+        .testimonials-card-heading {
+            font-size: 3.2rem;
+            padding: 1rem 0 3rem 0;
+        }
+
+        .testimonials-card-text {
+            font-size: 2.2rem;
+            color: #6c6c6c;
+            line-height: 4rem;
+            padding: 3rem 0;
+        }
+    }
+}

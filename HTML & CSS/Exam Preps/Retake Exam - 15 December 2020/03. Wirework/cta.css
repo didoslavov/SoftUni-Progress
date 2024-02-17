@@ -1,0 +1,27 @@
+.cta {
+    padding: 12rem;
+    text-align: center;
+
+    h2 {
+        font-size: 5.6rem;
+        font-weight: 500;
+        color: #555555;
+        margin-bottom: 0.4rem;
+    }
+
+    p {
+        font-size: 2.8rem;
+        color: #a2a2a2;
+        margin-bottom: 4rem;
+    }
+
+    a:link,
+    a:active {
+        color: #fff;
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: 0.4rem;
+        background-color: #1b9772;
+        padding: 2.6rem 8rem;
+    }
+}

@@ -1,0 +1,25 @@
+.hero {
+    .img-container {
+        display: block;
+        height: 70vh;
+        background: url(images/banner.jpg) center / cover no-repeat;
+    }
+
+    .hero-text {
+        background-color: #e24e2a;
+        text-align: center;
+        font-size: 2.4rem;
+        padding: 6rem 16rem;
+        line-height: 4.2rem;
+        color: #f5c7bc;
+
+        span:first-child {
+            font-weight: 700;
+        }
+
+        span:not(:first-child) {
+            color: #fae4df;
+            text-decoration: underline;
+        }
+    }
+}

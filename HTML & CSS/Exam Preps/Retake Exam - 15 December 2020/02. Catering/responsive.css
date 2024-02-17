@@ -1,1 +1,18 @@
-/* TODO: Add the responsive styles here */
+@media screen and (max-width: 600px) {
+    .w3-right.w3-hide-small {
+        display: none;
+    }
+
+    .w3-round.w3-image.w3-opacity-min {
+        display: none;
+    }
+
+    .w3-col.l6.w3-padding-large {
+        display: block;
+    }
+
+    .w3-col.m6.w3-padding-large,
+    .w3-col.l6.w3-padding-large {
+        width: 100%;
+    }
+}

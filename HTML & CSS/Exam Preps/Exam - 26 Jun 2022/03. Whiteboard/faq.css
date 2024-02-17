@@ -1,0 +1,37 @@
+.faq {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #b2f1dd;
+    padding: 4rem 8rem;
+    display: grid;
+    gap: 4rem 0;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: repeat(4, 1fr);
+
+    div {
+        text-align: center;
+        width: 80%;
+
+        h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+    }
+
+    h2 {
+        grid-area: 1 / span 3;
+        font-size: 3.2rem;
+        align-self: center;
+    }
+
+    .emailus {
+        grid-area: 4 / span 3;
+        font-size: 1.6rem;
+    }
+}

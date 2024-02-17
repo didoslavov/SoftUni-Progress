@@ -1,0 +1,31 @@
+.about {
+    padding: 10rem;
+    background-color: #383838;
+    color: #fff;
+    gap: 4rem;
+
+    .about-card {
+        text-align: center;
+
+        .about-card-icon {
+            display: inline-block;
+            background-color: #e24e2a;
+            padding: 2.6rem;
+            font-size: 9rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card-heading {
+            font-size: 2.6rem;
+            border-bottom: 2px solid #4c4c4c;
+            padding: 1rem 0 3rem 0;
+        }
+
+        .about-card-text {
+            font-size: 2.2rem;
+            color: #6c6c6c;
+            line-height: 4rem;
+            padding: 3rem 0;
+        }
+    }
+}

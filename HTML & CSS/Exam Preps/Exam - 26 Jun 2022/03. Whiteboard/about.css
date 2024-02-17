@@ -1,0 +1,37 @@
+.about {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+
+    img {
+        width: 50%;
+    }
+
+    .about-info {
+        padding: 4rem 6rem;
+
+        .about-heading {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text {
+            font-size: 2.2rem;
+            width: 75%;
+            margin-bottom: 2rem;
+        }
+
+        .about-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            font-size: 1.8rem;
+            font-weight: 100;
+
+            i {
+                margin-right: 2rem;
+                color: #00d08e;
+            }
+        }
+    }
+}

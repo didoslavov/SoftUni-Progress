@@ -45,6 +45,8 @@
     .hero-btn:hover,
     .hero-btn:visited {
         color: inherit;
+        background-color: transparent;
+        outline: 3px solid #fff;
     }
 
     .hero-link:link,

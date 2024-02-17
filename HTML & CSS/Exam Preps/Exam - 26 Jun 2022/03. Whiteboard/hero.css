@@ -1,0 +1,65 @@
+.hero {
+    background: linear-gradient(0deg, hsla(0, 0%, 0%, 0.2) 0%, rgba(0, 0, 0, 0.6) 99%),
+        url(image/computer-main.jpg) center 60% / cover no-repeat;
+    text-align: center;
+    text-shadow: 1.5px 1.5px 1.5px #000;
+    width: 90%;
+    margin: 0 auto;
+    color: #fff;
+
+    nav {
+        padding: 4rem 0;
+        font-size: 2.4rem;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 4rem;
+    }
+
+    .hero-heading {
+        font-size: 6rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-text {
+        font-size: 2.2rem;
+        font-weight: 600;
+        width: 30%;
+        margin: 0 auto 6rem auto;
+    }
+
+    .hero-btn:link,
+    .hero-btn:active {
+        display: block;
+        color: inherit;
+        background-color: #00d08e;
+        text-shadow: 1px 1px 1px #fff;
+        font-size: 2rem;
+        font-weight: 600;
+        width: fit-content;
+        margin: 0 auto 6rem auto;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .hero-btn:hover,
+    .hero-btn:visited {
+        color: inherit;
+    }
+
+    .hero-link:link,
+    .hero-link:active {
+        font-size: 2.2rem;
+        margin-bottom: 10rem;
+
+        i {
+            margin-left: 1rem;
+        }
+    }
+
+    .hero-link:hover,
+    .hero-link:visited {
+        color: inherit;
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,22 @@
+footer {
+    background-color: #352b2a;
+    padding: 6rem 16rem;
+
+    img {
+        width: 7rem;
+        margin-bottom: 4rem;
+    }
+
+    .text {
+        color: #fff;
+        width: 35%;
+        font-size: 1.9rem;
+        margin-bottom: 2rem;
+        line-height: 1.2;
+    }
+
+    .copy {
+        color: #746762;
+        font-size: 1.6rem;
+    }
+}

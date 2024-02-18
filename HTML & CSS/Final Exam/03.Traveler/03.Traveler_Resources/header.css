@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 8rem;
+
+    .logo {
+        display: inline-block;
+        img {
+            width: 12rem;
+        }
+    }
+
+    nav {
+        .nav-list {
+            display: flex;
+            gap: 6rem;
+
+            .nav-list-item {
+                .nav-list-link {
+                    color: #fff;
+                    font-size: 2.2rem;
+                }
+            }
+        }
+    }
+}

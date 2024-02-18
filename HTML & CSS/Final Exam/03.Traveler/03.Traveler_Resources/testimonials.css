@@ -1,0 +1,24 @@
+.testimonials {
+    background-color: #f8f0e9;
+    padding: 6rem 0 8rem 0;
+
+    .testimonials-container {
+        width: 62%;
+        margin: 0 auto;
+        color: #352b2a;
+
+        .heading {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 8rem;
+        }
+
+        .content {
+            font-family: 'Cormorant Infant';
+            font-size: 8rem;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 6.4rem;
+        }
+    }
+}

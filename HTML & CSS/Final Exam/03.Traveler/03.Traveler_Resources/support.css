@@ -1,0 +1,18 @@
+.support {
+    background-color: #e14747;
+    text-align: center;
+    padding: 10rem;
+    color: #fff;
+
+    .hours {
+        font-size: 2.8rem;
+        font-weight: 600;
+        margin-bottom: 4rem;
+    }
+
+    .text {
+        display: inline-block;
+        width: 25%;
+        font-size: 2.4rem;
+    }
+}

@@ -1,0 +1,18 @@
+.hero {
+    color: #fff;
+    text-align: center;
+    padding: 20rem 0;
+
+    h1 {
+        font-family: 'Cormorant Infant';
+        font-size: 11rem;
+        font-weight: 700;
+        margin-bottom: 14rem;
+    }
+
+    p {
+        font-size: 2.4rem;
+        width: 45%;
+        margin: 0 auto;
+    }
+}

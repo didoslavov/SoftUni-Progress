@@ -1,0 +1,55 @@
+.about {
+    background-color: #f8f0e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8rem;
+    color: #352b2a;
+
+    img {
+        width: 35%;
+        height: auto;
+        margin-bottom: 8rem;
+    }
+
+    h2 {
+        font-family: 'Cormorant Infant';
+        display: inline-block;
+        font-size: 6.8rem;
+        width: 35%;
+        text-align: center;
+        margin-bottom: 8rem;
+    }
+
+    p {
+        display: inline-block;
+        font-size: 2.2rem;
+        width: 35%;
+        line-height: 3rem;
+        font-weight: 400;
+        margin-bottom: 6rem;
+    }
+
+    .btns {
+        width: 35%;
+
+        a {
+            padding: 1rem 2rem;
+            border: 1px solid #000;
+            font-size: 1.8rem;
+            border-radius: 0.6rem;
+            color: #000;
+            background-color: #fff;
+        }
+
+        .btn-left {
+            text-align: left;
+        }
+    }
+
+    .center {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+    }
+}

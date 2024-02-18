@@ -1,0 +1,12 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap'); /* font size: 18px */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap'); /* font size H: 90px, other: 16px */
+
+@import 'general.css';
+@import 'header.css';
+@import 'hero.css';
+@import 'testimonials.css';
+@import 'support.css';
+@import 'about.css';
+@import 'cta.css';
+@import 'footer.css';

@@ -5,16 +5,25 @@
 }
 
 html {
-    font-family: 'Inter';
+    font-family: 'Karla';
     font-size: 62.5%;
 }
 
 body {
     font-size: inherit;
+    position: absolute;
+    top: 0;
+    bottom: 0;
 }
 
-main {
+body::before {
+    content: '';
+    background: url('images/poster.jpg') center / 100% 100%;
+    filter: brightness(60%);
+    position: absolute;
+    height: 100%;
     width: 100%;
+    z-index: -1;
 }
 
 ul {

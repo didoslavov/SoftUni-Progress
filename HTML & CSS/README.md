@@ -1,4 +1,4 @@
-<h1 align="center"> HTML & CSS - януари 2024  <h1>
+<h1 align="center"> HTML & CSS - January 2024  <h1>
 
 <p align="center">
   <a href="https://softuni.bg/trainings/4361/html-and-css-january-2024">

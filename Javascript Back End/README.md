@@ -1,7 +1,7 @@
 <h1 align="center"> JS Back-End - September 2023 <h1>
 
 <p align="center">
-  <a href="https://softuni.bg/trainings/3952/programming-fundamentals-with-javascript-january-2023">
+  <a href="https://softuni.bg/trainings/4237/js-back-end-september-2023">
     <img src="https://github.com/didoslavov/SoftUni-Progress/blob/main/recources/68747470733a2f2f692e696d6775722e636f6d2f6172417238675a2e706e67.png?raw=true" />
   </a>
 <p>
